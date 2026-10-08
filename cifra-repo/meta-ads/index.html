@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MCB5B5JF');</script>
+<!-- End Google Tag Manager -->
+<script>
+// Logos de las plataformas. Los archivos oficiales los baja cada uno de la pagina de
+// marca de la plataforma (no se pueden redibujar). Cuando esten en la carpeta que dice
+// RUTA, poner LOGOS en true: la pagina los usa y, si alguno falta, esa tarjeta se queda
+// con el punto de color. Con LOGOS en false no se pide ningun archivo.
+window.CIFRA_PLATAFORMAS = {
+  LOGOS: false,   // los logos ya estan en el HTML (carrusel); esto queda para tarjetas sin logo
+  RUTA:  'logos/',          // relativa a proposito: asi tambien anda abriendo el archivo local
+  EXT:   ['png', 'svg']    // se prueba en este orden. Los archivos de hoy son PNG:
+                           // con png primero no hay ni un pedido fallido por carga.
+};
+
+window.CIFRA_TRACKING = {
+  ADS_ID:    'AW-18430783545',
+  ADS_LABEL: '01woCNCsnO8cELngvdRE',
+  GA4_ID:    'G-KL5ER8QJXX',
+
+  // Conversiones avanzadas: manda el mail del formulario junto con la conversión.
+  // gtag lo normaliza y lo hashea con SHA-256 en el navegador — Google nunca recibe el mail en claro.
+  // Requiere tenerlas activadas en Google Ads (Objetivos > Configuración de conversiones >
+  // Conversiones avanzadas) y declarar el uso en la política de privacidad del sitio.
+  // Poner en false para desactivarlo sin tocar nada más.
+  CONVERSIONES_AVANZADAS: true
+};
+</script>
+<script>window.CIFRA_FORM_ID = 'lp_meta_ads';</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', window.CIFRA_TRACKING.ADS_ID);
+  if (window.CIFRA_TRACKING.GA4_ID) { gtag('config', window.CIFRA_TRACKING.GA4_ID); }
+</script>
+<script>
+(function(){
+  var DIC = {"aria.idioma": {"en": "Choose language", "es": "Elegir idioma", "fr": "Choisir la langue", "it": "Scegli la lingua", "pt": "Escolher idioma"}, "aria.inicio": {"en": "Cifra — go to homepage", "es": "Cifra — ir al inicio", "fr": "Cifra — retour à l'accueil", "it": "Cifra — torna alla home", "pt": "Cifra — ir para o início"}, "aria.subir": {"en": "Back to top", "es": "Volver arriba", "fr": "Remonter en haut", "it": "Torna su", "pt": "Voltar ao topo"}, "aria.wa": {"en": "Message us on WhatsApp", "es": "Escribinos por WhatsApp", "fr": "Écrivez-nous sur WhatsApp", "it": "Scrivici su WhatsApp", "pt": "Fale com a gente pelo WhatsApp"}, "arr.eyebrow": {"en": "How we start · 04 steps", "es": "Cómo arranca · 04 pasos", "fr": "Comment ça démarre · 04 étapes", "it": "Come si parte · 04 passi", "pt": "Como começa · 04 passos"}, "arr.h2": {"en": "Understand first, then spend.", "es": "Primero entender, después invertir.", "fr": "D'abord comprendre, ensuite investir.", "it": "Prima capire, poi investire.", "pt": "Primeiro entender, depois investir."}, "arr.p": {"en": "The analysis is free and commits you to nothing. If we don't see where we'd add value, we'll tell you.", "es": "El análisis es sin cargo y no te compromete a nada. Si no vemos con qué aportar, te lo decimos.", "fr": "L'analyse est offerte et ne vous engage à rien. Si nous ne voyons pas où apporter de la valeur, nous vous le disons.", "it": "L'analisi è gratuita e non ti impegna a niente. Se non vediamo come essere utili, te lo diciamo.", "pt": "A análise é sem custo e não compromete você a nada. Se não virmos onde podemos contribuir, a gente te diz."}, "cont.dir": {"en": "Or email us directly — ", "es": "O escribinos directo — ", "fr": "Ou écrivez-nous directement — ", "it": "Oppure scrivici direttamente — ", "pt": "Ou escreva direto para a gente — "}, "cont.eyebrow": {"en": "Request a proposal", "es": "Pedir una propuesta", "fr": "Demander une proposition", "it": "Chiedi una proposta", "pt": "Pedir uma proposta"}, "cont.h2": {"en": "Tell us what you're spending and we'll tell you what we'd change.", "es": "Contanos qué estás invirtiendo y te decimos qué cambiaríamos.", "fr": "Dites-nous ce que vous investissez et nous vous dirons ce que nous changerions.", "it": "Raccontaci quanto stai investendo e ti diciamo cosa cambieremmo.", "pt": "Conte quanto você está investindo e dizemos o que mudaríamos."}, "cont.p": {"en": "First a short call about goals, the account and how you sell. The analysis comes out of that, and the proposal if it makes sense.", "es": "Primero una charla breve sobre objetivos, cuenta y proceso comercial. De ahí sale el análisis y, si tiene sentido, la propuesta.", "fr": "D'abord un échange court sur les objectifs, le compte et le processus commercial. L'analyse en découle et, si cela a du sens, la proposition.", "it": "Prima una chiacchierata breve su obiettivi, account e processo commerciale. Da lì nasce l'analisi e, se ha senso, la proposta.", "pt": "Primeiro uma conversa rápida sobre objetivos, conta e processo comercial. Daí sai a análise e, se fizer sentido, a proposta."}, "faq.eyebrow": {"en": "Questions", "es": "Preguntas", "fr": "Questions", "it": "Domande", "pt": "Perguntas"}, "faq.h2": {"en": "What people ask us before we start.", "es": "Lo que nos preguntan antes de empezar.", "fr": "Ce qu'on nous demande avant de commencer.", "it": "Quello che ci chiedono prima di iniziare.", "pt": "O que perguntam para a gente antes de começar."}, "faq.p": {"en": "If yours isn't here, write to us and we'll answer straight.", "es": "Si falta alguna, escribinos y la respondemos sin vueltas.", "fr": "S'il en manque une, écrivez-nous et nous y répondons sans détour.", "it": "Se ne manca qualcuna, scrivici e ti rispondiamo senza giri di parole.", "pt": "Se faltar alguma, escreva para a gente e respondemos sem rodeios."}, "faq1.a": {"en": "There's a monthly management fee that depends on scope, and separately there's the media budget, which you pay directly to Meta and which never passes through us. The exact number comes after the analysis, once we know what needs to be done. You'll never get an invoice for something you didn't approve first.", "es": "Hay un fee mensual de gestión que depende del alcance, y aparte está el presupuesto de medios, que le pagás directo a Meta y nunca pasa por nosotros. El número exacto sale después del análisis, cuando ya sabemos qué hay que hacer. Nunca vas a recibir una factura con algo que no hayas aprobado antes.", "fr": "Il y a des frais de gestion mensuels qui dépendent du périmètre, et à côté le budget média, que vous payez directement à Meta et qui ne passe jamais par nous. Le montant exact sort après l'analyse, quand nous savons déjà ce qu'il faut faire. Vous ne recevrez jamais une facture avec quelque chose que vous n'avez pas validé avant.", "it": "C'è un fee mensile di gestione che dipende dall'ampiezza del lavoro, e a parte c'è il budget media, che paghi direttamente a Meta e non passa mai da noi. Il numero esatto esce dopo l'analisi, quando sappiamo già cosa va fatto. Non riceverai mai una fattura con qualcosa che non hai approvato prima.", "pt": "Existe uma taxa mensal de gestão que depende do escopo e, à parte, está o investimento em mídia, que você paga direto para o Meta e nunca passa por nós. O número exato sai depois da análise, quando já sabemos o que precisa ser feito. Você nunca vai receber uma fatura com algo que não tenha aprovado antes."}, "faq1.q": {"en": "How much does it cost?", "es": "¿Cuánto cuesta?", "fr": "Combien ça coûte ?", "it": "Quanto costa?", "pt": "Quanto custa?"}, "faq2.a": {"en": "Yes. For services, Meta works differently than it does for e-commerce: the person wasn't looking for you, so the work is in the message and in filtering properly. What matters there is measuring which contact ends in a sale, not how many forms came in.", "es": "Sí. En servicios Meta funciona distinto que en e-commerce: la persona no estaba buscándote, así que el trabajo está en el mensaje y en filtrar bien. Ahí lo importante es medir qué contacto termina en venta, no cuántos formularios entraron.", "fr": "Oui. En services, Meta fonctionne autrement que dans l'e-commerce : la personne ne vous cherchait pas, donc le travail porte sur le message et sur le fait de bien filtrer. Là, l'important est de mesurer quel contact finit en vente, pas combien de formulaires sont entrés.", "it": "Sì. Nei servizi Meta funziona in modo diverso rispetto all'e-commerce: la persona non ti stava cercando, quindi il lavoro sta nel messaggio e nel filtrare bene. Lì l'importante è misurare quale contatto si chiude in vendita, non quanti form sono arrivati.", "pt": "Sim. Em serviços o Meta funciona diferente do e-commerce: a pessoa não estava procurando por você, então o trabalho está na mensagem e em filtrar bem. Aí o importante é medir qual contato termina em venda, não quantos formulários entraram."}, "faq2.q": {"en": "Does it work if I sell services and not products?", "es": "¿Me sirve si vendo servicios y no productos?", "fr": "Est-ce utile si je vends des services et pas des produits ?", "it": "Mi serve se vendo servizi e non prodotti?", "pt": "Funciona para mim se eu vendo serviços e não produtos?"}, "faq3.a": {"en": "We work with whatever material you have and give you a script of what's worth filming: in general, content shot on a phone at your shop or workshop performs better than an expensive production. If you have nothing, the first month is built with the bare minimum and improved as we go.", "es": "Trabajamos con el material que tengas y te damos un guion de qué conviene grabar: en general el contenido filmado con el celular en tu local o taller rinde más que una producción cara. Si no tenés nada, el primer mes se arma con lo mínimo y se mejora sobre la marcha.", "fr": "Nous travaillons avec le matériel que vous avez et nous vous donnons un script de ce qu'il vaut mieux tourner : en général, du contenu filmé au téléphone dans votre local ou votre atelier rend plus qu'une production coûteuse. Si vous n'avez rien, le premier mois se monte avec le minimum et s'améliore en cours de route.", "it": "Lavoriamo con il materiale che hai e ti diamo una scaletta di cosa conviene girare: in generale i contenuti filmati con il cellulare nel tuo negozio o laboratorio rendono più di una produzione costosa. Se non hai niente, il primo mese si parte con il minimo e si migliora strada facendo.", "pt": "Trabalhamos com o material que você tiver e passamos um roteiro do que vale a pena gravar: em geral o conteúdo filmado com o celular na sua loja ou oficina rende mais que uma produção cara. Se você não tem nada, o primeiro mês se monta com o mínimo e vai melhorando no caminho."}, "faq3.q": {"en": "Do I have to produce the videos and photos myself?", "es": "¿Hace falta que yo produzca los videos y las fotos?", "fr": "Faut-il que je produise les vidéos et les photos ?", "it": "Devo produrre io i video e le foto?", "pt": "É preciso que eu produza os vídeos e as fotos?"}, "faq4.a": {"en": "Yes. We work inside your Business Manager, with your account and your pixel. If one day you carry on without us, you keep everything: audiences, event history and creative.", "es": "Sí. Trabajamos dentro de tu Business Manager, con tu cuenta y tu píxel. Si algún día seguís sin nosotros, te quedás con todo: públicos, historial de eventos y creatividades.", "fr": "Oui. Nous travaillons dans votre Business Manager, avec votre compte et votre pixel. Si un jour vous continuez sans nous, vous gardez tout : les audiences, l'historique des événements et les créations.", "it": "Sì. Lavoriamo dentro il tuo Business Manager, con il tuo account e il tuo pixel. Se un giorno vai avanti senza di noi, ti resta tutto: pubblici, storico degli eventi e creatività.", "pt": "Sim. Trabalhamos dentro do seu Business Manager, com a sua conta e o seu pixel. Se um dia você seguir sem a gente, fica com tudo: públicos, histórico de eventos e criativos."}, "faq4.q": {"en": "Does the ad account stay in my name?", "es": "¿La cuenta publicitaria queda a mi nombre?", "fr": "Le compte publicitaire reste-t-il à mon nom ?", "it": "L'account pubblicitario resta intestato a me?", "pt": "A conta de anúncios fica no meu nome?"}, "faq5.a": {"en": "The first signals show up in one or two weeks, but campaigns need to get out of the learning phase before you can judge them. In general, after a month you can make a solid call on which angle and which audience to keep.", "es": "Las primeras señales aparecen en una o dos semanas, pero las campañas necesitan salir de la fase de aprendizaje antes de poder juzgarlas. En general, al mes ya se puede decidir con fundamento qué ángulo y qué público sostener.", "fr": "Les premiers signaux apparaissent en une ou deux semaines, mais les campagnes doivent sortir de la phase d'apprentissage avant qu'on puisse les juger. En général, au bout d'un mois, on peut décider sur des bases solides quel angle et quelle audience garder.", "it": "I primi segnali arrivano in una o due settimane, ma le campagne devono uscire dalla fase di apprendimento prima di poter essere giudicate. In generale, dopo un mese si può già decidere con criterio quale angolo e quale pubblico tenere.", "pt": "Os primeiros sinais aparecem em uma ou duas semanas, mas as campanhas precisam sair da fase de aprendizado antes de poder ser julgadas. Em geral, com um mês já é possível decidir com fundamento qual ângulo e qual público sustentar."}, "faq5.q": {"en": "How long does it take to see results?", "es": "¿En cuánto tiempo se ven resultados?", "fr": "En combien de temps voit-on des résultats ?", "it": "In quanto tempo si vedono i risultati?", "pt": "Em quanto tempo aparecem resultados?"}, "faq6.a": {"en": "Access to your Business Manager and to the ad account, access to the site so we can get the pixel and the Conversions API running, and half an hour to tell us what a good customer looks like for you. After that, letting us know which inquiries ended in a sale: that's the data that makes the account better.", "es": "Acceso a tu Business Manager y a la cuenta publicitaria, acceso al sitio para dejar el píxel y la API andando, y media hora para contarnos qué es un buen cliente para vos. Después, avisarnos qué consultas terminaron en venta: ese dato es el que hace que la cuenta mejore.", "fr": "L'accès à votre Business Manager et au compte publicitaire, l'accès au site pour laisser le pixel et l'API Conversions en marche, et une demi-heure pour nous raconter ce qu'est un bon client pour vous. Ensuite, nous dire quelles demandes ont fini en vente : c'est cette donnée qui fait progresser le compte.", "it": "Accesso al tuo Business Manager e all'account pubblicitario, accesso al sito per lasciare il pixel e l'API Conversions funzionanti, e mezz'ora per raccontarci che cos'è un buon cliente per te. Dopo, farci sapere quali richieste si sono chiuse in vendita: è quel dato che fa migliorare l'account.", "pt": "Acesso ao seu Business Manager e à conta de anúncios, acesso ao site para deixar o pixel e a API de Conversões funcionando, e meia hora para você contar o que é um bom cliente para você. Depois, nos avisar quais consultas terminaram em venda: esse dado é o que faz a conta melhorar."}, "faq6.q": {"en": "What do you need from my side?", "es": "¿Qué necesitan de mi lado?", "fr": "De quoi avez-vous besoin de mon côté ?", "it": "Cosa vi serve da parte mia?", "pt": "O que vocês precisam do meu lado?"}, "fase1.d": {"en": "Account, pixel, creative you've already used and how a customer comes in today. If you don't have an ad account, we leave it set up.", "es": "Cuenta, píxel, creatividades que ya usaste y cómo entra hoy un cliente. Si no tenés cuenta publicitaria, la dejamos configurada.", "fr": "Compte, pixel, créations que vous avez déjà utilisées et comment un client arrive aujourd'hui. Si vous n'avez pas de compte publicitaire, nous le configurons.", "it": "Account, pixel, creatività che hai già usato e come arriva oggi un cliente. Se non hai un account pubblicitario, lo configuriamo noi.", "pt": "Conta, pixel, criativos que você já usou e como um cliente entra hoje. Se você não tem conta de anúncios, deixamos ela configurada."}, "fase1.t": {"en": "Analysis", "es": "Análisis", "fr": "Analyse", "it": "Analisi", "pt": "Análise"}, "fase2.d": {"en": "Which campaigns, which angles we test first and with what budget. With numbers, not adjectives.", "es": "Qué campañas, qué ángulos probamos primero y con qué presupuesto. Con números, no con adjetivos.", "fr": "Quelles campagnes, quels angles nous testons d'abord et avec quel budget. Avec des chiffres, pas avec des adjectifs.", "it": "Quali campagne, quali angoli proviamo prima e con quale budget. Con numeri, non con aggettivi.", "pt": "Quais campanhas, quais ângulos testamos primeiro e com que orçamento. Com números, não com adjetivos."}, "fase2.t": {"en": "Plan", "es": "Plan", "fr": "Plan", "it": "Piano", "pt": "Plano"}, "fase3.d": {"en": "Pixel, Conversions API and campaigns live, in that order. No tracking, no start.", "es": "Píxel, API de conversiones y campañas arriba, en ese orden. Sin medición no se arranca.", "fr": "Pixel, API Conversions et campagnes en ligne, dans cet ordre. Sans mesure, on ne démarre pas.", "it": "Pixel, API Conversions e campagne attive, in quest'ordine. Senza misurazione non si parte.", "pt": "Pixel, API de Conversões e campanhas no ar, nessa ordem. Sem medição não se começa."}, "fase3.t": {"en": "Implementation", "es": "Implementación", "fr": "Mise en place", "it": "Implementazione", "pt": "Implementação"}, "fase4.d": {"en": "Week by week: read which creative is working, cut the one that's burned out and scale what brings in customers.", "es": "Semana a semana: leer qué creatividad funciona, cortar la que se gastó y escalar lo que trae clientes.", "fr": "Semaine après semaine : lire quelle création fonctionne, couper celle qui s'est usée et développer ce qui amène des clients.", "it": "Settimana per settimana: leggere quale creatività funziona, chiudere quella consumata e scalare ciò che porta clienti.", "pt": "Semana a semana: ler qual criativo funciona, cortar o que se desgastou e escalar o que traz clientes."}, "fase4.t": {"en": "Optimization", "es": "Optimización", "fr": "Optimisation", "it": "Ottimizzazione", "pt": "Otimização"}, "foot.cont": {"en": "Contact", "es": "Contacto", "fr": "Contact", "it": "Contatti", "pt": "Contato"}, "foot.desc": {"en": "Strategy, acquisition and analytics to build measurable growth.", "es": "Estrategia, adquisición y analítica para construir crecimiento medible.", "fr": "Stratégie, acquisition et analytics pour construire une croissance mesurable.", "it": "Strategia, acquisizione e analytics per costruire una crescita misurabile.", "pt": "Estratégia, aquisição e analytics para construir crescimento mensurável."}, "foot.inicio": {"en": "Home", "es": "Inicio", "fr": "Accueil", "it": "Home", "pt": "Início"}, "foot.priv": {"en": "Privacy", "es": "Privacidad", "fr": "Confidentialité", "it": "Privacy", "pt": "Privacidade"}, "foot.rights": {"en": "All rights reserved.", "es": "Todos los derechos reservados.", "fr": "Tous droits réservés.", "it": "Tutti i diritti riservati.", "pt": "Todos os direitos reservados."}, "foot.serv": {"en": "Services", "es": "Servicios", "fr": "Services", "it": "Servizi", "pt": "Serviços"}, "form.btn": {"en": "Request the proposal ↗", "es": "Pedir la propuesta ↗", "fr": "Demander la proposition ↗", "it": "Chiedi la proposta ↗", "pt": "Pedir a proposta ↗"}, "form.desafio": {"en": "What's going on with your campaigns today?", "es": "¿Qué pasa hoy con tus campañas?", "fr": "Où en sont vos campagnes aujourd'hui ?", "it": "Cosa succede oggi con le tue campagne?", "pt": "O que acontece hoje com as suas campanhas?"}, "form.email": {"en": "Email", "es": "Email", "fr": "E-mail", "it": "Email", "pt": "E-mail"}, "form.empresa": {"en": "Company", "es": "Empresa", "fr": "Entreprise", "it": "Azienda", "pt": "Empresa"}, "form.enviando": {"en": "Sending...", "es": "Enviando...", "fr": "Envoi en cours...", "it": "Invio in corso...", "pt": "Enviando..."}, "form.err": {"en": "Something went wrong while sending. Try again or write to us at cifra@cifragrowth.com.", "es": "Hubo un error al enviar. Probá de nuevo o escribinos a cifra@cifragrowth.com.", "fr": "Une erreur s'est produite à l'envoi. Réessayez ou écrivez-nous à cifra@cifragrowth.com.", "it": "C'è stato un errore nell'invio. Riprova o scrivici a cifra@cifragrowth.com.", "pt": "Houve um erro ao enviar. Tente de novo ou escreva para cifra@cifragrowth.com."}, "form.nombre": {"en": "Name", "es": "Nombre", "fr": "Nom", "it": "Nome", "pt": "Nome"}, "form.ok": {"en": "Done! We'll be in touch shortly.", "es": "¡Listo! Te vamos a contactar a la brevedad.", "fr": "C'est envoyé ! Nous vous contactons très vite.", "it": "Fatto! Ti contattiamo a breve.", "pt": "Pronto! Vamos entrar em contato em breve."}, "form.ph1": {"en": "Your name", "es": "Tu nombre", "fr": "Votre nom", "it": "Il tuo nome", "pt": "Seu nome"}, "form.ph2": {"en": "Your company name", "es": "Nombre de tu empresa", "fr": "Nom de votre entreprise", "it": "Nome della tua azienda", "pt": "Nome da sua empresa"}, "form.ph3": {"en": "you@company.com", "es": "vos@empresa.com", "fr": "vous@entreprise.com", "it": "tu@azienda.com", "pt": "voce@empresa.com"}, "form.ph4": {"en": "For example: messages come in but almost nobody buys", "es": "Por ejemplo: entran mensajes pero casi ninguno compra", "fr": "Par exemple : des messages arrivent mais presque personne n'achète", "it": "Per esempio: arrivano messaggi ma quasi nessuno compra", "pt": "Por exemplo: chegam mensagens, mas quase ninguém compra"}, "hero.cta1": {"en": "Request a proposal ↗", "es": "Pedir una propuesta ↗", "fr": "Demander une proposition ↗", "it": "Chiedi una proposta ↗", "pt": "Pedir uma proposta ↗"}, "hero.cta2": {"en": "See what's included ↓", "es": "Ver qué incluye ↓", "fr": "Voir ce qui est inclus ↓", "it": "Vedi cosa include ↓", "pt": "Ver o que inclui ↓"}, "hero.h1": {"en": "Meta Ads that don't stop at the click<span class=\"dot\">.</span>", "es": "Meta Ads que no se queda en el clic<span class=\"dot\">.</span>", "fr": "Meta Ads qui ne s'arrête pas au clic<span class=\"dot\">.</span>", "it": "Meta Ads che non si ferma al clic<span class=\"dot\">.</span>", "pt": "Meta Ads que não para no clique<span class=\"dot\">.</span>"}, "hero.sub": {"en": "Facebook and Instagram to generate demand, with the tracking set up to tell the form anyone fills out apart from the contact that ends up buying.", "es": "Facebook e Instagram para generar demanda, con la medición armada para distinguir el formulario que llena cualquiera del contacto que termina comprando.", "fr": "Facebook et Instagram pour générer de la demande, avec la mesure montée pour distinguer le formulaire que n'importe qui remplit du contact qui finit par acheter.", "it": "Facebook e Instagram per generare domanda, con la misurazione impostata per distinguere il form che compila chiunque dal contatto che finisce per comprare.", "pt": "Facebook e Instagram para gerar demanda, com a medição montada para distinguir o formulário que qualquer um preenche do contato que termina comprando."}, "hero.t1": {"en": "Free initial analysis", "es": "Análisis inicial sin cargo", "fr": "Analyse initiale offerte", "it": "Analisi iniziale gratuita", "pt": "Análise inicial sem custo"}, "hero.t2": {"en": "You deal directly with the partners", "es": "Trato directo con los socios", "fr": "En direct avec les associés", "it": "Rapporto diretto con i soci", "pt": "Trato direto com os sócios"}, "hero.t3": {"en": "No lock-in", "es": "Sin permanencia", "fr": "Sans engagement de durée", "it": "Senza vincoli di durata", "pt": "Sem fidelidade"}, "inc.eyebrow": {"en": "What's included", "es": "Qué incluye", "fr": "Ce qui est inclus", "it": "Cosa include", "pt": "O que inclui"}, "inc.h2": {"en": "Creative and measurement, which is what moves the needle.", "es": "Creatividad y medición, que es lo que mueve la aguja.", "fr": "Créations et mesure, c'est ce qui fait bouger l'aiguille.", "it": "Creatività e misurazione, che è quello che sposta l'ago.", "pt": "Criativo e medição, que é o que move o ponteiro."}, "inc.p": {"en": "On Meta the algorithm handles the targeting. What still decides the result is what you show people and what data you send back to the platform.", "es": "En Meta la segmentación la resuelve el algoritmo. Lo que sigue decidiendo el resultado es qué le mostrás a la gente y qué datos le devolvés a la plataforma.", "fr": "Sur Meta, le ciblage est réglé par l'algorithme. Ce qui décide encore du résultat, c'est ce que vous montrez aux gens et les données que vous renvoyez à la plateforme.", "it": "Su Meta il targeting lo risolve l'algoritmo. Quello che continua a decidere il risultato è cosa mostri alle persone e quali dati restituisci alla piattaforma.", "pt": "No Meta a segmentação é resolvida pelo algoritmo. O que continua decidindo o resultado é o que você mostra para as pessoas e quais dados você devolve para a plataforma."}, "inc1.a": {"en": "Free audit", "es": "Auditoría sin cargo", "fr": "Audit offert", "it": "Audit gratuito", "pt": "Auditoria sem custo"}, "inc1.b": {"en": "What we'd change and why", "es": "Qué cambiaríamos y por qué", "fr": "Ce que nous changerions et pourquoi", "it": "Cosa cambieremmo e perché", "pt": "O que mudaríamos e por quê"}, "inc1.c": {"en": "Prioritized by impact", "es": "Prioridad por impacto", "fr": "Priorité par impact", "it": "Priorità per impatto", "pt": "Prioridade por impacto"}, "inc1.p": {"en": "We review what's running: structure, overlapping audiences, a half-installed pixel, duplicate events and campaigns competing against each other.", "es": "Revisamos qué hay andando: estructura, públicos superpuestos, píxel a medias, eventos duplicados y campañas que compiten entre sí.", "fr": "Nous regardons ce qui tourne : structure, audiences qui se chevauchent, pixel posé à moitié, événements en double et campagnes qui se concurrencent.", "it": "Guardiamo cosa c'è di attivo: struttura, pubblici sovrapposti, pixel a metà, eventi duplicati e campagne che competono tra loro.", "pt": "Revisamos o que está rodando: estrutura, públicos sobrepostos, pixel pela metade, eventos duplicados e campanhas que competem entre si."}, "inc1.t": {"en": "Account analysis", "es": "Análisis de la cuenta", "fr": "Analyse du compte", "it": "Analisi dell'account", "pt": "Análise da conta"}, "inc2.a": {"en": "Cold, warm and remarketing", "es": "Frío, tibio y remarketing", "fr": "Froid, tiède et remarketing", "it": "Freddo, tiepido e remarketing", "pt": "Frio, morno e remarketing"}, "inc2.b": {"en": "Audiences and exclusions", "es": "Públicos y exclusiones", "fr": "Audiences et exclusions", "it": "Pubblici ed esclusioni", "pt": "Públicos e exclusões"}, "inc2.c": {"en": "Budget by stage", "es": "Presupuesto por etapa", "fr": "Budget par étape", "it": "Budget per fase", "pt": "Orçamento por etapa"}, "inc2.p": {"en": "Campaigns split by what they have to achieve, without mixing a cold audience with people who already know you. Fewer ad sets, better fed.", "es": "Campañas separadas por lo que tienen que lograr, sin mezclar público frío con gente que ya te conoce. Menos conjuntos, mejor alimentados.", "fr": "Des campagnes séparées selon ce qu'elles doivent obtenir, sans mélanger l'audience froide avec les gens qui vous connaissent déjà. Moins d'ensembles, mieux alimentés.", "it": "Campagne separate per quello che devono ottenere, senza mescolare pubblico freddo e persone che ti conoscono già. Meno gruppi di inserzioni, meglio alimentati.", "pt": "Campanhas separadas pelo que precisam alcançar, sem misturar público frio com gente que já conhece você. Menos conjuntos, melhor alimentados."}, "inc2.t": {"en": "Structure by objective", "es": "Estructura por objetivo", "fr": "Structure par objectif", "it": "Struttura per obiettivo", "pt": "Estrutura por objetivo"}, "inc3.a": {"en": "Angles and messages", "es": "Ángulos y mensajes", "fr": "Angles et messages", "it": "Angoli e messaggi", "pt": "Ângulos e mensagens"}, "inc3.b": {"en": "Testing plan", "es": "Plan de pruebas", "fr": "Plan de tests", "it": "Piano di test", "pt": "Plano de testes"}, "inc3.c": {"en": "Fatigue control", "es": "Control de fatiga", "fr": "Contrôle de la fatigue", "it": "Controllo della saturazione", "pt": "Controle de fadiga"}, "inc3.p": {"en": "Angles, hooks and formats rotated with a reason. We tell you what to film or design, and what stopped working before it shows up in sales.", "es": "Ángulos, ganchos y formatos que se rotan con criterio. Te decimos qué filmar o diseñar, y qué dejó de funcionar antes de que se note en las ventas.", "fr": "Des angles, des accroches et des formats qu'on fait tourner avec méthode. Nous vous disons quoi filmer ou concevoir, et ce qui a cessé de marcher avant que cela se voie dans les ventes.", "it": "Angoli, hook e formati che si ruotano con criterio. Ti diciamo cosa filmare o progettare, e cosa ha smesso di funzionare prima che si veda sulle vendite.", "pt": "Ângulos, ganchos e formatos que se alternam com critério. Dizemos o que filmar ou desenhar, e o que deixou de funcionar antes de isso aparecer nas vendas."}, "inc3.t": {"en": "Creative that gets tested", "es": "Creatividades que se prueban", "fr": "Des créations qui se testent", "it": "Creatività che si testano", "pt": "Criativos que são testados"}, "inc4.a": {"en": "Pixel and events", "es": "Píxel y eventos", "fr": "Pixel et événements", "it": "Pixel ed eventi", "pt": "Pixel e eventos"}, "inc4.b": {"en": "Conversions API", "es": "API de conversiones", "fr": "API Conversions", "it": "API Conversions", "pt": "API de Conversões"}, "inc4.c": {"en": "Event quality", "es": "Calidad del evento", "fr": "Qualité de l'événement", "it": "Qualità dell'evento", "pt": "Qualidade do evento"}, "inc4.p": {"en": "Events properly defined and the server-side Conversions API, so Meta keeps learning even when the browser blocks cookies.", "es": "Eventos bien definidos y la API de conversiones del lado del servidor, para que Meta siga aprendiendo aunque el navegador bloquee cookies.", "fr": "Des événements bien définis et l'API Conversions côté serveur, pour que Meta continue d'apprendre même si le navigateur bloque les cookies.", "it": "Eventi ben definiti e l'API Conversions lato server, così Meta continua a imparare anche se il browser blocca i cookie.", "pt": "Eventos bem definidos e a API de Conversões do lado do servidor, para que o Meta siga aprendendo mesmo quando o navegador bloqueia cookies."}, "inc4.t": {"en": "Pixel and Conversions API", "es": "Píxel y API de conversiones", "fr": "Pixel et API Conversions", "it": "Pixel e API Conversions", "pt": "Pixel e API de Conversões"}, "inc5.a": {"en": "Budget and bids", "es": "Presupuesto y pujas", "fr": "Budget et enchères", "it": "Budget e offerte", "pt": "Orçamento e lances"}, "inc5.b": {"en": "Creative rotation", "es": "Rotación creativa", "fr": "Rotation des créations", "it": "Rotazione delle creatività", "pt": "Rotação de criativos"}, "inc5.c": {"en": "Frequency and reach", "es": "Frecuencia y alcance", "fr": "Fréquence et couverture", "it": "Frequenza e copertura", "pt": "Frequência e alcance"}, "inc5.p": {"en": "Budget, audiences and creative. Without touching everything every day, which is what keeps the learning phase from ever ending.", "es": "Presupuesto, públicos y creatividades. Sin tocar todo cada día, que es lo que hace que la fase de aprendizaje nunca termine.", "fr": "Budget, audiences et créations. Sans tout toucher chaque jour, ce qui fait que la phase d'apprentissage ne finit jamais.", "it": "Budget, pubblici e creatività. Senza toccare tutto ogni giorno, che è quello che fa sì che la fase di apprendimento non finisca mai.", "pt": "Orçamento, públicos e criativos. Sem mexer em tudo todos os dias, que é o que faz a fase de aprendizado nunca terminar."}, "inc5.t": {"en": "Weekly optimization", "es": "Optimización semanal", "fr": "Optimisation hebdomadaire", "it": "Ottimizzazione settimanale", "pt": "Otimização semanal"}, "inc6.a": {"en": "Dashboard always available", "es": "Tablero siempre disponible", "fr": "Tableau de bord toujours disponible", "it": "Dashboard sempre disponibile", "pt": "Painel sempre disponível"}, "inc6.b": {"en": "Monthly meeting", "es": "Reunión mensual", "fr": "Réunion mensuelle", "it": "Riunione mensile", "pt": "Reunião mensal"}, "inc6.c": {"en": "What we test next month", "es": "Qué probamos el mes que viene", "fr": "Ce que nous testons le mois prochain", "it": "Cosa testiamo il mese prossimo", "pt": "O que testamos no mês que vem"}, "inc6.p": {"en": "A dashboard with what matters: cost per lead, lead quality and which creative is holding up the result. Plus the comparison against your other channels.", "es": "Un tablero con lo que importa: costo por lead, calidad del lead y qué creatividad sostiene el resultado. Y la comparación con el resto de los canales.", "fr": "Un tableau de bord avec ce qui compte : coût par lead, qualité du lead et quelle création fait tenir le résultat. Et la comparaison avec les autres canaux.", "it": "Una dashboard con quello che conta: costo per lead, qualità del lead e quale creatività sostiene il risultato. E il confronto con gli altri canali.", "pt": "Um painel com o que importa: custo por lead, qualidade do lead e qual criativo sustenta o resultado. E a comparação com os outros canais."}, "inc6.t": {"en": "Reports you can decide with", "es": "Reportes para decidir", "fr": "Des rapports pour décider", "it": "Report per decidere", "pt": "Relatórios para decidir"}, "mail.copiado": {"en": "Email copied: cifra@cifragrowth.com", "es": "Copiamos el mail: cifra@cifragrowth.com", "fr": "Adresse copiée : cifra@cifragrowth.com", "it": "Abbiamo copiato la mail: cifra@cifragrowth.com", "pt": "Copiamos o e-mail: cifra@cifragrowth.com"}, "meta.desc": {"en": "Facebook and Instagram campaigns with the pixel and the Conversions API set up right, creative that gets tested and tracking to the sale. Free analysis.", "es": "Campañas de Facebook e Instagram con el píxel y la API de conversiones bien puestos, creatividades que se prueban y medición hasta la venta. Análisis sin cargo.", "fr": "Campagnes Facebook et Instagram avec le pixel et l'API Conversions bien posés, des créations qui se testent et la mesure jusqu'à la vente. Analyse offerte.", "it": "Campagne Facebook e Instagram con il pixel e l'API Conversions impostati bene, creatività che si testano e misurazione fino alla vendita. Analisi gratuita.", "pt": "Campanhas de Facebook e Instagram com o pixel e a API de Conversões bem configurados, criativos que são testados e medição até a venda. Análise sem custo."}, "meta.title": {"en": "Meta Ads Agency (Facebook and Instagram) — Cifra", "es": "Agencia de Meta Ads (Facebook e Instagram) — Cifra", "fr": "Agence Meta Ads (Facebook et Instagram) — Cifra", "it": "Agenzia Meta Ads (Facebook e Instagram) — Cifra", "pt": "Agência de Meta Ads (Facebook e Instagram) — Cifra"}, "nav.arr": {"en": "How we start", "es": "Cómo arranca", "fr": "Comment ça démarre", "it": "Come si parte", "pt": "Como começa"}, "nav.cta": {"en": "Let's talk", "es": "Hablemos", "fr": "Parlons-en", "it": "Parliamone", "pt": "Vamos conversar"}, "nav.faq": {"en": "Questions", "es": "Preguntas", "fr": "Questions", "it": "Domande", "pt": "Perguntas"}, "nav.inc": {"en": "What's included", "es": "Qué incluye", "fr": "Ce qui est inclus", "it": "Cosa include", "pt": "O que inclui"}, "nope.h2": {"en": "What you won't find here<span class=\"dot\">.</span>", "es": "Lo que no vas a ver acá<span class=\"dot\">.</span>", "fr": "Ce que vous ne verrez pas ici<span class=\"dot\">.</span>", "it": "Quello che qui non troverai<span class=\"dot\">.</span>", "pt": "O que você não vai ver aqui<span class=\"dot\">.</span>"}, "nope1.d": {"en": "If it isn't working for you, you leave. The account, the pixel and the audiences are yours, always.", "es": "Si no te sirve, te vas. La cuenta, el píxel y los públicos son tuyos, siempre.", "fr": "Si cela ne vous sert pas, vous partez. Le compte, le pixel et les audiences sont à vous, toujours.", "it": "Se non ti serve, te ne vai. L'account, il pixel e i pubblici sono tuoi, sempre.", "pt": "Se não serve para você, você sai. A conta, o pixel e os públicos são seus, sempre."}, "nope1.t": {"en": "Lock-in contracts", "es": "Permanencia", "fr": "Engagement de durée", "it": "Vincoli di durata", "pt": "Fidelidade"}, "nope2.d": {"en": "Likes and reach don't pay salaries. Reports start with cost per customer.", "es": "Likes y alcance no pagan sueldos. Los reportes arrancan por costo por cliente.", "fr": "Les likes et la couverture ne paient pas les salaires. Les rapports commencent par le coût par client.", "it": "Like e copertura non pagano gli stipendi. I report partono dal costo per cliente.", "pt": "Likes e alcance não pagam salários. Os relatórios começam pelo custo por cliente."}, "nope2.t": {"en": "Decorative metrics", "es": "Métricas decorativas", "fr": "Métriques décoratives", "it": "Metriche decorative", "pt": "Métricas decorativas"}, "nope3.d": {"en": "There are two of us and you work with us. No layers in between.", "es": "Somos dos y trabajás con nosotros. No hay capas intermedias.", "fr": "Nous sommes deux et vous travaillez avec nous. Il n'y a pas de couches intermédiaires.", "it": "Siamo due e lavori con noi. Non ci sono livelli intermedi.", "pt": "Somos dois e você trabalha com a gente. Não há camadas intermediárias."}, "nope3.t": {"en": "An intern running your account", "es": "Un pasante manejando tu cuenta", "fr": "Un stagiaire qui gère votre compte", "it": "Uno stagista che gestisce il tuo account", "pt": "Um estagiário cuidando da sua conta"}, "nope4.d": {"en": "Without creative testing and properly measured events, Meta optimizes toward anything at all.", "es": "Sin prueba de creatividades y sin eventos bien medidos, Meta optimiza hacia cualquier lado.", "fr": "Sans test de créations et sans événements bien mesurés, Meta optimise dans n'importe quelle direction.", "it": "Senza test delle creatività e senza eventi misurati bene, Meta ottimizza verso qualsiasi direzione.", "pt": "Sem teste de criativos e sem eventos bem medidos, o Meta otimiza para qualquer lado."}, "nope4.t": {"en": "Posting an ad and waiting", "es": "Publicar un anuncio y esperar", "fr": "Publier une annonce et attendre", "it": "Pubblicare un annuncio e aspettare", "pt": "Publicar um anúncio e esperar"}};
+  var LOCALES = { es:'es-AR', en:'en-US', pt:'pt-BR', it:'it-IT', fr:'fr-FR' };
+  var idioma = 'es';
+
+  window.CIFRA_T = function(k){ var e = DIC[k]; return e ? (e[idioma] || e.es) : ''; };
+  window.CIFRA_LOCALE = function(){ return LOCALES[idioma] || 'es-AR'; };
+  window.CIFRA_IDIOMA = function(){ return idioma; };
+
+  function cada(sel, fn){ var n = document.querySelectorAll(sel); for (var i=0;i<n.length;i++) fn(n[i]); }
+
+  function aplicar(l){
+    if (!LOCALES[l]) l = 'es';
+    idioma = l;
+    document.documentElement.lang = l;
+    var T = window.CIFRA_T;
+    cada('[data-i18n]',       function(el){ el.textContent = T(el.getAttribute('data-i18n')); });
+    cada('[data-i18n-html]',  function(el){ el.innerHTML   = T(el.getAttribute('data-i18n-html')); });
+    cada('[data-i18n-ph]',    function(el){ el.placeholder = T(el.getAttribute('data-i18n-ph')); });
+    cada('[data-i18n-aria]',  function(el){ el.setAttribute('aria-label', T(el.getAttribute('data-i18n-aria'))); });
+    cada('[data-i18n-first]', function(el){
+      var n = el.firstChild;
+      if (n && n.nodeType === 3) n.nodeValue = T(el.getAttribute('data-i18n-first'));
+    });
+    document.title = T('meta.title');
+    var md = document.querySelector('meta[name="description"]');
+    if (md) md.setAttribute('content', T('meta.desc'));
+    var sel = document.getElementById('idioma');
+    if (sel && sel.value !== l) sel.value = l;
+    try { localStorage.setItem('cifra_idioma', l); } catch(e){}
+    document.dispatchEvent(new CustomEvent('cifra:idioma', { detail: l }));
+  }
+  window.CIFRA_SET_IDIOMA = aplicar;
+
+  function arrancar(){
+    var guardado = null;
+    try { guardado = localStorage.getItem('cifra_idioma'); } catch(e){}
+    // ?lang=en (o es, pt, it, fr) en la URL manda sobre lo guardado: es la URL final de los anuncios por idioma.
+    var m = location.search.match(/[?&]lang=(es|en|pt|it|fr)(?:&|$)/i);
+    var deUrl = m ? m[1].toLowerCase() : null;
+    aplicar(deUrl || guardado || 'es');
+    var sel = document.getElementById('idioma');
+    if (sel) sel.addEventListener('change', function(){
+      aplicar(sel.value);
+      if (typeof gtag === 'function') gtag('event', 'cambio_idioma', { idioma: sel.value });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', arrancar);
+  else arrancar();
+})();
+</script>
+<title>Agencia de Meta Ads (Facebook e Instagram) — Cifra</title>
+<meta content="Campañas de Facebook e Instagram con el píxel y la API de conversiones bien puestos, creatividades que se prueban y medición hasta la venta. Análisis sin cargo." name="description"/>
+<link href="https://cifragrowth.com/meta-ads/" rel="canonical"/>
+<link rel="alternate" hreflang="es" href="https://cifragrowth.com/meta-ads/"/>
+<link rel="alternate" hreflang="en" href="https://cifragrowth.com/meta-ads/?lang=en"/>
+<link rel="alternate" hreflang="pt" href="https://cifragrowth.com/meta-ads/?lang=pt"/>
+<link rel="alternate" hreflang="it" href="https://cifragrowth.com/meta-ads/?lang=it"/>
+<link rel="alternate" hreflang="fr" href="https://cifragrowth.com/meta-ads/?lang=fr"/>
+<link rel="alternate" hreflang="x-default" href="https://cifragrowth.com/meta-ads/"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<meta content="#FAF8F4" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#17140F" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<meta content="website" property="og:type"/>
+<meta content="Cifra" property="og:site_name"/>
+<meta content="es_AR" property="og:locale"/>
+<meta content="https://cifragrowth.com/meta-ads/" property="og:url"/>
+<meta content="Cifra — Agencia de Meta Ads" property="og:title"/>
+<meta content="Campañas de Facebook e Instagram con el píxel y la API de conversiones bien puestos, creatividades que se prueban y medición hasta la venta. Análisis sin cargo." property="og:description"/>
+<meta content="https://cifragrowth.com/og-cifra.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="image/jpeg" property="og:image:type"/>
+<meta content="Cifra — Agencia de Meta Ads" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Cifra — Agencia de Meta Ads" name="twitter:title"/>
+<meta content="Campañas de Facebook e Instagram con el píxel y la API de conversiones bien puestos, creatividades que se prueban y medición hasta la venta. Análisis sin cargo." name="twitter:description"/>
+<meta content="https://cifragrowth.com/og-cifra.jpg" name="twitter:image"/>
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "Service",
+ "name": "Meta Ads",
+ "serviceType": "Meta Ads",
+ "url": "https://cifragrowth.com/meta-ads/",
+ "areaServed": {
+  "@type": "Country",
+  "name": "Argentina"
+ },
+ "provider": {
+  "@type": "ProfessionalService",
+  "name": "Cifra",
+  "url": "https://cifragrowth.com/",
+  "email": "cifra@cifragrowth.com",
+  "address": {
+   "@type": "PostalAddress",
+   "addressLocality": "Buenos Aires",
+   "addressCountry": "AR"
+  }
+ },
+ "description": "Campañas de Facebook e Instagram con el píxel y la API de conversiones bien puestos, creatividades que se prueban y medición hasta la venta. Análisis sin cargo."
+}</script>
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "¿Cuánto cuesta?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Hay un fee mensual de gestión que depende del alcance, y aparte está el presupuesto de medios, que le pagás directo a Meta y nunca pasa por nosotros. El número exacto sale después del análisis, cuando ya sabemos qué hay que hacer. Nunca vas a recibir una factura con algo que no hayas aprobado antes."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Me sirve si vendo servicios y no productos?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Sí. En servicios Meta funciona distinto que en e-commerce: la persona no estaba buscándote, así que el trabajo está en el mensaje y en filtrar bien. Ahí lo importante es medir qué contacto termina en venta, no cuántos formularios entraron."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Hace falta que yo produzca los videos y las fotos?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Trabajamos con el material que tengas y te damos un guion de qué conviene grabar: en general el contenido filmado con el celular en tu local o taller rinde más que una producción cara. Si no tenés nada, el primer mes se arma con lo mínimo y se mejora sobre la marcha."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿La cuenta publicitaria queda a mi nombre?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Sí. Trabajamos dentro de tu Business Manager, con tu cuenta y tu píxel. Si algún día seguís sin nosotros, te quedás con todo: públicos, historial de eventos y creatividades."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿En cuánto tiempo se ven resultados?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Las primeras señales aparecen en una o dos semanas, pero las campañas necesitan salir de la fase de aprendizaje antes de poder juzgarlas. En general, al mes ya se puede decidir con fundamento qué ángulo y qué público sostener."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Qué necesitan de mi lado?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Acceso a tu Business Manager y a la cuenta publicitaria, acceso al sitio para dejar el píxel y la API andando, y media hora para contarnos qué es un buen cliente para vos. Después, avisarnos qué consultas terminaron en venta: ese dato es el que hace que la cuenta mejore."
+   }
+  }
+ ]
+}</script>
+<link rel="icon" href="/icon-32.png" sizes="32x32"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..900&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --papel:#FAF8F4; --papel-raised:#FFFFFF; --tinta:#1C1B19; --tinta-soft:#8A8378;
+  --line:#E4DFD5; --rojo:#D93B2B; --rojo-soft:#F3D9D5; --verde:#4A6B5A; --verde-soft:#DCE6DF;
+  /* rojo profundo: fondo de la seccion de contacto. Elegido para que el texto crema
+     llegue a 5.6:1 de contraste — el rojo de marca a pleno se queda en 4.0:1 */
+  --rojo-hondo:#B32A1C; --sobre-rojo:#FBF6F1;
+  /* radios: la pagina era toda esquina viva */
+  --r-xs:6px; --r-sm:10px; --r:16px; --r-lg:24px;
+  --sombra:0 18px 44px rgba(28,27,25,.10); --sombra-alta:0 26px 60px rgba(28,27,25,.16);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --papel:#17140F; --papel-raised:#211D17; --tinta:#F3EFE7; --tinta-soft:#A79E8E;
+    --line:#332D24; --rojo:#F0594A; --rojo-soft:#3A2320; --verde:#7FA98F; --verde-soft:#20302A;
+    --sombra:0 18px 44px rgba(0,0,0,.34); --sombra-alta:0 26px 60px rgba(0,0,0,.46);
+  }
+}
+:root[data-theme="dark"]{
+  --papel:#17140F; --papel-raised:#211D17; --tinta:#F3EFE7; --tinta-soft:#A79E8E;
+  --line:#332D24; --rojo:#F0594A; --rojo-soft:#3A2320; --verde:#7FA98F; --verde-soft:#20302A;
+  --sombra:0 18px 44px rgba(0,0,0,.34); --sombra-alta:0 26px 60px rgba(0,0,0,.46);
+}
+*{box-sizing:border-box}
+/* clip, no hidden: hidden crearia un contenedor de scroll y el nav sticky dejaria de pegarse.
+   Hace falta porque al inclinar las secciones el borde cercano se ensancha unos px. */
+html{overflow-x:clip}
+/* Al inclinar una seccion con perspective+rotateX el borde cercano se proyecta mas
+   ancho que la pantalla. Este contenedor lo recorta. Tiene que ser clip y no hidden,
+   y el <nav> tiene que quedar AFUERA: si queda adentro, este div pasa a ser su
+   contenedor de scroll y la barra deja de pegarse arriba. */
+.lienzo{overflow-x:clip}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--papel);color:var(--tinta);font-family:'Inter',system-ui,sans-serif;line-height:1.55}
+.display{font-family:'Fraunces',Georgia,serif;text-wrap:balance}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+a{color:inherit}
+.inner{max-width:1240px;margin:0 auto;padding:0 40px}
+section{padding:96px 0}
+/* el nav es sticky: sin esto, al saltar con un ancla el titulo queda tapado */
+section,footer{scroll-margin-top:88px}
+@media(max-width:820px){section{padding:64px 0}.inner{padding:0 24px}}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--papel) 88%, transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .inner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:15px;padding-bottom:15px}
+.wm{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(32px,3.2vw,42px);line-height:1;letter-spacing:-.01em;flex:none}
+.wm .dot{color:var(--rojo)}
+.navlinks{display:flex;gap:30px;font-size:14.5px;font-weight:500}
+.navlinks a{text-decoration:none;color:var(--tinta-soft);position:relative;padding-bottom:3px}
+.navlinks a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1.5px;background:var(--rojo);border-radius:2px;transition:right .22s ease}
+.navlinks a:hover{color:var(--tinta)}
+.navlinks a:hover::after{right:0}
+/* idiomas: fila ES EN PT IT FR (el <select> queda oculto y sigue siendo la fuente de verdad) */
+.idiomas{display:flex;align-items:center;gap:2px;border:1px solid var(--line);border-radius:999px;padding:3px}
+.idiomas:empty{display:none;border:0;padding:0}
+.idiomas button{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.06em;color:var(--tinta-soft);
+  background:transparent;border:0;border-radius:999px;padding:5px 9px;cursor:pointer;transition:color .15s ease,background .15s ease}
+.idiomas button:hover{color:var(--tinta)}
+.idiomas button[aria-pressed="true"]{background:var(--rojo);color:#fff;font-weight:600}
+.idiomas button:focus-visible{outline:2px solid var(--rojo);outline-offset:2px}
+/* si el JS armo la fila, el select se esconde; si no corrio, queda visible y usable */
+.idiomas:not(:empty) + .idioma{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.idioma{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--tinta-soft);background:transparent;border:1px solid var(--line);border-radius:999px;padding:7px 9px;cursor:pointer;appearance:none;-webkit-appearance:none;text-align:center}
+.idioma:focus-visible{outline:2px solid var(--rojo);outline-offset:1px}
+.nav-der{display:flex;align-items:center;gap:14px}
+.navcta{font-family:'IBM Plex Mono',monospace;font-size:13px;background:var(--tinta);color:var(--papel);padding:10px 18px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:transform .15s ease,background .15s ease}
+.navcta:hover{transform:translateY(-1px);background:var(--rojo);color:#fff}
+.navitem{position:relative;display:flex;align-items:center}
+.navtrig{font:inherit;font-size:14.5px;font-weight:500;color:var(--tinta-soft);background:none;border:0;padding:0 0 3px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:7px;position:relative}
+.navtrig::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1.5px;background:var(--rojo);border-radius:2px;transition:right .22s ease}
+.navtrig:hover,.navitem:hover .navtrig,.navtrig[aria-expanded="true"]{color:var(--tinta)}
+.navitem:hover .navtrig::after,.navtrig[aria-expanded="true"]::after{right:0}
+.navtrig svg{width:11px;height:11px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform .22s ease}
+.navitem:hover .navtrig svg,.navtrig[aria-expanded="true"] svg{transform:rotate(180deg)}
+.navtrig:focus-visible{outline:2px solid var(--rojo);outline-offset:4px;border-radius:4px}
+/* el panel: se abre al pasar el mouse, al enfocar con teclado o al hacer clic.
+   Sin JS tambien funciona (hover y focus-within son CSS puro). */
+.menu{position:absolute;top:100%;left:-16px;padding-top:16px;z-index:60;
+  opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s ease,transform .2s ease,visibility .2s}
+.navitem:hover .menu,.navitem:focus-within .menu,.menu.abierto{opacity:1;visibility:visible;transform:none}
+.menu__caja{background:var(--papel-raised);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sombra-alta);padding:8px;min-width:310px}
+.menu-item{display:grid;grid-template-columns:10px minmax(0,1fr);gap:14px;align-items:start;padding:11px 12px;border-radius:var(--r-sm);
+  text-decoration:none;position:relative;transition:background .16s ease}
+.menu-item:hover,.menu-item:focus-visible{background:color-mix(in srgb, var(--marca) 10%, transparent);outline:none}
+.menu-item:focus-visible{box-shadow:inset 0 0 0 2px var(--rojo)}
+.menu-punto{width:10px;height:10px;border-radius:50%;background:var(--marca);display:block;margin-top:5px;
+  box-shadow:0 0 0 0 color-mix(in srgb, var(--marca) 30%, transparent);transition:box-shadow .18s ease}
+.menu-item:hover .menu-punto{box-shadow:0 0 0 5px color-mix(in srgb, var(--marca) 22%, transparent)}
+.menu-item b{display:block;font-size:14.5px;font-weight:650;color:var(--tinta);letter-spacing:-.01em}
+.menu-item span{display:block;font-size:12.5px;color:var(--tinta-soft);line-height:1.4;margin-top:2px}
+.menu-todos{display:flex;align-items:center;gap:8px;margin:6px 8px 2px;padding:11px 4px 4px;border-top:1px solid var(--line);
+  font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--rojo);text-decoration:none}
+.menu-todos:hover{gap:12px}
+.menu-todos:focus-visible{outline:2px solid var(--rojo);outline-offset:3px;border-radius:4px}
+@media (prefers-reduced-motion: reduce){.menu,.navtrig svg,.menu-todos,.menu-punto{transition:none}}
+@media(max-width:980px){.navlinks{display:none}}
+@media(max-width:560px){.idiomas button{padding:5px 6px;font-size:11px}}
+/* pantallas angostas: el nav no entraba y empujaba la pagina hacia el costado
+   (56px a 320px; 1px a 390px en frances, que es el idioma de textos mas largos).
+   Se achica en vez de desbordar. */
+@media(max-width:430px){
+  nav .inner{gap:10px;padding-left:16px;padding-right:16px}
+  .wm{font-size:27px}
+  .idiomas{padding:2px}
+  .idiomas button{padding:4px 4px;font-size:10.5px;letter-spacing:.02em}
+  .nav-der{gap:8px;min-width:0}
+  .navcta{padding:0 13px;font-size:12px;white-space:nowrap;min-height:40px;display:inline-flex;align-items:center}
+}
+/* abajo de 360px ya no hay lugar ni achicando: ahi el boton puede partirse en dos
+   lineas (el nav queda un poco mas alto) antes que empujar la pagina de costado. */
+@media(max-width:360px){
+  .navcta{white-space:normal;text-align:center;line-height:1.25;padding:8px 11px}
+  nav .inner{gap:8px;padding-left:14px;padding-right:14px}
+}
+
+/* botones (usados en hero, video y formulario) */
+.btn{font-family:'IBM Plex Mono',monospace;font-size:13.5px;padding:14px 24px;border-radius:999px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border:1px solid transparent;cursor:pointer;transition:background-color .18s ease,border-color .18s ease,transform .15s ease,box-shadow .18s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--rojo);color:#fff}
+.btn-primary:hover{background:#B92E20;box-shadow:0 10px 24px color-mix(in srgb, var(--rojo) 34%, transparent)}
+@media (prefers-reduced-motion: reduce){.btn:hover{transform:none}}
+.btn-ghost{border-color:var(--line);color:var(--tinta)}
+.btn-ghost:hover{border-color:var(--tinta-soft)}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--rojo)}
+
+/* hero */
+.hero{position:relative;min-height:clamp(520px,42vw,680px);display:grid;align-items:center;padding:40px 0}
+.hero__inner{position:relative;z-index:1;width:100%;max-width:1240px;margin:0 auto;padding:0 40px;
+  display:flex;flex-direction:column;gap:clamp(14px,1.6vw,24px);align-items:flex-start}
+.hero__kicker{margin:0;display:flex;align-items:center;gap:11px;font-family:'IBM Plex Mono',monospace;
+  font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-soft)}
+.hero__rule{width:26px;height:1px;background:var(--rojo);flex:none}
+.hero__title{margin:0;max-width:15ch;font-weight:800;font-size:clamp(40px,6vw,86px);
+  line-height:1.01;letter-spacing:-.025em;text-wrap:balance}
+.hero__title .dot{color:var(--rojo)}
+.hero__sub{margin:0;max-width:46ch;font-size:clamp(15px,1.15vw,18px);line-height:1.55;color:var(--tinta-soft)}
+.hero__actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
+.btn-hero-ghost{border:1px solid var(--line);color:var(--tinta)}
+.btn-hero-ghost:hover{border-color:var(--tinta-soft)}
+.hero .btn:focus-visible{outline:2px solid var(--rojo);outline-offset:2px}
+/* grilla en perspectiva: se aleja detras del texto del hero */
+.hero__grilla{position:absolute;inset:auto 0 -8% 0;height:62%;pointer-events:none;z-index:0;
+  background-image:linear-gradient(color-mix(in srgb, var(--tinta) 14%, transparent) 1px, transparent 1px),
+                   linear-gradient(90deg, color-mix(in srgb, var(--tinta) 14%, transparent) 1px, transparent 1px);
+  background-size:72px 72px;
+  transform:perspective(620px) rotateX(64deg);transform-origin:bottom center;
+  -webkit-mask-image:linear-gradient(to top, #000 4%, transparent 78%);
+  mask-image:linear-gradient(to top, #000 4%, transparent 78%);opacity:.75}
+@media(max-width:820px){.hero__grilla{background-size:48px 48px;height:52%;transform:perspective(420px) rotateX(66deg)}}
+
+/* tira de valores: marquee continuo */
+.marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:15px 0;background:color-mix(in srgb, var(--papel-raised) 72%, transparent);position:relative;z-index:1}
+.marquee__pista{display:flex;width:max-content;
+  font-family:'IBM Plex Mono',monospace;font-size:12.5px;font-weight:500;letter-spacing:.14em;
+  text-transform:uppercase;white-space:nowrap;color:var(--tinta-soft)}
+/* Todos los grupos son identicos y el espacio va adentro de cada uno, asi se encadenan
+   sin junta. El ciclo de la animacion es el ancho de UN grupo (--ciclo), no la mitad de
+   la pista: con -50% hacia falta que un grupo tapara la pantalla entera, y en monitores
+   anchos no llegaba — la cinta se vaciaba y reiniciaba desde el medio. El JS clona los
+   grupos que hagan falta segun el ancho de pantalla. */
+.marquee__grupo{display:flex;align-items:center;gap:44px;padding-right:44px}
+.marquee .rombo{color:var(--rojo)}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(calc(var(--ciclo,0px) * -1))}}
+.marquee__pista.girando{animation:marquee var(--dur,24s) linear infinite}
+.marquee:hover .marquee__pista{animation-play-state:paused}
+@media (prefers-reduced-motion: reduce){.marquee__pista.girando{animation:none}}
+
+@media(max-width:720px){
+  .hero__inner{padding:0 24px}
+  .hero__title{max-width:none}
+  .hero__actions{flex-direction:column;align-self:stretch}
+  .hero .btn{justify-content:space-between;padding:16px 20px}
+}
+
+/* fondo de puntos: fijo detras de toda la pagina */
+#fondo{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0;transition:opacity 1.4s ease}
+#fondo.viva{opacity:1}
+/* OJO: aca el nav no va. Tenia position:relative y le pisaba el sticky de mas arriba,
+   por eso la barra se iba con el scroll. */
+section,footer{position:relative;z-index:1}
+section{background:transparent}
+.metodo,.experiencia,.video,.contacto{background:color-mix(in srgb, var(--papel-raised) 60%, transparent)}
+.fase,.serv{background:color-mix(in srgb, var(--papel-raised) 90%, transparent)}
+.exp-card,.hero-calc,.calc-inputs{background:color-mix(in srgb, var(--papel-raised) 88%, transparent)}
+.calc-results{background:color-mix(in srgb, var(--papel) 82%, transparent)}
+nav{background:color-mix(in srgb, var(--papel) 82%, transparent)}
+footer{background:color-mix(in srgb, var(--papel) 70%, transparent)}
+
+/* entrada al scrollear */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .55s cubic-bezier(.22,.61,.36,1),transform .55s cubic-bezier(.22,.61,.36,1)}
+.reveal.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  .reveal,.reveal.is-in{opacity:1;transform:none;transition:none}
+  .hero-bg .linea{animation:none;stroke-dashoffset:0}
+  .hero-bg .punto{animation:none;opacity:.55}
+  html{scroll-behavior:auto}
+}
+
+/* section heads */
+.sec-head{margin-bottom:48px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);column-gap:56px;align-items:end}
+.sec-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--rojo);margin-bottom:12px;grid-column:1;grid-row:1}
+.sec-head h2{font-weight:800;font-size:clamp(28px,3.6vw,40px);line-height:1.1;margin:0;grid-column:1;grid-row:2;max-width:20ch}
+.sec-head p{color:var(--tinta-soft);font-size:16px;margin:0 0 7px;grid-column:2;grid-row:2;max-width:46ch;padding-left:24px;border-left:1px solid var(--line)}
+@media(max-width:900px){
+  .sec-head{display:block;max-width:60ch}
+  .sec-head h2{margin-bottom:12px;max-width:none}
+  .sec-head p{padding-left:0;border-left:0;margin:0}
+}
+
+/* metodo */
+.metodo{background:var(--papel-raised);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fase-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+@media(max-width:900px){.fase-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media(max-width:520px){.fase-grid{grid-template-columns:minmax(0,1fr)}}
+.fase{background:color-mix(in srgb, var(--papel-raised) 88%, transparent);border:1px solid var(--line);border-radius:var(--r);padding:28px 24px;
+  transition:transform .3s cubic-bezier(.22,.61,.36,1),border-color .3s ease,box-shadow .3s ease}
+.fase:hover{transform:translateY(-4px);border-color:color-mix(in srgb, var(--rojo) 45%, var(--line));box-shadow:var(--sombra)}
+.fase .n{font-family:'IBM Plex Mono',monospace;color:var(--rojo);font-size:26px;font-weight:600;letter-spacing:-.02em;margin-bottom:14px;line-height:1}
+.fase h3{font-weight:700;font-size:17px;margin:0 0 8px}
+.fase p{font-size:14px;color:var(--tinta-soft);margin:0}
+
+/* servicios — la carta se levanta e inclina hacia donde esta el mouse */
+.serv-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+@media(max-width:720px){.serv-grid{grid-template-columns:minmax(0,1fr)}}
+
+.serv{background:color-mix(in srgb, var(--papel-raised) 88%, transparent);border:1px solid var(--line);border-radius:var(--r);padding:32px;position:relative;
+  transition:transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .35s ease,border-color .35s ease}
+.serv::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%), color-mix(in srgb, var(--rojo) 12%, transparent), transparent 62%);
+  transition:opacity .35s ease}
+.serv.viva{box-shadow:var(--sombra-alta);border-color:color-mix(in srgb, var(--rojo) 42%, var(--line));z-index:2}
+.serv.viva::before{opacity:1}
+.serv h3{font-weight:700;font-size:19px;margin:0 0 10px;position:relative}
+.serv p{font-size:15px;color:var(--tinta-soft);margin:0 0 18px;position:relative}
+.serv ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;position:relative}
+.serv li{font-size:13.5px;font-family:'IBM Plex Mono',monospace;color:var(--tinta-soft);padding-left:16px;position:relative}
+.serv li::before{content:"—";position:absolute;left:0;color:var(--rojo)}
+@media (prefers-reduced-motion: reduce){.fase,.serv{transition:none}.fase:hover{transform:none}}
+
+/* plataformas */
+.plat-filtros{display:flex;flex-wrap:wrap;gap:9px;margin:-18px 0 28px}
+.plat-filtros button{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;
+  color:var(--tinta-soft);background:transparent;border:1px solid var(--line);border-radius:999px;
+  padding:9px 17px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;
+  transition:color .18s ease,border-color .18s ease,background .18s ease}
+.plat-filtros button:hover{color:var(--tinta);border-color:var(--tinta-soft)}
+.plat-filtros button .n{font-size:11px;opacity:.6;font-variant-numeric:tabular-nums}
+.plat-filtros button[aria-pressed="true"]{background:var(--rojo);border-color:var(--rojo);color:#fff}
+.plat-filtros button[aria-pressed="true"] .n{opacity:.85}
+.plat-filtros button:focus-visible{outline:2px solid var(--rojo);outline-offset:2px}
+
+.plat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media(max-width:980px){.plat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.plat-grid{grid-template-columns:minmax(0,1fr)}}
+.plat{position:relative;overflow:hidden;background:color-mix(in srgb, var(--papel-raised) 88%, transparent);
+  border:1px solid var(--line);border-radius:var(--r);padding:24px 22px 22px;
+  display:flex;flex-direction:column;gap:9px;min-height:152px;
+  transition:transform .3s cubic-bezier(.22,.61,.36,1),border-color .3s ease,box-shadow .3s ease}
+.plat.fuera{display:none}
+/* resplandor con el color de cada plataforma */
+.plat::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;
+  background:radial-gradient(300px circle at 18% 0%, color-mix(in srgb, var(--marca) 20%, transparent), transparent 70%);
+  transition:opacity .3s ease}
+/* barra inferior que se llena */
+.plat::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--marca);
+  transition:width .45s cubic-bezier(.22,.61,.36,1)}
+.plat:hover,.plat.viva{transform:translateY(-6px);border-color:color-mix(in srgb, var(--marca) 55%, var(--line));box-shadow:var(--sombra)}
+.plat:hover::before,.plat.viva::before{opacity:1}
+.plat:hover::after,.plat.viva::after{width:100%}
+
+.plat-punto{position:relative;width:13px;height:13px;border-radius:50%;background:var(--marca);flex:none;
+  transition:box-shadow .3s ease}
+/* El logo oficial reemplaza al punto. Va sin ningun recuadro: cada archivo tiene el
+   fondo recortado. Para el tema oscuro hay un segundo archivo (-oscuro) con el texto
+   en claro y el simbolo a color, que es la variante que las propias marcas publican
+   para fondo oscuro — Meta y OpenAI la traen hecha en sus kits. El cambio lo hace
+   <picture> con media query, sin JavaScript.
+   align-self:flex-start es necesario porque la tarjeta es un flex en columna y por
+   defecto los hijos se estiran a todo el ancho. */
+.plat-marca{display:block;flex:none;align-self:flex-start;max-width:100%}
+.plat-logo{display:block;width:auto;max-width:100%;height:26px;object-fit:contain;object-position:left center}
+.plat.con-logo .plat-punto{display:none}
+.plat.con-logo{min-height:0}
+/* si a una plataforma le falta el logo, el punto ocupa el mismo alto que el logo,
+   asi el titulo y la descripcion siguen alineados con las demas tarjetas */
+.plat:not(.con-logo) .plat-punto{margin:12px 0 13px}
+@media(max-width:560px){.plat-logo{height:24px}}
+.plat:hover .plat-punto,.plat.viva .plat-punto{box-shadow:0 0 0 6px color-mix(in srgb, var(--marca) 22%, transparent)}
+/* las tarjetas de Google Ads y Meta Ads llevan a su landing */
+a.plat-link{text-decoration:none;color:inherit;cursor:pointer}
+.plat-ir{position:absolute;top:18px;right:18px;font-size:15px;line-height:1;color:var(--marca);
+  opacity:0;transform:translate(-3px,3px);transition:opacity .25s ease,transform .25s ease}
+.plat-link:hover .plat-ir,.plat-link.viva .plat-ir,.plat-link:focus-visible .plat-ir{opacity:1;transform:none}
+.plat-link:focus-visible{outline:2px solid var(--rojo);outline-offset:3px}
+@media (prefers-reduced-motion: reduce){.plat-ir{transition:none}}
+.plat h3{position:relative;font-weight:700;font-size:17.5px;margin:0;letter-spacing:-.01em}
+.plat p{position:relative;font-size:13.5px;color:var(--tinta-soft);margin:0;line-height:1.5}
+.plat .cat{position:relative;margin-top:auto;font-family:'IBM Plex Mono',monospace;font-size:10.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-soft);opacity:.7}
+.plat-nota{margin:26px 0 0;font-size:13.5px;color:var(--tinta-soft)}
+.plat-nota a{color:var(--tinta);text-decoration:none;border-bottom:1px solid var(--line);margin-left:7px;white-space:nowrap}
+.plat-nota a:hover{color:var(--rojo);border-bottom-color:var(--rojo)}
+@keyframes platEntra{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.plat.entrando{animation:platEntra .34s cubic-bezier(.22,.61,.36,1) both}
+@media (prefers-reduced-motion: reduce){
+  .plat,.plat::before,.plat::after,.plat-punto{transition:none}
+  .plat:hover,.plat.viva{transform:none}
+  .plat.entrando{animation:none}
+}
+
+
+/* ---- plataformas: tarjetas en carrusel ----
+   Dos filas, una por categoria, en sentidos opuestos. Las filas reemplazan al filtro.
+   El padding vertical deja lugar para que la tarjeta se levante al pasar el mouse sin
+   que el overflow:hidden le corte la sombra. */
+.cinta{position:relative;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.cinta-plat{padding:14px 0 26px}
+.cinta-pista{display:flex;width:max-content;will-change:transform}
+/* se puede arrastrar con el dedo o el mouse; el scroll vertical de la pagina sigue andando */
+.cinta{touch-action:pan-y;cursor:grab}
+.cinta.arrastrando{cursor:grabbing}
+.cinta.arrastrando .plat{pointer-events:none}
+.cinta-caja{position:relative}
+.cinta-caja + .cinta-caja{margin-top:-8px}
+/* flechas: van afuera de la mascara de fundido, si no se desvaneceran con el borde */
+.cinta-fl{position:absolute;top:calc(50% - 6px);transform:translateY(-50%);z-index:3;
+  width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:color-mix(in srgb, var(--papel-raised) 92%, transparent);color:var(--tinta);
+  border:1px solid var(--line);box-shadow:var(--sombra);cursor:pointer;padding:0;
+  transition:background .18s ease,color .18s ease,border-color .18s ease,transform .18s ease}
+.cinta-fl svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.cinta-fl--ant{left:-8px}
+.cinta-fl--sig{right:-8px}
+.cinta-fl:hover{background:var(--rojo);border-color:var(--rojo);color:#fff;transform:translateY(-50%) scale(1.06)}
+.cinta-fl:active{transform:translateY(-50%) scale(.96)}
+.cinta-fl:focus-visible{outline:2px solid var(--rojo);outline-offset:3px}
+@media(max-width:720px){.cinta-fl{width:36px;height:36px}.cinta-fl--ant{left:-4px}.cinta-fl--sig{right:-4px}}
+.cinta-grupo{display:flex;align-items:stretch;gap:14px;padding-right:14px}
+.cinta-plat .plat{flex:none;width:292px;min-height:0}
+@media(max-width:720px){.cinta-plat .plat{width:252px;padding:20px 18px 18px}}
+@media (prefers-reduced-motion: reduce){.cinta-fl,.cinta-fl:hover{transition:none}}
+
+/* experiencia */
+.experiencia{background:var(--papel-raised);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.exp-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;counter-reset:caso}
+@media(max-width:900px){.exp-grid{grid-template-columns:minmax(0,1fr)}}
+.exp-card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:30px 26px 26px;display:flex;flex-direction:column;gap:11px;counter-increment:caso;
+  transition:transform .32s cubic-bezier(.22,.61,.36,1),border-color .32s ease,box-shadow .32s ease}
+/* numeral gigante de fondo: le da peso a la seccion sin agregar texto */
+.exp-card::before{content:counter(caso,decimal-leading-zero);position:absolute;right:12px;top:-26px;
+  font-family:'Fraunces',serif;font-weight:700;font-size:104px;line-height:1;pointer-events:none;
+  color:color-mix(in srgb, var(--rojo) 12%, transparent);transition:color .32s ease,transform .32s ease}
+/* filete rojo superior que se completa al pasar por arriba */
+.exp-card::after{content:"";position:absolute;left:0;top:0;height:3px;width:34px;background:var(--rojo);
+  border-radius:0 3px 3px 0;transition:width .42s cubic-bezier(.22,.61,.36,1)}
+.exp-card:hover,.exp-card.viva{transform:translateY(-6px);border-color:color-mix(in srgb, var(--rojo) 40%, var(--line));box-shadow:var(--sombra)}
+.exp-card:hover::after,.exp-card.viva::after{width:100%}
+.exp-card:hover::before,.exp-card.viva::before{color:color-mix(in srgb, var(--rojo) 22%, transparent);transform:translateY(4px)}
+.exp-tag{position:relative;align-self:flex-start;font-family:'IBM Plex Mono',monospace;font-size:10.5px;
+  text-transform:uppercase;letter-spacing:.08em;color:var(--rojo);border:1px solid color-mix(in srgb, var(--rojo) 35%, transparent);
+  border-radius:999px;padding:5px 11px;background:color-mix(in srgb, var(--rojo-soft) 60%, transparent)}
+.exp-card h3{position:relative;font-family:'Fraunces',serif;font-weight:600;font-size:20px;margin:0;line-height:1.25}
+.exp-card .detail{position:relative;font-size:14px;color:var(--tinta-soft)}
+.exp-card .foco{position:relative;font-size:13px;font-style:italic;color:var(--tinta);border-top:1px dashed var(--line);padding-top:12px;margin-top:auto}
+.exp-card .formula{position:relative;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--verde);border-top:1px dashed var(--line);padding-top:12px;margin-top:auto}
+@media (prefers-reduced-motion: reduce){.exp-card,.exp-card::after,.exp-card::before{transition:none}.exp-card:hover,.exp-card.viva{transform:none}}
+
+/* calculadora */
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sombra)}
+@media(max-width:900px){.calc{grid-template-columns:1fr}}
+.calc-preguntas{padding:38px 40px;border-right:1px solid var(--line);background:color-mix(in srgb, var(--papel-raised) 90%, transparent)}
+@media(max-width:900px){.calc-preguntas{border-right:none;border-bottom:1px solid var(--line)}}
+@media(max-width:520px){.calc-preguntas,.calc-res{padding:24px}}
+
+.calc-ejemplos{margin-bottom:30px;padding-bottom:28px;border-bottom:1px solid var(--line)}
+.calc-ejlab{display:block;font-size:13.5px;color:var(--tinta-soft);margin-bottom:12px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--tinta-soft);background:transparent;
+  border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer;transition:all .15s ease}
+.chip:hover{border-color:var(--rojo);color:var(--rojo)}
+.chip.activo{background:var(--rojo);border-color:var(--rojo);color:#fff}
+.chip:focus-visible{outline:2px solid var(--rojo);outline-offset:2px}
+
+.q{padding:26px 0;border-top:1px solid var(--line)}
+.calc-ejemplos + .q{border-top:none;padding-top:2px}
+.q:last-child{padding-bottom:4px}
+.q-n{display:none}
+.q-tit{display:block;font-size:15px;font-weight:400;color:var(--tinta-soft);margin-bottom:16px;line-height:1.45;max-width:34ch}
+.q-val{display:flex;align-items:baseline;gap:9px;margin-bottom:18px}
+.q-val .uni{font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.06em;color:var(--tinta-soft)}
+.q-val input{width:auto;min-width:2ch;max-width:7ch;field-sizing:content;border:none;background:transparent;color:var(--tinta);
+  font-family:'IBM Plex Mono',monospace;font-size:clamp(30px,3.2vw,38px);font-weight:600;letter-spacing:-.02em;
+  padding:0;text-align:left;line-height:1.05;border-bottom:2px solid transparent;transition:border-color .18s ease,color .18s ease}
+.q-val input:hover{border-bottom-color:color-mix(in srgb, var(--rojo) 35%, transparent)}
+.q-val input:focus{outline:none;color:var(--rojo);border-bottom-color:var(--rojo)}
+@supports not (field-sizing: content){ .q-val input{width:4.5ch} }
+
+.q input[type=range]{width:100%;height:3px;-webkit-appearance:none;appearance:none;background:var(--line);border-radius:99px;outline:none;cursor:pointer;display:block}
+.q input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;
+  background:var(--rojo);border:none;box-shadow:0 0 0 4px color-mix(in srgb, var(--papel-raised) 85%, transparent),0 2px 6px rgba(0,0,0,.14);cursor:grab;margin-top:0}
+.q input[type=range]::-webkit-slider-thumb:active{cursor:grabbing;transform:scale(1.12)}
+.q input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--rojo);border:none;
+  box-shadow:0 0 0 4px color-mix(in srgb, var(--papel-raised) 85%, transparent);cursor:grab}
+.q input[type=range]:focus-visible{outline:2px solid var(--rojo);outline-offset:6px}
+.q-ayuda{font-size:12.5px;line-height:1.55;color:var(--tinta-soft);margin:14px 0 0;max-width:42ch;opacity:.85}
+
+.calc-res{padding:34px;background:color-mix(in srgb, var(--papel) 80%, transparent);display:flex;flex-direction:column}
+.res-tit{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--rojo);margin-bottom:24px}
+.res-lista{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:22px}
+.res-lista li{display:grid;grid-template-columns:auto 1fr;column-gap:12px;row-gap:8px;align-items:baseline}
+.res-num{font-size:30px;font-weight:600;color:var(--tinta);line-height:1}
+.res-lista li.fin .res-num{color:var(--rojo);font-size:36px}
+.res-txt{font-size:14.5px;color:var(--tinta-soft)}
+.res-bar{grid-column:1 / -1;display:block;height:3px;background:color-mix(in srgb, var(--line) 75%, transparent);border-radius:99px;overflow:hidden}
+.res-bar i{display:block;height:100%;width:0;background:color-mix(in srgb, var(--rojo) 45%, var(--tinta-soft));transition:width .55s cubic-bezier(.22,.61,.36,1)}
+.res-lista li:nth-child(2) .res-bar i{background:color-mix(in srgb, var(--rojo) 72%, var(--tinta-soft))}
+.res-lista li.fin .res-bar i{background:var(--rojo)}
+
+.res-total{margin-top:34px;padding-top:26px;border-top:1px solid var(--line)}
+.rt-grande{display:flex;align-items:baseline;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+.rt-num{font-size:clamp(40px,4.4vw,56px);font-weight:600;color:var(--rojo);line-height:1;letter-spacing:-.02em}
+.rt-grande .rt-lab{font-size:15px;color:var(--tinta);max-width:17ch;line-height:1.35}
+.rt-fila{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:11px 0;border-bottom:1px dashed var(--line)}
+.rt-fila:last-child{border-bottom:none}
+.rt-fila .rt-lab{font-size:14px;color:var(--tinta-soft)}
+.rt-val{font-size:21px;font-weight:600;color:var(--tinta)}
+.calc-note{font-size:12px;color:var(--tinta-soft);margin:auto 0 0;padding-top:26px}
+
+/* video de marca */
+.video{background:var(--papel-raised);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.video-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:56px;align-items:center}
+@media(max-width:900px){.video-grid{grid-template-columns:1fr;gap:36px}}
+.video-marco{position:relative;background:var(--papel);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;aspect-ratio:720/406;box-shadow:var(--sombra)}
+.video-marco video{width:100%;height:100%;display:block;object-fit:cover}
+.video-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:66px;height:66px;border-radius:50%;border:1px solid rgba(255,255,255,.5);background:rgba(0,0,0,.55);color:#fff;cursor:pointer;display:none;align-items:center;justify-content:center;padding:0;transition:background .15s ease,transform .15s ease}
+.video-play.visible{display:flex}
+.video-play:hover{background:var(--rojo);border-color:var(--rojo);transform:translate(-50%,-50%) scale(1.05)}
+.video-play:focus-visible{outline:2px solid var(--rojo);outline-offset:3px}
+.video-play svg{width:22px;height:22px;fill:currentColor;margin-left:3px}
+.subir{position:fixed;right:22px;bottom:78px;z-index:59;width:42px;height:42px;align-items:center;justify-content:center;background:var(--papel-raised);color:var(--tinta);border:1px solid var(--line);border-radius:50%;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:15px;line-height:1;box-shadow:var(--sombra);display:none;padding:0;transition:transform .15s ease,border-color .15s ease,color .15s ease}
+.subir.visible{display:flex}
+.subir:hover{border-color:var(--rojo);color:var(--rojo)}
+.subir:focus-visible{outline:2px solid var(--rojo);outline-offset:2px}
+.subir:hover{transform:translateY(-2px)}
+@media(max-width:720px){.subir{right:14px;bottom:74px;width:44px;height:44px}}
+.video-son{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.55);color:#fff;border:1px solid rgba(255,255,255,.35);font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding:7px 13px;border-radius:999px;cursor:pointer;transition:background .15s ease}
+.video-son:hover{background:rgba(0,0,0,.8)}
+.video-son:focus-visible{outline:2px solid var(--rojo);outline-offset:2px}
+.eyebrow-vivo{display:inline-flex;align-items:center;gap:9px}
+.punto-vivo{width:8px;height:8px;border-radius:50%;background:var(--rojo);flex:none;animation:latido 1.9s ease-in-out infinite}
+@keyframes latido{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.5}}
+@media (prefers-reduced-motion: reduce){.punto-vivo{animation:none}}
+.video-texto h2{font-weight:800;font-size:clamp(28px,3.6vw,40px);line-height:1.1;margin:0 0 14px}
+.video-texto h2 .dot{color:var(--rojo)}
+.video-texto p{color:var(--tinta-soft);font-size:16.5px;margin:0 0 26px;max-width:44ch}
+
+/* contacto: banda roja a todo el ancho, con la tarjeta del formulario flotando encima.
+   El rojo es mas profundo que el de marca para que el texto crema pase 4.5:1 de contraste. */
+.contacto{position:relative;overflow:hidden;background:var(--rojo-hondo);color:var(--sobre-rojo);border-top:0}
+.contacto .inner{position:relative;z-index:1}
+.contacto-deco{position:absolute;inset:0;pointer-events:none;z-index:0}
+.contacto-deco i{position:absolute;display:block;border-radius:50%}
+.contacto-deco i:nth-child(1){top:32px;right:60px;width:150px;height:150px;border:2px solid rgba(255,255,255,.18);animation:flotaB 9s ease-in-out infinite}
+.contacto-deco i:nth-child(2){top:96px;right:132px;width:16px;height:16px;background:rgba(0,0,0,.18);animation:flotaA 5.5s ease-in-out infinite}
+.contacto-deco i:nth-child(3){bottom:-56px;left:48px;width:210px;height:210px;border:2px solid rgba(255,255,255,.13);animation:flotaA 11s ease-in-out infinite}
+.contacto-deco i:nth-child(4){bottom:56px;left:9%;width:11px;height:11px;background:rgba(0,0,0,.22);animation:flotaB 4.8s ease-in-out infinite}
+@keyframes flotaA{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+@keyframes flotaB{0%,100%{transform:translateY(0)}50%{transform:translateY(13px)}}
+@media (prefers-reduced-motion: reduce){.contacto-deco i{animation:none}}
+@media(max-width:820px){
+  .contacto-deco i:nth-child(1){top:18px;right:-40px;width:104px;height:104px}
+  .contacto-deco i:nth-child(2){top:64px;right:36px;width:11px;height:11px}
+  .contacto-deco i:nth-child(3){bottom:-70px;left:-50px;width:150px;height:150px}
+  .contacto-deco i:nth-child(4){bottom:30px;left:14px;width:9px;height:9px}
+}
+
+.contacto-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+@media(max-width:820px){.contacto-grid{grid-template-columns:minmax(0,1fr);gap:36px}}
+.contacto h2{font-weight:800;font-size:clamp(30px,4vw,44px);line-height:1.1;margin:0 0 18px;color:var(--sobre-rojo);max-width:19ch}
+.contacto p{color:color-mix(in srgb, var(--sobre-rojo) 88%, transparent);font-size:16px;max-width:44ch}
+
+/* tarjeta oscura del formulario */
+/* la tarjeta redefine los tokens para sus hijos: asi el formulario se ve igual
+   con el sitio en claro o en oscuro, sin reescribir cada regla */
+.contacto-card{background:#17140F;color:#F3EFE7;border-radius:var(--r-lg);padding:32px;box-shadow:0 30px 60px rgba(0,0,0,.34);
+  --papel:#241F18; --papel-raised:#241F18; --tinta:#F3EFE7; --tinta-soft:rgba(243,239,231,.68);
+  --line:rgba(243,239,231,.22); --rojo:#F0594A; --verde:#7FA98F}
+@media(max-width:520px){.contacto-card{padding:24px}}
+form{display:flex;flex-direction:column;gap:16px}
+form label{font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--tinta-soft);margin-bottom:6px;display:block}
+form input,form textarea{width:100%;padding:13px 15px;border:1px solid var(--line);background:var(--papel);color:var(--tinta);font-family:'Inter',sans-serif;font-size:14.5px;border-radius:var(--r-sm)}
+form input:focus,form textarea:focus{outline:2px solid var(--rojo);outline-offset:1px}
+.form-note{font-size:12px;color:var(--tinta-soft)}
+.contacto-card input::placeholder,.contacto-card textarea::placeholder{color:rgba(243,239,231,.40)}
+/* el rojo claro sobre blanco no llega a 4.5:1, asi que el boton usa uno mas profundo */
+.contacto-card .btn-primary{background:#C9351F;color:#fff}
+.contacto-card .btn-primary:hover{background:#DC3E26;box-shadow:0 10px 26px rgba(0,0,0,.45)}
+
+/* contacto directo + whatsapp flotante */
+.contacto-directo{margin-top:22px;font-size:15px;line-height:2;color:color-mix(in srgb, var(--sobre-rojo) 88%, transparent);overflow-wrap:anywhere}
+.contacto-directo a{color:var(--sobre-rojo);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:1px}
+.contacto-directo a:hover{border-bottom-color:var(--sobre-rojo);color:#fff}
+.contacto-directo .sep{opacity:.5;margin:0 7px}
+/* el separador no puede quedar solo al final de una linea */
+.contacto-directo .par{white-space:nowrap}
+
+/* aviso flotante al copiar el mail */
+.aviso{position:fixed;left:50%;bottom:24px;transform:translate(-50%,14px);z-index:70;
+  width:max-content;max-width:min(92vw,560px);text-align:center;
+  background:var(--tinta);color:var(--papel);
+  font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.5;padding:13px 20px;border-radius:14px;
+  box-shadow:var(--sombra-alta);opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s ease}
+.aviso.visible{opacity:1;transform:translate(-50%,0)}
+/* el mail no se parte ni se recorta: es justamente el dato que hay que poder leer */
+.aviso b{font-weight:600;white-space:nowrap}
+@media(max-width:720px){.aviso{bottom:84px;font-size:12px;padding:12px 16px}}
+@media (prefers-reduced-motion: reduce){.aviso{transition:none}}
+.cont-eyebrow{color:color-mix(in srgb, var(--sobre-rojo) 82%, transparent)}
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:60;display:inline-flex;align-items:center;gap:9px;background:#1F8F4E;color:#fff;text-decoration:none;padding:12px 17px;border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;box-shadow:0 8px 26px rgba(0,0,0,.20);transition:background .15s ease}
+.wa-float:hover{background:#18783F}
+.wa-float svg{width:19px;height:19px;fill:currentColor;flex:none}
+@media(max-width:720px){.wa-float{right:14px;bottom:14px;padding:14px;border-radius:50%}.wa-float span{display:none}}
+
+/* footer */
+footer{padding:52px 0}
+.foot-grid{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px}
+.foot-desc{max-width:32ch;font-size:14px;color:var(--tinta-soft)}
+.foot-links{display:flex;flex-wrap:wrap;gap:12px 22px;font-size:13.5px}
+.foot-links a{text-decoration:none;color:var(--tinta-soft)}
+.foot-bottom{margin-top:36px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 18px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--tinta-soft)}
+.foot-bottom .sep{opacity:.45;margin:0 2px}
+.foot-ig{text-decoration:none;color:var(--tinta-soft);border:1px solid var(--line);border-radius:999px;padding:6px 13px;transition:color .15s ease,border-color .15s ease}
+.foot-ig:hover{color:var(--rojo);border-color:color-mix(in srgb, var(--rojo) 50%, var(--line))}
+.foot-links a{transition:color .15s ease}
+.foot-links a:hover{color:var(--rojo)}
+footer .wm{font-size:clamp(30px,3vw,38px)}
+</style>
+
+<style>
+/* ---- Landings por servicio ---------------------------------------------- */
+/* Hereda todo el diseno del sitio. Lo unico propio: el sello de la plataforma,
+   la linea de confianza del hero, la lista de "lo que no" y el acordeon de preguntas. */
+.lp-sello{display:inline-flex;align-items:center;gap:12px;background:color-mix(in srgb, var(--papel-raised) 88%, transparent);
+  border:1px solid var(--line);border-radius:999px;padding:9px 18px 9px 14px;margin-bottom:22px;box-shadow:var(--sombra)}
+.lp-sello img{height:22px;width:auto;display:block}
+.lp-sello span{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-soft)}
+.lp-sello::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--marca);flex:none}
+.lp-trust{display:flex;flex-wrap:wrap;gap:10px 22px;margin:26px 0 0;padding:0;list-style:none;
+  font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--tinta-soft)}
+.lp-trust li{display:flex;align-items:center;gap:9px}
+.lp-trust li::before{content:"";width:14px;height:2px;border-radius:2px;background:var(--rojo);flex:none}
+.lp-serv-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media(max-width:1040px){.lp-serv-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){.lp-serv-grid{grid-template-columns:minmax(0,1fr)}}
+.lp-serv-grid .serv{padding:28px}
+.lp-serv-grid .serv h3{font-size:19px}
+/* lo que no hacemos */
+.nope{background:color-mix(in srgb, var(--papel-raised) 88%, transparent);border:1px solid var(--line);
+  border-radius:var(--r-lg);padding:38px 40px;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);
+  gap:34px;align-items:start;box-shadow:var(--sombra)}
+@media(max-width:860px){.nope{grid-template-columns:minmax(0,1fr);padding:30px 24px;gap:22px}}
+.nope h2{font-weight:800;font-size:clamp(24px,2.8vw,32px);line-height:1.12;margin:0;max-width:18ch}
+.nope ul{margin:0;padding:0;list-style:none;display:grid;gap:16px}
+.nope li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:14px;align-items:start;color:var(--tinta-soft);font-size:15.5px}
+.nope li b{color:var(--tinta);font-weight:600;display:block;margin-bottom:2px}
+.nope .x{width:22px;height:22px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;
+  color:var(--rojo);font-size:12px;line-height:1;margin-top:2px}
+/* preguntas */
+.faq{display:grid;gap:12px;max-width:860px}
+.faq-item{background:color-mix(in srgb, var(--papel-raised) 88%, transparent);border:1px solid var(--line);
+  border-radius:var(--r);overflow:hidden;transition:border-color .18s ease,box-shadow .18s ease}
+.faq-item[open]{border-color:color-mix(in srgb, var(--rojo) 38%, var(--line));box-shadow:var(--sombra)}
+.faq-item summary{list-style:none;cursor:pointer;padding:20px 24px;display:flex;align-items:center;gap:16px;
+  font-weight:600;font-size:16.5px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";margin-left:auto;color:var(--rojo);font-family:'IBM Plex Mono',monospace;
+  font-size:19px;line-height:1;transition:transform .2s ease}
+.faq-item[open] summary::after{content:"–"}
+.faq-item summary:hover{color:var(--rojo)}
+.faq-item summary:focus-visible{outline:2px solid var(--rojo);outline-offset:-2px;border-radius:var(--r)}
+.faq-item p{margin:0;padding:0 24px 22px;color:var(--tinta-soft);font-size:15.5px;max-width:72ch}
+@media (prefers-reduced-motion: reduce){.faq-item{transition:none}}
+</style>
+</head>
+<body style="--marca:#0866FF">
+<canvas id="fondo" aria-hidden="true"></canvas>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-MCB5B5JF" style="display:none;visibility:hidden" width="0"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav>
+<div class="inner">
+<a aria-label="Cifra — ir al inicio" data-i18n-aria="aria.inicio" class="wm" href="/" style="text-decoration:none">cifra<span class="dot">.</span></a>
+<div class="navlinks">
+<a data-i18n="nav.inc" href="#incluye">Qué incluye</a>
+<a data-i18n="nav.arr" href="#arranque">Cómo arranca</a>
+<a data-i18n="nav.faq" href="#preguntas">Preguntas</a>
+</div>
+<div class="nav-der">
+<div class="idiomas" role="group" aria-label="Elegir idioma" data-i18n-aria="aria.idioma" id="idiomas"></div>
+<select aria-label="Elegir idioma" class="idioma" data-i18n-aria="aria.idioma" id="idioma">
+<option value="es">ES</option>
+<option value="en">EN</option>
+<option value="pt">PT</option>
+<option value="it">IT</option>
+<option value="fr">FR</option>
+</select>
+<a class="navcta" data-i18n="nav.cta" href="#contacto">Hablemos</a>
+</div>
+</div>
+</nav>
+<div class="lienzo">
+<section class="hero" id="inicio">
+<div class="hero__grilla" aria-hidden="true"></div>
+<div class="hero__inner">
+<div class="lp-sello"><picture><source media="(prefers-color-scheme: dark)" srcset="../logos/meta-ads-oscuro.png"><img src="../logos/meta-ads.png" alt="" aria-hidden="true" decoding="async"/></picture><span>Meta Ads</span></div>
+<h1 class="hero__title display" data-i18n-html="hero.h1">Meta Ads que no se queda en el clic<span class="dot">.</span></h1>
+<p class="hero__sub" data-i18n="hero.sub">Facebook e Instagram para generar demanda, con la medición armada para distinguir el formulario que llena cualquiera del contacto que termina comprando.</p>
+<div class="hero__actions">
+<a class="btn btn-primary" data-i18n="hero.cta1" href="#contacto">Pedir una propuesta ↗</a>
+<a class="btn btn-hero-ghost" data-i18n="hero.cta2" href="#incluye">Ver qué incluye ↓</a>
+</div>
+<ul class="lp-trust">
+<li data-i18n="hero.t1">Análisis inicial sin cargo</li>
+<li data-i18n="hero.t2">Trato directo con los socios</li>
+<li data-i18n="hero.t3">Sin permanencia</li>
+</ul>
+</div>
+</section>
+
+<section id="incluye">
+<div class="inner">
+<div class="sec-head">
+<div class="sec-eyebrow" data-i18n="inc.eyebrow">Qué incluye</div>
+<h2 class="display" data-i18n="inc.h2">Creatividad y medición, que es lo que mueve la aguja.</h2>
+<p data-i18n="inc.p">En Meta la segmentación la resuelve el algoritmo. Lo que sigue decidiendo el resultado es qué le mostrás a la gente y qué datos le devolvés a la plataforma.</p>
+</div>
+<div class="lp-serv-grid">
+<div class="serv"><h3 data-i18n="inc1.t">Análisis de la cuenta</h3><p data-i18n="inc1.p">Revisamos qué hay andando: estructura, públicos superpuestos, píxel a medias, eventos duplicados y campañas que compiten entre sí.</p><ul><li data-i18n="inc1.a">Auditoría sin cargo</li><li data-i18n="inc1.b">Qué cambiaríamos y por qué</li><li data-i18n="inc1.c">Prioridad por impacto</li></ul></div>
+<div class="serv"><h3 data-i18n="inc2.t">Estructura por objetivo</h3><p data-i18n="inc2.p">Campañas separadas por lo que tienen que lograr, sin mezclar público frío con gente que ya te conoce. Menos conjuntos, mejor alimentados.</p><ul><li data-i18n="inc2.a">Frío, tibio y remarketing</li><li data-i18n="inc2.b">Públicos y exclusiones</li><li data-i18n="inc2.c">Presupuesto por etapa</li></ul></div>
+<div class="serv"><h3 data-i18n="inc3.t">Creatividades que se prueban</h3><p data-i18n="inc3.p">Ángulos, ganchos y formatos que se rotan con criterio. Te decimos qué filmar o diseñar, y qué dejó de funcionar antes de que se note en las ventas.</p><ul><li data-i18n="inc3.a">Ángulos y mensajes</li><li data-i18n="inc3.b">Plan de pruebas</li><li data-i18n="inc3.c">Control de fatiga</li></ul></div>
+<div class="serv"><h3 data-i18n="inc4.t">Píxel y API de conversiones</h3><p data-i18n="inc4.p">Eventos bien definidos y la API de conversiones del lado del servidor, para que Meta siga aprendiendo aunque el navegador bloquee cookies.</p><ul><li data-i18n="inc4.a">Píxel y eventos</li><li data-i18n="inc4.b">API de conversiones</li><li data-i18n="inc4.c">Calidad del evento</li></ul></div>
+<div class="serv"><h3 data-i18n="inc5.t">Optimización semanal</h3><p data-i18n="inc5.p">Presupuesto, públicos y creatividades. Sin tocar todo cada día, que es lo que hace que la fase de aprendizaje nunca termine.</p><ul><li data-i18n="inc5.a">Presupuesto y pujas</li><li data-i18n="inc5.b">Rotación creativa</li><li data-i18n="inc5.c">Frecuencia y alcance</li></ul></div>
+<div class="serv"><h3 data-i18n="inc6.t">Reportes para decidir</h3><p data-i18n="inc6.p">Un tablero con lo que importa: costo por lead, calidad del lead y qué creatividad sostiene el resultado. Y la comparación con el resto de los canales.</p><ul><li data-i18n="inc6.a">Tablero siempre disponible</li><li data-i18n="inc6.b">Reunión mensual</li><li data-i18n="inc6.c">Qué probamos el mes que viene</li></ul></div>
+</div>
+</div>
+</section>
+
+<section class="metodo" id="arranque">
+<div class="inner">
+<div class="sec-head">
+<div class="sec-eyebrow" data-i18n="arr.eyebrow">Cómo arranca · 04 pasos</div>
+<h2 class="display" data-i18n="arr.h2">Primero entender, después invertir.</h2>
+<p data-i18n="arr.p">El análisis es sin cargo y no te compromete a nada. Si no vemos con qué aportar, te lo decimos.</p>
+</div>
+<div class="fase-grid">
+<div class="fase"><div class="n">01</div><h3 data-i18n="fase1.t">Análisis</h3><p data-i18n="fase1.d">Cuenta, píxel, creatividades que ya usaste y cómo entra hoy un cliente. Si no tenés cuenta publicitaria, la dejamos configurada.</p></div>
+<div class="fase"><div class="n">02</div><h3 data-i18n="fase2.t">Plan</h3><p data-i18n="fase2.d">Qué campañas, qué ángulos probamos primero y con qué presupuesto. Con números, no con adjetivos.</p></div>
+<div class="fase"><div class="n">03</div><h3 data-i18n="fase3.t">Implementación</h3><p data-i18n="fase3.d">Píxel, API de conversiones y campañas arriba, en ese orden. Sin medición no se arranca.</p></div>
+<div class="fase"><div class="n">04</div><h3 data-i18n="fase4.t">Optimización</h3><p data-i18n="fase4.d">Semana a semana: leer qué creatividad funciona, cortar la que se gastó y escalar lo que trae clientes.</p></div>
+</div>
+</div>
+</section>
+
+<section id="honestidad">
+<div class="inner">
+<div class="nope">
+<h2 class="display" data-i18n-html="nope.h2">Lo que no vas a ver acá<span class="dot">.</span></h2>
+<ul>
+<li><span class="x" aria-hidden="true">✕</span><span><b data-i18n="nope1.t">Permanencia</b><span data-i18n="nope1.d">Si no te sirve, te vas. La cuenta, el píxel y los públicos son tuyos, siempre.</span></span></li>
+<li><span class="x" aria-hidden="true">✕</span><span><b data-i18n="nope2.t">Métricas decorativas</b><span data-i18n="nope2.d">Likes y alcance no pagan sueldos. Los reportes arrancan por costo por cliente.</span></span></li>
+<li><span class="x" aria-hidden="true">✕</span><span><b data-i18n="nope3.t">Un pasante manejando tu cuenta</b><span data-i18n="nope3.d">Somos dos y trabajás con nosotros. No hay capas intermedias.</span></span></li>
+<li><span class="x" aria-hidden="true">✕</span><span><b data-i18n="nope4.t">Publicar un anuncio y esperar</b><span data-i18n="nope4.d">Sin prueba de creatividades y sin eventos bien medidos, Meta optimiza hacia cualquier lado.</span></span></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section id="preguntas">
+<div class="inner">
+<div class="sec-head">
+<div class="sec-eyebrow" data-i18n="faq.eyebrow">Preguntas</div>
+<h2 class="display" data-i18n="faq.h2">Lo que nos preguntan antes de empezar.</h2>
+<p data-i18n="faq.p">Si falta alguna, escribinos y la respondemos sin vueltas.</p>
+</div>
+<div class="faq">
+<details class="faq-item"><summary data-i18n="faq1.q">¿Cuánto cuesta?</summary><p data-i18n="faq1.a">Hay un fee mensual de gestión que depende del alcance, y aparte está el presupuesto de medios, que le pagás directo a Meta y nunca pasa por nosotros. El número exacto sale después del análisis, cuando ya sabemos qué hay que hacer. Nunca vas a recibir una factura con algo que no hayas aprobado antes.</p></details>
+<details class="faq-item"><summary data-i18n="faq2.q">¿Me sirve si vendo servicios y no productos?</summary><p data-i18n="faq2.a">Sí. En servicios Meta funciona distinto que en e-commerce: la persona no estaba buscándote, así que el trabajo está en el mensaje y en filtrar bien. Ahí lo importante es medir qué contacto termina en venta, no cuántos formularios entraron.</p></details>
+<details class="faq-item"><summary data-i18n="faq3.q">¿Hace falta que yo produzca los videos y las fotos?</summary><p data-i18n="faq3.a">Trabajamos con el material que tengas y te damos un guion de qué conviene grabar: en general el contenido filmado con el celular en tu local o taller rinde más que una producción cara. Si no tenés nada, el primer mes se arma con lo mínimo y se mejora sobre la marcha.</p></details>
+<details class="faq-item"><summary data-i18n="faq4.q">¿La cuenta publicitaria queda a mi nombre?</summary><p data-i18n="faq4.a">Sí. Trabajamos dentro de tu Business Manager, con tu cuenta y tu píxel. Si algún día seguís sin nosotros, te quedás con todo: públicos, historial de eventos y creatividades.</p></details>
+<details class="faq-item"><summary data-i18n="faq5.q">¿En cuánto tiempo se ven resultados?</summary><p data-i18n="faq5.a">Las primeras señales aparecen en una o dos semanas, pero las campañas necesitan salir de la fase de aprendizaje antes de poder juzgarlas. En general, al mes ya se puede decidir con fundamento qué ángulo y qué público sostener.</p></details>
+<details class="faq-item"><summary data-i18n="faq6.q">¿Qué necesitan de mi lado?</summary><p data-i18n="faq6.a">Acceso a tu Business Manager y a la cuenta publicitaria, acceso al sitio para dejar el píxel y la API andando, y media hora para contarnos qué es un buen cliente para vos. Después, avisarnos qué consultas terminaron en venta: ese dato es el que hace que la cuenta mejore.</p></details>
+</div>
+</div>
+</section>
+
+<section class="contacto" id="contacto">
+<div class="contacto-deco" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div class="inner contacto-grid">
+<div>
+<div class="sec-eyebrow cont-eyebrow" data-i18n="cont.eyebrow">Pedir una propuesta</div>
+<h2 class="display" data-i18n="cont.h2">Contanos qué estás invirtiendo y te decimos qué cambiaríamos.</h2>
+<p data-i18n="cont.p">Primero una charla breve sobre objetivos, cuenta y proceso comercial. De ahí sale el análisis y, si tiene sentido, la propuesta.</p>
+<p class="contacto-directo" data-i18n-first="cont.dir">O escribinos directo — <a href="mailto:cifra@cifragrowth.com">cifra@cifragrowth.com</a> <span class="par"><span class="sep" aria-hidden="true">·</span><a class="wa-link" href="#contacto" data-wa rel="noopener" target="_blank">WhatsApp</a></span> <span class="par"><span class="sep" aria-hidden="true">·</span><a href="https://instagram.com/cifra.growth" rel="noopener" target="_blank">@cifra.growth</a></span></p>
+</div>
+<div class="contacto-card">
+<form id="contact-form">
+<input name="access_key" type="hidden" value="e37f3d19-0ae0-4b16-9eec-3ea2982ef1eb"/>
+<input name="subject" type="hidden" value="Consulta de Meta Ads desde cifragrowth.com"/>
+<input name="Página" type="hidden" value="Meta Ads"/>
+<input autocomplete="off" name="botcheck" style="display:none" tabindex="-1" type="checkbox"/>
+<div><label data-i18n="form.nombre" for="f-nombre">Nombre</label><input data-i18n-ph="form.ph1" id="f-nombre" name="Nombre" placeholder="Tu nombre" required="" type="text"/></div>
+<div><label data-i18n="form.empresa" for="f-empresa">Empresa</label><input data-i18n-ph="form.ph2" id="f-empresa" name="Empresa" placeholder="Nombre de tu empresa" type="text"/></div>
+<div><label data-i18n="form.email" for="f-email">Email</label><input data-i18n-ph="form.ph3" id="f-email" name="Email" placeholder="vos@empresa.com" required="" type="email"/></div>
+<div><label data-i18n="form.desafio" for="f-desafio">¿Qué pasa hoy con tus campañas?</label><textarea data-i18n-ph="form.ph4" id="f-desafio" name="Principal desafío" placeholder="Por ejemplo: entran mensajes pero casi ninguno compra" rows="3"></textarea></div>
+<button class="btn btn-primary" data-i18n="form.btn" style="border:none;cursor:pointer;justify-content:center" type="submit">Pedir la propuesta ↗</button>
+<div class="form-note" id="form-status"></div>
+</form>
+</div>
+</div>
+</section>
+</div>
+<footer>
+<div class="inner">
+<div class="foot-grid">
+<div>
+<div class="wm" style="margin-bottom:10px">cifra<span class="dot">.</span></div>
+<div class="foot-desc" data-i18n="foot.desc">Estrategia, adquisición y analítica para construir crecimiento medible.</div>
+</div>
+<div class="foot-links">
+<a data-i18n="foot.inicio" href="/">Inicio</a>
+<a data-i18n="foot.serv" href="/#servicios">Servicios</a>
+<a href="/google-ads/">Google Ads</a>
+<a data-i18n="foot.cont" href="#contacto">Contacto</a>
+</div>
+<div class="foot-links">
+<a href="mailto:cifra@cifragrowth.com">cifra@cifragrowth.com</a>
+<a class="wa-link" href="#contacto" data-wa rel="noopener" target="_blank">WhatsApp</a>
+<a href="https://instagram.com/cifra.growth" rel="noopener" target="_blank">@cifra.growth</a>
+<a data-i18n="foot.priv" href="/privacidad">Privacidad</a>
+</div>
+</div>
+<div class="foot-bottom">
+<span class="foot-copy">© 2026 Cifra Growth <span class="sep" aria-hidden="true">·</span> <span data-i18n="foot.rights">Todos los derechos reservados.</span></span>
+</div>
+</div>
+</footer>
+<button aria-label="Volver arriba" class="subir" data-i18n-aria="aria.subir" id="subir" type="button">↑</button>
+<a aria-label="Escribinos por WhatsApp" class="wa-float" data-i18n-aria="aria.wa" href="#contacto" data-wa rel="noopener" target="_blank">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+<span>WhatsApp</span>
+</a>
+<script>
+(function(){
+  // Conversión: se dispara una sola vez, cuando Web3Forms confirma que el lead entró.
+  var leadYaContado = false;
+  function trackLead(email){
+    if (leadYaContado || typeof gtag !== 'function') return;
+    leadYaContado = true;
+    var cfg = window.CIFRA_TRACKING || {};
+    // conversiones avanzadas: tiene que ir ANTES del evento de conversión
+    if (cfg.CONVERSIONES_AVANZADAS && email) {
+      gtag('set', 'user_data', { email: email });
+    }
+    if (cfg.ADS_ID && cfg.ADS_LABEL) {
+      gtag('event', 'conversion', {
+        send_to: cfg.ADS_ID + '/' + cfg.ADS_LABEL,
+        value: 1.0,
+        currency: 'ARS'
+      });
+    }
+    gtag('event', 'generate_lead', { form_id: (window.CIFRA_FORM_ID || 'contacto_landing') });
+    // disparador disponible para GTM. OJO: si algun dia armas la conversion de Ads o la
+    // config de GA4 adentro de GTM, borra la linea de gtag equivalente de aca arriba,
+    // o vas a contar la misma conversion dos veces.
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'lead_enviado', form_id: (window.CIFRA_FORM_ID || 'contacto_landing') });
+    // deja rastro en la URL: sirve como respaldo si preferis una conversion por URL en Ads
+    try { history.replaceState(null, '', '?enviado=1'); } catch(e){}
+  }
+
+  function TT(k, alt){ return (window.CIFRA_T && window.CIFRA_T(k)) || alt; }
+  var form = document.getElementById('contact-form');
+  var status = document.getElementById('form-status');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var btn = form.querySelector('button[type=submit]');
+    var data = new FormData(form);
+    // guardamos el mail antes del reset del formulario, para las conversiones avanzadas
+    var emailLead = (form.querySelector('#f-email').value || '').trim().toLowerCase();
+    btn.disabled = true;
+    btn.textContent = TT('form.enviando', 'Enviando...');
+    status.textContent = '';
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: data
+    })
+    .then(function(res){ return res.json(); })
+    .then(function(json){
+      if (json.success) {
+        status.textContent = TT('form.ok', '¡Listo! Te vamos a contactar a la brevedad.');
+        status.style.color = 'var(--verde)';
+        form.reset();
+        trackLead(emailLead);
+      } else {
+        throw new Error(json.message || 'Error al enviar');
+      }
+    })
+    .catch(function(){
+      status.textContent = TT('form.err', 'Hubo un error al enviar. Probá de nuevo o escribinos a cifra@cifragrowth.com.');
+      status.style.color = 'var(--rojo)';
+    })
+    .finally(function(){
+      btn.disabled = false;
+      btn.textContent = TT('form.btn', 'Pedir la propuesta ↗');
+    });
+  });
+})();
+</script>
+<script>
+// El numero de WhatsApp no esta escrito en el HTML: se arma cuando alguien
+// interactua con el link. Los rastreadores de numeros no ejecutan JavaScript,
+// asi que barren la pagina y no encuentran nada. Para la persona es identico.
+(function(){
+  var NUM = 'NTQ5MTE3ODE3MzI0Nw==';
+  // El mensaje va en el idioma que eligio la persona. Esta guardado ya percent-encoded
+  // y despues en base64: queda ASCII puro, asi atob() alcanza y los acentos no se rompen.
+  var TXT = {
+    es:'SG9sYSUyMENpZnJhJTJDJTIwcXVpZXJvJTIwcGVkaXIlMjB1bmElMjBwcm9wdWVzdGEu',
+    en:'SGklMjBDaWZyYSUyQyUyMEklMjdkJTIwbGlrZSUyMHRvJTIwcmVxdWVzdCUyMGElMjBwcm9wb3NhbC4=',
+    pt:'T2wlQzMlQTElMjBDaWZyYSUyQyUyMHF1ZXJvJTIwcGVkaXIlMjB1bWElMjBwcm9wb3N0YS4=',
+    it:'Q2lhbyUyMENpZnJhJTJDJTIwdm9ycmVpJTIwY2hpZWRlcmUlMjB1bmElMjBwcm9wb3N0YS4=',
+    fr:'Qm9uam91ciUyMENpZnJhJTJDJTIwamUlMjB2b3VkcmFpcyUyMGRlbWFuZGVyJTIwdW5lJTIwcHJvcG9zaXRpb24u'
+  };
+  function url(){
+    try {
+      var l = (window.CIFRA_IDIOMA ? window.CIFRA_IDIOMA() : 'es');
+      return 'https://' + 'wa' + '.' + 'me/' + atob(NUM) + '?text=' + atob(TXT[l] || TXT.es);
+    } catch(e){ return null; }
+  }
+  var links = document.querySelectorAll('a[data-wa]');
+  function armar(){
+    var u = url(); if (!u) return;
+    for (var i=0;i<links.length;i++){ links[i].setAttribute('href', u); links[i]._armado = true; }
+  }
+  // se arma al acercarse (para que el navegador muestre el destino real y
+  // funcione copiar el link o abrirlo en otra pestana)
+  ['pointerenter','focus','touchstart'].forEach(function(ev){
+    for (var i=0;i<links.length;i++) links[i].addEventListener(ev, armar, {passive:true, once:false});
+  });
+  // Si cambian el idioma DESPUES de haber tocado el link, hay que rehacer el href.
+  // Solo se rehacen los que ya estaban armados: 'cifra:idioma' tambien salta al cargar
+  // la pagina, y armarlos ahi pondria el numero en el HTML sin que nadie lo haya pedido.
+  document.addEventListener('cifra:idioma', function(){
+    var u = url(); if (!u) return;
+    for (var i=0;i<links.length;i++) if (links[i]._armado) links[i].setAttribute('href', u);
+  });
+  // y por las dudas, tambien en el clic
+  for (var i=0;i<links.length;i++){
+    links[i].addEventListener('click', function(e){
+      var u = url(); if (!u) return;              // sin JS util, queda el #contacto
+      if (this.getAttribute('href') !== u){
+        e.preventDefault();
+        var w = window.open(u, '_blank', 'noopener');
+        if (!w) window.location.href = u;
+      }
+    });
+  }
+})();
+</script>
+<script>
+// El mail: mailto: no hace NADA si el navegador no tiene un cliente de correo asignado
+// (le pasa a cualquiera que use Gmail en el navegador, que es muchisima gente). Para
+// esa persona el link parece roto. Asi que ademas de dejar que el mailto siga su curso
+// —el que si tiene cliente lo abre igual—, copiamos la direccion y lo avisamos.
+(function(){
+  var aviso = null, reloj = null;
+
+  function T(k, alt){ return (window.CIFRA_T && window.CIFRA_T(k)) || alt; }
+
+  function mostrar(mail){
+    if (!aviso){
+      aviso = document.createElement('div');
+      aviso.className = 'aviso';
+      aviso.setAttribute('role','status');
+      aviso.setAttribute('aria-live','polite');
+      document.body.appendChild(aviso);
+    }
+    aviso.textContent = '';
+    aviso.appendChild(document.createTextNode(T('mail.copiado','Copiamos el mail a tu portapapeles') + ' — '));
+    var b = document.createElement('b'); b.textContent = mail; aviso.appendChild(b);
+    // el reflow fuerza a que la transicion se vea aunque el aviso ya existiera
+    void aviso.offsetWidth;
+    aviso.classList.add('visible');
+    clearTimeout(reloj);
+    reloj = setTimeout(function(){ aviso.classList.remove('visible'); }, 3200);
+  }
+
+  function copiar(txt){
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      return navigator.clipboard.writeText(txt);
+    }
+    // respaldo para navegadores viejos o contextos sin clipboard API
+    return new Promise(function(ok, mal){
+      try {
+        var t = document.createElement('textarea');
+        t.value = txt;
+        t.setAttribute('readonly','');
+        t.style.cssText = 'position:fixed;top:-1000px;opacity:0';
+        document.body.appendChild(t);
+        t.select(); t.setSelectionRange(0, txt.length);
+        var bien = document.execCommand('copy');
+        document.body.removeChild(t);
+        bien ? ok() : mal();
+      } catch(e){ mal(e); }
+    });
+  }
+
+  document.addEventListener('click', function(e){
+    var a = e.target.closest ? e.target.closest('a[href^="mailto:"]') : null;
+    if (!a) return;
+    var mail = a.getAttribute('href').replace(/^mailto:/,'').split('?')[0];
+    if (!mail) return;
+    // no se cancela el mailto: quien tenga cliente de correo lo abre igual
+    copiar(mail).then(function(){ mostrar(mail); }).catch(function(){});
+    if (typeof gtag === 'function') gtag('event', 'click_mail', { origen: a.className || 'link' });
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'mail_click', origen: a.className || 'link' });
+  });
+})();
+</script>
+<script>
+// Marca los clics a WhatsApp como evento (para ver en GA4 / Ads de dónde vienen los contactos)
+(function(){
+  document.addEventListener('click', function(e){
+    var a = e.target.closest ? e.target.closest('a[data-wa]') : null;
+    if (a && typeof gtag === 'function') {
+      gtag('event', 'click_whatsapp', { origen: a.className || 'link' });
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'whatsapp_click', origen: a.className || 'link' });
+    }
+  });
+})();
+</script>
+<script>
+// Fondo de puntos en 3D, fijo detras de toda la pagina.
+// Coordenadas x,y,z reales proyectadas con perspectiva: los cercanos son grandes y
+// nitidos, los lejanos chicos y tenues. Gira solo, y ademas gira con el scroll,
+// asi que acompana toda la lectura de arriba a abajo.
+(function(){
+  var cv = document.getElementById('fondo');
+  if (!cv || !cv.getContext) return;
+  var quieto = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var ctx = cv.getContext('2d'), dpr = Math.min(devicePixelRatio || 1, 2);
+  var w = 0, hh = 0, corriendo = false;
+  var mx = 0, my = 0, tx = 0, ty = 0;
+  var tinta = '28,27,25', rojo = '217,59,43';
+
+  function leerColores(){
+    var s = getComputedStyle(document.body);
+    var oscuro = matchMedia('(prefers-color-scheme: dark)').matches &&
+                 document.documentElement.getAttribute('data-theme') !== 'light';
+    // en claro los puntos son tinta; en oscuro, crema
+    tinta = oscuro ? '243,239,231' : '28,27,25';
+    rojo  = oscuro ? '240,89,74'   : '217,59,43';
+  }
+  leerColores();
+  if (window.matchMedia) matchMedia('(prefers-color-scheme: dark)').addEventListener('change', leerColores);
+
+  function medir(){
+    w = innerWidth; hh = innerHeight;
+    cv.width = Math.round(w * dpr); cv.height = Math.round(hh * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  medir();
+  addEventListener('resize', medir);
+
+  var N = w < 900 ? 420 : (w < 1400 ? 680 : 950);
+  var pts = [];
+  for (var i = 0; i < N; i++){
+    var acento = Math.random() < 0.18;
+    pts.push({
+      x: (Math.random() - .5) * 2.6,
+      y: (Math.random() - .5) * 2.2,
+      z: (Math.random() - .5) * 2,
+      r: 0.9 + Math.random() * 2.6,
+      c: acento ? 1 : 0,
+      b: acento ? (0.22 + Math.random() * 0.30) : (0.11 + Math.random() * 0.22)
+    });
+  }
+
+  addEventListener('mousemove', function(e){
+    tx = (e.clientX / innerWidth - .5) * 2;
+    ty = (e.clientY / innerHeight - .5) * 2;
+  }, { passive: true });
+
+  var F = 2.6;
+  function cuadro(){
+    mx += (tx - mx) * 0.04; my += (ty - my) * 0.04;
+    // gira sola + gira con el scroll: el fondo acompana toda la pagina
+    var t = (quieto ? 0 : performance.now() * 0.000045) + pageYOffset * 0.00035;
+
+    ctx.clearRect(0, 0, w, hh);
+    var cx = w * 0.5 + mx * 30, cy = hh * 0.5 + my * 20;
+    var esc = Math.max(w, hh) * 0.5;
+    var cosY = Math.cos(t), senY = Math.sin(t);
+    var incl = my * 0.14;
+
+    for (var i = 0; i < pts.length; i++){
+      var p = pts[i];
+      var x = p.x * cosY - p.z * senY;
+      var z = p.x * senY + p.z * cosY;
+      var y = p.y + z * incl;
+      var k = F / (F + z);
+      var sx = cx + x * esc * k;
+      var sy = cy + y * esc * k;
+      if (sx < -30 || sx > w + 30 || sy < -30 || sy > hh + 30) continue;
+      var alfa = p.b * (k - 0.5) * 1.7;
+      if (alfa <= 0.004) continue;
+      if (alfa > 0.62) alfa = 0.62;
+      ctx.fillStyle = 'rgba(' + (p.c ? rojo : tinta) + ',' + alfa.toFixed(3) + ')';
+      ctx.beginPath(); ctx.arc(sx, sy, p.r * k, 0, 6.2832); ctx.fill();
+    }
+    requestAnimationFrame(cuadro);
+  }
+
+  function arrancar(){
+    if (corriendo) return;
+    corriendo = true;
+    requestAnimationFrame(function(){ cuadro(); cv.classList.add('viva'); });
+  }
+  arrancar();
+  // si la pestana abrio en segundo plano, el rAF no corre: se reintenta al volver
+  document.addEventListener('visibilitychange', function(){
+    if (document.visibilityState === 'visible' && !cv.classList.contains('viva')) { corriendo = false; arrancar(); }
+  });
+  setTimeout(function(){ if (!cv.classList.contains('viva')) cv.classList.add('viva'); }, 2500);
+})();
+</script>
+<script>
+// Inclinacion 3D al scrollear: cada seccion se acuesta segun su distancia al centro
+// de la pantalla. La del medio queda plana; las de arriba y abajo se inclinan y se
+// atenuan. Apagado en pantallas chicas (pelearia con el scroll tactil) y con
+// reduced-motion. Si el script no corre, la pagina se ve normal: todo esto es inline.
+(function(){
+  var quieto = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (quieto) return;
+
+  // En telefono el mismo efecto, pero mas suave: la seccion ocupa casi toda la
+  // pantalla y a 11 grados se vuelve mareador.
+  var ANCHO_CHICO = 900;
+  var GIRO, ESCALA_MIN, OPACIDAD_MIN;
+  function calibrar(){
+    var chico = window.innerWidth < ANCHO_CHICO;
+    GIRO         = chico ? 6     : 11;
+    ESCALA_MIN   = chico ? 0.982 : 0.965;
+    OPACIDAD_MIN = chico ? 0.84  : 0.74;
+  }
+  calibrar();
+  // el footer queda afuera a proposito: nunca se puede centrar, quedaria inclinado siempre
+  var nodos = [].slice.call(document.querySelectorAll('.hero, .metodo, #servicios, #plataformas, .experiencia, #calculadora, .video, .contacto'));
+  if (!nodos.length) return;
+
+  var pedido = 0;
+
+  function pintar(){
+    pedido = 0;
+    var medio = (window.innerHeight || 800) / 2;
+    for (var i=0;i<nodos.length;i++){
+      var el = nodos[i], r = el.getBoundingClientRect();
+      if (r.bottom < -300 || r.top > (window.innerHeight||800) + 300){
+        // fuera de pantalla con margen: no vale la pena tocarlo
+        continue;
+      }
+      var centro = r.top + r.height/2;
+      var d = (centro - medio) / (medio + r.height/2);
+      if (d > 1) d = 1; else if (d < -1) d = -1;
+      var abs = Math.abs(d);
+      el.style.transform = 'perspective(1500px) rotateX(' + (d * -GIRO).toFixed(2) + 'deg) scale(' + (1 - abs*(1-ESCALA_MIN)).toFixed(4) + ')';
+      el.style.opacity   = (1 - abs*(1-OPACIDAD_MIN)).toFixed(3);
+    }
+  }
+
+  function pedir(){ if (!pedido) pedido = requestAnimationFrame(pintar); }
+
+  addEventListener('scroll', pedir, { passive:true });
+  addEventListener('resize', function(){ calibrar(); pedir(); }, { passive:true });
+  addEventListener('orientationchange', function(){ calibrar(); pedir(); }, { passive:true });
+  pedir();
+})();
+</script>
+<script>
+// Tarjetas vivas.
+//   Con mouse: la de Servicios se levanta y se inclina hacia donde esta el cursor.
+//   En tactil no hay hover, asi que la carta se enciende sola cuando queda en el
+//   medio de la pantalla: al scrollear se van animando una por una.
+(function(){
+  var servs = [].slice.call(document.querySelectorAll('.serv'));
+  var exps  = [].slice.call(document.querySelectorAll('.exp-card'));
+  if (!servs.length && !exps.length) return;
+
+  var quieto = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (quieto) return;
+  var fino = window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  // Decide el ancho, no el puntero: en pantalla angosta siempre va por scroll, aunque
+  // haya mouse (ventana chica, modo responsive de DevTools, tablet con trackpad).
+  var porScroll = true;
+  function modo(){
+    var antes = porScroll;
+    porScroll = (window.innerWidth < 900) || !fino;
+    if (antes !== porScroll) todas.forEach(bajar);
+    return porScroll;
+  }
+
+  // La perspectiva va en el transform de cada carta, no en la grilla: si esta en la
+  // grilla el punto de fuga es uno solo (su centro) y cada carta se proyecta desde un
+  // angulo distinto — la de arriba a la izquierda se movia mucho y la de abajo a la
+  // derecha casi nada. Con perspective() propia, las cuatro se inclinan igual.
+  var PERSP = 800;   // px de perspectiva, por carta
+  var MAX = 8;       // grados de inclinacion
+  var ALTO = 10;     // px que sube
+
+  function bajar(c){
+    c.classList.remove('viva');
+    c.style.transform = '';
+    c.style.removeProperty('--mx'); c.style.removeProperty('--my');
+  }
+
+  var todas = servs.concat(exps);
+  modo();
+  addEventListener('resize', modo, { passive:true });
+  addEventListener('orientationchange', modo, { passive:true });
+
+  // ---- mouse: la carta sigue al cursor ----
+  if (fino){
+    servs.forEach(function(c){
+      c.addEventListener('pointerenter', function(){ if (porScroll) return; c.classList.add('viva'); });
+      c.addEventListener('pointermove', function(e){
+        if (porScroll) return;
+        var r = c.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+        c.style.setProperty('--mx', (px*100).toFixed(1)+'%');
+        c.style.setProperty('--my', (py*100).toFixed(1)+'%');
+        c.style.transform = 'perspective('+PERSP+'px) translateY(-'+ALTO+'px) rotateX('+((0.5-py)*MAX).toFixed(2)+'deg) rotateY('+((px-0.5)*MAX).toFixed(2)+'deg) scale(1.02)';
+      });
+      c.addEventListener('pointerleave', function(){ if (porScroll) return; bajar(c); });
+    });
+  }
+  // en pantalla ancha con mouse, las de Experiencia se resuelven con :hover en el CSS
+
+  // ---- pantalla angosta: se encienden solas al pasar por el medio ----
+  if (!('IntersectionObserver' in window)) return;
+  var centro = new IntersectionObserver(function(es){
+    if (!porScroll) return;
+    es.forEach(function(e){
+      var c = e.target;
+      if (e.isIntersecting){
+        c.classList.add('viva');
+        if (c.classList.contains('serv')) c.style.transform = 'translateY(-'+ALTO+'px) scale(1.02)';
+      } else {
+        bajar(c);
+      }
+    });
+  }, { rootMargin: '-40% 0px -40% 0px', threshold: 0 });
+  todas.forEach(function(c){ centro.observe(c); });
+})();
+</script>
+<script>
+// Idiomas en fila. El <select> sigue existiendo (oculto) y es la fuente de verdad:
+// si este script no corre, el select vuelve a ser visible por el CSS de respaldo.
+(function(){
+  var caja = document.getElementById('idiomas');
+  var sel  = document.getElementById('idioma');
+  if (!caja || !sel || typeof window.CIFRA_SET_IDIOMA !== 'function') return;
+  var botones = [];
+  ['es','en','pt','it','fr'].forEach(function(l){
+    var b = document.createElement('button');
+    b.type = 'button'; b.textContent = l.toUpperCase();
+    b.setAttribute('data-idioma', l); b.setAttribute('aria-pressed','false');
+    b.addEventListener('click', function(){
+      if (sel) sel.value = l;
+      window.CIFRA_SET_IDIOMA(l);
+      if (typeof gtag === 'function') gtag('event','cambio_idioma',{ idioma:l });
+    });
+    caja.appendChild(b); botones.push(b);
+  });
+  function marcar(){
+    var actual = window.CIFRA_IDIOMA ? window.CIFRA_IDIOMA() : 'es';
+    botones.forEach(function(b){ b.setAttribute('aria-pressed', String(b.getAttribute('data-idioma') === actual)); });
+  }
+  document.addEventListener('cifra:idioma', marcar);
+  marcar();
+})();
+</script>
+<script>
+// Volver arriba: aparece despues de scrollear un poco.
+(function(){
+  var b = document.getElementById('subir');
+  if (!b) return;
+  var suave = !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+  function ver(){ b.classList.toggle('visible', window.pageYOffset > 700); }
+  window.addEventListener('scroll', ver, { passive: true });
+  ver();
+  b.addEventListener('click', function(){
+    window.scrollTo(suave ? { top: 0, behavior: 'smooth' } : 0, 0);
+    if (history.replaceState) history.replaceState(null, '', location.pathname + location.search);
+  });
+})();
+</script>
+<script>
+// Entrada al scrollear. Reglas de seguridad, en este orden:
+//  1. Las clases se agregan desde JS: si el script no corre, la pagina se ve completa.
+//  2. Solo se oculta lo que arranca fuera de pantalla. Lo visible al cargar nunca desaparece.
+//  3. Si el observer no responde (pestana en segundo plano: Chrome lo congela), a los 2s
+//     se muestra todo igual. Nunca puede quedar contenido invisible.
+(function(){
+  function mostrarTodo(){
+    var pendientes = document.querySelectorAll('.reveal:not(.is-in)');
+    for (var i = 0; i < pendientes.length; i++) {
+      pendientes[i].style.transitionDelay = '';
+      pendientes[i].classList.add('is-in');
+    }
+  }
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var sel = '.sec-head, .fase, .serv, .cinta, .exp-card, .calc, .video-texto, .contacto-grid > div, .faq-item';
+  var todos = [].slice.call(document.querySelectorAll(sel));
+  if (!todos.length) return;
+
+  var alto = window.innerHeight || 800;
+  var ocultos = todos.filter(function(el){ return el.getBoundingClientRect().top > alto * 0.9; });
+  if (!ocultos.length) return;
+  ocultos.forEach(function(el){ el.classList.add('reveal'); });
+
+  // El retraso escalonado es SOLO para la entrada. Si queda pegado en el style,
+  // despues se lo come cualquier otra transicion del elemento — el hover de las
+  // tarjetas arrancaba 70, 140 y 210ms tarde y parecia que no respondian.
+  function soltarDelay(el, espera){
+    var listo = function(){
+      el.style.transitionDelay = '';
+      el.removeEventListener('transitionend', listo);
+    };
+    el.addEventListener('transitionend', listo);
+    setTimeout(listo, espera + 900);   // red de seguridad si no llega transitionend
+  }
+
+  var observerVivo = false;
+  var io = new IntersectionObserver(function(entradas){
+    observerVivo = true;
+    entradas.forEach(function(en){
+      if (!en.isIntersecting) return;
+      var hermanos = [].slice.call(en.target.parentNode.children);
+      var espera = Math.min(hermanos.indexOf(en.target), 3) * 70;
+      en.target.style.transitionDelay = espera + 'ms';
+      en.target.classList.add('is-in');
+      io.unobserve(en.target);
+      soltarDelay(en.target, espera);
+    });
+  }, { rootMargin: '0px 0px -6% 0px', threshold: 0.08 });
+  ocultos.forEach(function(el){ io.observe(el); });
+
+  setTimeout(function(){ if (!observerVivo) mostrarTodo(); }, 2000);
+  document.addEventListener('visibilitychange', function(){
+    if (document.visibilityState === 'visible') {
+      setTimeout(function(){ if (!observerVivo) mostrarTodo(); }, 1200);
+    }
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+LOGOS DE LAS PLATAFORMAS
+========================
+Actualizado: 20/9/2026
+
+ESTADO: los 11 montados y andando.
+
+  google-ads.png          simbolo
+  meta-ads.png            lockup, kit oficial de Meta (Positive Primary)
+  tiktok-ads.png          lockup
+  linkedin-ads.png        lockup
+  dv360.png               lockup
+  chatgpt-ads.png         wordmark de OpenAI, kit oficial
+  ga4.png                 lockup
+  looker-studio.png       simbolo
+  google-tag-manager.png  simbolo
+  supermetrics.png        lockup
+  semrush.png             simbolo (ver nota abajo)
+
+NOTA SOBRE SEMRUSH
+  El archivo que mandaste es el cometa en VIOLETA. El color de marca que yo conocia
+  es naranja. Puede ser una variante nueva o un archivo recoloreado por terceros;
+  conviene confirmarlo contra semrush.com/company/press/media-kits/
+  Por ahora el color de acento de esa tarjeta (el resplandor al pasar el mouse) quedo
+  en violeta, para que combine con el logo que hay.
+
+COMO REEMPLAZAR UNO
+  Guardalo en esta carpeta con el mismo nombre de archivo. Sirve .png o .svg (se
+  prueba .png primero, que es lo que hay hoy). Si podes, mandamelo y lo proceso yo:
+  hay que recortarle el fondo y dejarlo como los demas.
+
+COMO SE VEN EN LA PAGINA
+  Cada logo va sobre una placa clara de 48px de alto. El ANCHO lo decide la
+  proporcion de cada logo: los simbolos sueltos quedan en una placa chica y casi
+  cuadrada, los lockups largos en una ancha (hasta 196px). Todas alineadas a la
+  izquierda.
+  La placa existe por dos motivos: empareja formas muy distintas, y le da a cada
+  logo el fondo claro para el que fue disenado — el texto de estos logos es gris o
+  negro y sobre el fondo oscuro del sitio no se leeria. En el tema claro la placa
+  es casi del color de la tarjeta y no se nota.
+  Ningun logo se recorta ni se recolorea, que es lo que piden las guias de marca.
+
+OJO CON LAS RUTAS
+  Las rutas son RELATIVAS (logos/archivo.png), no absolutas (/logos/...). Eso es a
+  proposito: asi la pagina tambien se ve bien abriendo index.html con doble clic,
+  sin servidor. Si alguna vez se cambian a absolutas, al abrir el archivo local no
+  va a cargar ningun logo.
+
+DE DONDE SE BAJAN LOS OFICIALES
+  Meta                    about.meta.com/brand/resources/
+  Google (Ads, GA4,       about.google/brand-resource-center/
+  Looker Studio, GTM,
+  DV360)
+  TikTok                  tiktok.com/business/en/brand-guidelines
+  LinkedIn                brand.linkedin.com
+  OpenAI / ChatGPT        openai.com/brand
+  Semrush                 semrush.com/company/press/media-kits/
+  Supermetrics            supermetrics.com (seccion de prensa)

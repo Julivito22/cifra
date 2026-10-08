@@ -1,0 +1,2127 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MCB5B5JF');</script>
+<!-- End Google Tag Manager -->
+<!-- ============================================================
+     CIFRA · CONFIGURACIÓN DE MEDICIÓN
+     Estos dos valores son lo único que hay que completar.
+     Mientras estén vacíos el sitio funciona igual: no reporta, pero no rompe nada.
+
+     ADS_LABEL -> Google Ads > Objetivos > Conversiones > tu acción de "Envío de formulario"
+                  > Configurar etiqueta > "Instalar la etiqueta manualmente".
+                  Vas a ver algo como  send_to: 'AW-18430783545/AbC-D_1efGhIj'
+                  Pegá acá SOLO lo que va después de la barra.
+
+     GA4_ID    -> Google Analytics > Administrar > Flujos de datos > tu flujo web.
+                  Formato: G-XXXXXXXXXX
+     ============================================================ -->
+<script>
+// Logos de las plataformas. Los archivos oficiales los baja cada uno de la pagina de
+// marca de la plataforma (no se pueden redibujar). Cuando esten en la carpeta que dice
+// RUTA, poner LOGOS en true: la pagina los usa y, si alguno falta, esa tarjeta se queda
+// con el punto de color. Con LOGOS en false no se pide ningun archivo.
+window.CIFRA_PLATAFORMAS = {
+  LOGOS: false,   // los logos ya estan en el HTML (carrusel); esto queda para tarjetas sin logo
+  RUTA:  'logos/',          // relativa a proposito: asi tambien anda abriendo el archivo local
+  EXT:   ['png', 'svg']    // se prueba en este orden. Los archivos de hoy son PNG:
+                           // con png primero no hay ni un pedido fallido por carga.
+};
+
+window.CIFRA_TRACKING = {
+  ADS_ID:    'AW-18430783545',
+  ADS_LABEL: '01woCNCsnO8cELngvdRE',
+  GA4_ID:    'G-KL5ER8QJXX',
+
+  // Conversiones avanzadas: manda el mail del formulario junto con la conversión.
+  // gtag lo normaliza y lo hashea con SHA-256 en el navegador — Google nunca recibe el mail en claro.
+  // Requiere tenerlas activadas en Google Ads (Objetivos > Configuración de conversiones >
+  // Conversiones avanzadas) y declarar el uso en la política de privacidad del sitio.
+  // Poner en false para desactivarlo sin tocar nada más.
+  CONVERSIONES_AVANZADAS: true
+};
+</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=AW-18430783545"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', window.CIFRA_TRACKING.ADS_ID);
+  if (window.CIFRA_TRACKING.GA4_ID) { gtag('config', window.CIFRA_TRACKING.GA4_ID); }
+</script>
+<title>Cifra — Growth marketing que se mide en negocio real</title>
+<meta content="Convertimos inversión publicitaria en llamadas, consultas y ventas. Paid media, analytics y CRO para negocios que quieren crecer con datos." name="description"/>
+<link href="https://cifragrowth.com/" rel="canonical"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<meta content="#FAF8F4" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#17140F" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<!-- preview al compartir (WhatsApp, Instagram, LinkedIn, Slack) -->
+<meta content="website" property="og:type"/>
+<meta content="Cifra" property="og:site_name"/>
+<meta content="es_AR" property="og:locale"/>
+<meta content="https://cifragrowth.com/" property="og:url"/>
+<meta content="Cifra — Marketing que se mide en negocio real" property="og:title"/>
+<meta content="Convertimos inversión publicitaria en llamadas, consultas y ventas. Paid media, analytics y CRO para negocios que quieren crecer con datos." property="og:description"/>
+<meta content="https://cifragrowth.com/og-cifra.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="image/jpeg" property="og:image:type"/>
+<meta content="Cifra — Marketing que se mide en negocio real" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Cifra — Marketing que se mide en negocio real" name="twitter:title"/>
+<meta content="Convertimos inversión publicitaria en llamadas, consultas y ventas. Paid media, analytics y CRO." name="twitter:description"/>
+<meta content="https://cifragrowth.com/og-cifra.jpg" name="twitter:image"/>
+
+<!-- Idiomas. El diccionario vive acá para que window.CIFRA_T exista antes que el resto de los scripts. -->
+<script>
+(function(){
+  var DIC = {"plat.ir.google": {"es": "Google Ads — ver la página", "en": "Google Ads — see the page", "pt": "Google Ads — ver a página", "it": "Google Ads — vedi la pagina", "fr": "Google Ads — voir la page"},"plat.ir.meta": {"es": "Meta Ads — ver la página", "en": "Meta Ads — see the page", "pt": "Meta Ads — ver a página", "it": "Meta Ads — vedi la pagina", "fr": "Meta Ads — voir la page"},"nav.todos": {"es": "Ver todos los servicios", "en": "See all services", "pt": "Ver todos os serviços", "it": "Vedi tutti i servizi", "fr": "Voir tous les services"},"aria.menu": {"es": "Abrir el menú de servicios", "en": "Open the services menu", "pt": "Abrir o menu de serviços", "it": "Apri il menu dei servizi", "fr": "Ouvrir le menu des services"},"lp.ga": {"es": "Cuenta, campañas y medición hasta la venta.", "en": "Account, campaigns and measurement all the way to the sale.", "pt": "Conta, campanhas e medição até a venda.", "it": "Account, campagne e misurazione fino alla vendita.", "fr": "Compte, campagnes et mesure jusqu'à la vente."},"lp.ma": {"es": "Facebook e Instagram, con creatividades y eventos bien medidos.", "en": "Facebook and Instagram, with creatives and events properly measured.", "pt": "Facebook e Instagram, com criativos e eventos bem medidos.", "it": "Facebook e Instagram, con creatività ed eventi misurati bene.", "fr": "Facebook et Instagram, avec des créations et des événements bien mesurés."},"aria.ant": {"es": "Anterior", "en": "Previous", "pt": "Anterior", "it": "Precedente", "fr": "Précédent"}, "aria.sig": {"es": "Siguiente", "en": "Next", "pt": "Próximo", "it": "Successivo", "fr": "Suivant"},"plat.d10": {"es": "Keywords, competencia y visibilidad orgánica.", "en": "Keywords, competitors and organic visibility.", "pt": "Palavras-chave, concorrência e visibilidade orgânica.", "it": "Keyword, concorrenza e visibilità organica.", "fr": "Mots-clés, concurrence et visibilité organique."}, "plat.d11": {"es": "Los datos de cada plataforma, en un solo lugar.", "en": "Every platform's data, in one place.", "pt": "Os dados de cada plataforma, em um só lugar.", "it": "I dati di ogni piattaforma, in un unico posto.", "fr": "Les données de chaque plateforme, au même endroit."},"plat.eyebrow": {"es": "Plataformas", "en": "Platforms", "pt": "Plataformas", "it": "Piattaforme", "fr": "Plateformes"}, "plat.h2": {"es": "Donde se compra tu demanda, y donde se mide.", "en": "Where your demand is bought — and where it's measured.", "pt": "Onde sua demanda se compra, e onde se mede.", "it": "Dove la tua domanda si compra, e dove si misura.", "fr": "Là où votre demande s'achète, et où elle se mesure."}, "plat.p": {"es": "Operamos las cuentas de punta a punta: la campaña, el etiquetado y el tablero donde después se mira el resultado.", "en": "We run the accounts end to end: the campaign, the tagging and the dashboard where the result is read afterwards.", "pt": "Operamos as contas de ponta a ponta: a campanha, a marcação e o painel onde depois se lê o resultado.", "it": "Gestiamo gli account da capo a fondo: la campagna, il tagging e la dashboard dove poi si legge il risultato.", "fr": "Nous opérons les comptes de bout en bout : la campagne, le marquage et le tableau de bord où le résultat se lit ensuite."}, "plat.todas": {"es": "Todas", "en": "All", "pt": "Todas", "it": "Tutte", "fr": "Toutes"}, "plat.ads": {"es": "Publicidad", "en": "Advertising", "pt": "Publicidade", "it": "Advertising", "fr": "Publicité"}, "plat.med": {"es": "Datos y medición", "en": "Data & measurement", "pt": "Dados e medição", "it": "Dati e misurazione", "fr": "Données et mesure"}, "plat.d1": {"es": "Búsqueda, Shopping, YouTube y Display.", "en": "Search, Shopping, YouTube and Display.", "pt": "Pesquisa, Shopping, YouTube e Display.", "it": "Search, Shopping, YouTube e Display.", "fr": "Search, Shopping, YouTube et Display."}, "plat.d2": {"es": "Facebook e Instagram.", "en": "Facebook and Instagram.", "pt": "Facebook e Instagram.", "it": "Facebook e Instagram.", "fr": "Facebook et Instagram."}, "plat.d3": {"es": "Video corto y creadores.", "en": "Short video and creators.", "pt": "Vídeo curto e criadores.", "it": "Video brevi e creator.", "fr": "Vidéo courte et créateurs."}, "plat.d4": {"es": "B2B por cargo, empresa e industria.", "en": "B2B by job title, company and industry.", "pt": "B2B por cargo, empresa e setor.", "it": "B2B per ruolo, azienda e settore.", "fr": "B2B par poste, entreprise et secteur."}, "plat.d5": {"es": "Compra programática y control de inventario.", "en": "Programmatic buying and inventory control.", "pt": "Compra programática e controle de inventário.", "it": "Acquisto programmatico e controllo dell'inventario.", "fr": "Achat programmatique et contrôle de l'inventaire."}, "plat.d6": {"es": "Uno de los canales más nuevos, ya en cuentas reales.", "en": "One of the newest channels, already running on live accounts.", "pt": "Um dos canais mais novos, já em contas reais.", "it": "Uno dei canali più nuovi, già su account reali.", "fr": "L'un des canaux les plus récents, déjà sur des comptes réels."}, "plat.d7": {"es": "El recorrido completo, del anuncio a la venta.", "en": "The full journey, from ad to sale.", "pt": "O percurso completo, do anúncio à venda.", "it": "Il percorso completo, dall'annuncio alla vendita.", "fr": "Le parcours complet, de l'annonce à la vente."}, "plat.d8": {"es": "Tableros para decidir. Antes Data Studio.", "en": "Dashboards to decide with. Formerly Data Studio.", "pt": "Painéis para decidir. Antes Data Studio.", "it": "Dashboard per decidere. Prima Data Studio.", "fr": "Des tableaux de bord pour décider. Anciennement Data Studio."}, "plat.d9": {"es": "Etiquetado ordenado, sin conteos duplicados.", "en": "Clean tagging, no double counting.", "pt": "Marcação organizada, sem contagem duplicada.", "it": "Tagging ordinato, senza doppi conteggi.", "fr": "Un marquage propre, sans double comptage."}, "plat.nota": {"es": "¿Trabajás con otra plataforma? Contanos cuál y vemos.", "en": "Working with another platform? Tell us which one and we'll take a look.", "pt": "Trabalha com outra plataforma? Conte qual e a gente vê.", "it": "Lavori con un'altra piattaforma? Dicci quale e la guardiamo.", "fr": "Vous travaillez avec une autre plateforme ? Dites-nous laquelle et on regarde."}, "aria.filtro": {"es": "Filtrar plataformas", "en": "Filter platforms", "pt": "Filtrar plataformas", "it": "Filtra piattaforme", "fr": "Filtrer les plateformes"},"mail.copiado": {"es": "Copiamos el mail a tu portapapeles", "en": "We copied the address to your clipboard", "pt": "Copiamos o e-mail para a sua área de transferência", "it": "Abbiamo copiato l'indirizzo negli appunti", "fr": "Adresse copiée dans votre presse-papiers"},"cont.eyebrow": {"es": "Pedir una propuesta", "en": "Request a proposal", "pt": "Pedir uma proposta", "it": "Chiedi una proposta", "fr": "Demander une proposition"}, "foot.rights": {"es": "Todos los derechos reservados.", "en": "All rights reserved.", "pt": "Todos os direitos reservados.", "it": "Tutti i diritti riservati.", "fr": "Tous droits réservés."},"nav.serv":{"es":"Servicios","en":"Services","pt":"Serviços","it":"Servizi","fr":"Services"},"nav.exp":{"es":"Experiencia","en":"Experience","pt":"Experiência","it":"Esperienza","fr":"Expérience"},"nav.met":{"es":"Método","en":"Method","pt":"Método","it":"Metodo","fr":"Méthode"},"nav.cta":{"es":"Hablemos","en":"Let's talk","pt":"Vamos conversar","it":"Parliamone","fr":"Parlons-en"},"hero.eyebrow":{"es":"Cifra — growth marketing","en":"Cifra — growth marketing","pt":"Cifra — growth marketing","it":"Cifra — growth marketing","fr":"Cifra — growth marketing"},"hero.h1":{"es":"Marketing que se mide en negocio real<span class=\"dot\">.</span>","en":"Marketing measured in real business<span class=\"dot\">.</span>","pt":"Marketing medido em negócio real<span class=\"dot\">.</span>","it":"Marketing che si misura in business reale<span class=\"dot\">.</span>","fr":"Un marketing qui se mesure en chiffre d'affaires<span class=\"dot\">.</span>"},"hero.p":{"es":"Diseñamos sistemas de adquisición para transformar inversión publicitaria en llamadas, consultas y ventas. Sin métricas decorativas.","en":"We build acquisition systems that turn ad spend into calls, enquiries and sales. No vanity metrics.","pt":"Criamos sistemas de aquisição para transformar investimento em mídia em ligações, contatos e vendas. Sem métricas decorativas.","it":"Progettiamo sistemi di acquisizione per trasformare l'investimento pubblicitario in chiamate, richieste e vendite. Senza metriche decorative.","fr":"Nous concevons des systèmes d'acquisition qui transforment l'investissement publicitaire en appels, demandes et ventes. Sans métriques décoratives."},"hero.cta1":{"es":"Pedir una propuesta ↗","en":"Request a proposal ↗","pt":"Pedir uma proposta ↗","it":"Richiedi una proposta ↗","fr":"Demander une proposition ↗"},"hero.cta2":{"es":"Ver cómo trabajamos ↓","en":"See how we work ↓","pt":"Ver como trabalhamos ↓","it":"Come lavoriamo ↓","fr":"Voir notre méthode ↓"},"hero.p1":{"es":"Decisiones con datos","en":"Decisions from data","pt":"Decisões com dados","it":"Decisioni basate sui dati","fr":"Des décisions fondées sur les données"},"hero.p2":{"es":"Seguimiento comercial","en":"Sales follow-through","pt":"Acompanhamento comercial","it":"Monitoraggio commerciale","fr":"Suivi commercial"},"hero.p3":{"es":"Mejora continua","en":"Continuous improvement","pt":"Melhoria contínua","it":"Miglioramento continuo","fr":"Amélioration continue"},"calc.eyebrow":{"es":"Calculadora","en":"Calculator","pt":"Calculadora","it":"Calcolatrice","fr":"Simulateur"},"calc.p":{"es":"Una estimación simple para ordenar la conversación — no una promesa de rendimiento.","en":"A simple estimate to frame the conversation — not a performance promise.","pt":"Uma estimativa simples para organizar a conversa — não uma promessa de resultado.","it":"Una stima semplice per impostare la conversazione — non una promessa di rendimento.","fr":"Une estimation simple pour cadrer la conversation — pas une promesse de performance."},"calc.ej":{"es":"Punto de partida","en":"Starting point","pt":"Ponto de partida","it":"Punto di partenza","fr":"Point de départ"},"calc.ej1":{"es":"Servicios locales","en":"Local services","pt":"Serviços locais","it":"Servizi locali","fr":"Services locaux"},"calc.ej2":{"es":"E-commerce","en":"E-commerce","pt":"E-commerce","it":"E-commerce","fr":"E-commerce"},"calc.ej3":{"es":"B2B ticket alto","en":"High-ticket B2B","pt":"B2B ticket alto","it":"B2B alto valore","fr":"B2B gros panier"},"calc.emb":{"es":"Del clic al cliente","en":"From click to customer","pt":"Do clique ao cliente","it":"Dal clic al cliente","fr":"Du clic au client"},"calc.inv":{"es":"Inversión","en":"Ad spend","pt":"Investimento","it":"Investimento","fr":"Investissement"},"calc.e1":{"es":"Clics","en":"Clicks","pt":"Cliques","it":"Clic","fr":"Clics"},"calc.e2":{"es":"Leads","en":"Leads","pt":"Leads","it":"Lead","fr":"Leads"},"calc.e3":{"es":"Clientes","en":"Customers","pt":"Clientes","it":"Clienti","fr":"Clients"},"calc.cpl":{"es":"Costo por lead","en":"Cost per lead","pt":"Custo por lead","it":"Costo per lead","fr":"Coût par lead"},"calc.cac":{"es":"Costo por cliente","en":"Cost per customer","pt":"Custo por cliente","it":"Costo per cliente","fr":"Coût par client"},"calc.frase":{"es":"Con {presupuesto} de inversión por mes, a {cpc} el clic, convirtiendo {cvr} de los clics en leads y cerrando {close} de esos leads.","en":"With {presupuesto} of ad spend a month, at {cpc} a click, turning {cvr} of clicks into leads and closing {close} of those leads.","pt":"Com {presupuesto} de investimento por mês, a {cpc} o clique, convertendo {cvr} dos cliques em leads e fechando {close} desses leads.","it":"Con {presupuesto} di investimento al mese, a {cpc} per clic, convertendo il {cvr} dei clic in lead e chiudendo il {close} di quei lead.","fr":"Avec {presupuesto} d'investissement par mois, à {cpc} le clic, en convertissant {cvr} des clics en leads et en concluant {close} de ces leads."},"calc.arrastra":{"es":"Arrastrá los números. O tocalos para escribir.","en":"Drag the numbers. Or tap to type.","pt":"Arraste os números. Ou toque para digitar.","it":"Trascina i numeri. O toccali per scrivere.","fr":"Faites glisser les chiffres. Ou tapez-les."},"calc.porMes":{"es":"por mes","en":"a month","pt":"por mês","it":"al mese","fr":"par mois"},"calc.cadaUno":{"es":"cada uno","en":"each","pt":"cada um","it":"ciascuno","fr":"chacun"},"calc.guia":{"es":"¿No sabés qué poner? Empezá por tu tipo de negocio","en":"Not sure what to enter? Start from your type of business","pt":"Não sabe o que colocar? Comece pelo seu tipo de negócio","it":"Non sai cosa mettere? Parti dal tuo tipo di attività","fr":"Vous ne savez pas quoi mettre ? Partez de votre type d'activité"},"calc.q1":{"es":"¿Cuánto vas a invertir por mes?","en":"How much will you invest per month?","pt":"Quanto você vai investir por mês?","it":"Quanto investirai al mese?","fr":"Combien allez-vous investir par mois ?"},"calc.h1":{"es":"Es lo que le pagás a Google o a Meta. No incluye honorarios de agencia.","en":"This is what you pay Google or Meta. Agency fees not included.","pt":"É o que você paga ao Google ou à Meta. Não inclui honorários de agência.","it":"È quello che paghi a Google o Meta. Non include il compenso dell'agenzia.","fr":"C'est ce que vous payez à Google ou Meta. Hors honoraires d'agence."},"calc.q2":{"es":"¿Cuánto te cuesta cada clic?","en":"How much does each click cost you?","pt":"Quanto custa cada clique?","it":"Quanto ti costa ogni clic?","fr":"Combien vous coûte chaque clic ?"},"calc.h2":{"es":"Lo que pagás cada vez que alguien entra a tu web desde un anuncio. En servicios suele ir de US$ 2 a US$ 8.","en":"What you pay each time someone lands on your site from an ad. For services it's usually US$ 2 to US$ 8.","pt":"O que você paga cada vez que alguém entra no seu site por um anúncio. Em serviços costuma ir de US$ 2 a US$ 8.","it":"Quello che paghi ogni volta che qualcuno entra nel sito da un annuncio. Nei servizi va di solito da 2 a 8 US$.","fr":"Ce que vous payez chaque fois qu'une personne arrive sur votre site depuis une annonce. En services, entre 2 et 8 US$."},"calc.q3":{"es":"De cada 100 personas que entran, ¿cuántas te dejan sus datos?","en":"Out of every 100 visitors, how many leave their details?","pt":"A cada 100 pessoas que entram, quantas deixam os dados?","it":"Su 100 persone che entrano, quante lasciano i dati?","fr":"Sur 100 visiteurs, combien laissent leurs coordonnées ?"},"calc.h3":{"es":"Las que completan el formulario o te escriben. Entre 3 y 10 es lo normal.","en":"Those who fill in the form or message you. Between 3 and 10 is normal.","pt":"As que preenchem o formulário ou te escrevem. Entre 3 e 10 é o normal.","it":"Quelle che compilano il modulo o ti scrivono. Tra 3 e 10 è normale.","fr":"Celles qui remplissent le formulaire ou vous écrivent. Entre 3 et 10, c'est normal."},"calc.q4":{"es":"De cada 100 que te dejan los datos, ¿cuántas te compran?","en":"Out of every 100 who leave their details, how many buy?","pt":"A cada 100 que deixam os dados, quantas compram?","it":"Su 100 che lasciano i dati, quante comprano?","fr":"Sur 100 qui laissent leurs coordonnées, combien achètent ?"},"calc.h4":{"es":"Depende de tu equipo comercial y de tu precio. Si no lo sabés, 20 es un punto medio.","en":"Depends on your sales team and your price. If you don't know, 20 is a fair middle.","pt":"Depende do seu time comercial e do seu preço. Se não sabe, 20 é um meio-termo.","it":"Dipende dal tuo team commerciale e dal prezzo. Se non lo sai, 20 è una via di mezzo.","fr":"Cela dépend de votre équipe commerciale et de votre prix. Si vous ne savez pas, 20 est un juste milieu."},"calc.deCada":{"es":"de cada 100","en":"out of 100","pt":"a cada 100","it":"su 100","fr":"sur 100"},"calc.res":{"es":"Qué pasa con esa inversión","en":"What happens to that spend","pt":"O que acontece com esse investimento","it":"Cosa succede a quell'investimento","fr":"Ce que devient cet investissement"},"calc.s1":{"es":"personas entran a tu web","en":"people land on your site","pt":"pessoas entram no seu site","it":"persone entrano nel tuo sito","fr":"personnes arrivent sur votre site"},"calc.s2":{"es":"te dejan sus datos","en":"leave you their details","pt":"deixam seus dados","it":"ti lasciano i dati","fr":"laissent leurs coordonnées"},"calc.s3":{"es":"terminan comprándote","en":"end up buying","pt":"acabam comprando","it":"finiscono per comprare","fr":"finissent par acheter"},"calc.tot1":{"es":"Cada cliente te sale","en":"Each customer costs you","pt":"Cada cliente custa","it":"Ogni cliente ti costa","fr":"Chaque client vous coûte"},"calc.tot2":{"es":"Cada dato que te dejan te sale","en":"Each lead costs you","pt":"Cada lead custa","it":"Ogni lead ti costa","fr":"Chaque lead vous coûte"},"calc.clientesMes":{"es":"clientes nuevos por mes","en":"new customers a month","pt":"clientes novos por mês","it":"nuovi clienti al mese","fr":"nouveaux clients par mois"},"calc.tit":{"es":"Estimador","en":"Estimator","pt":"Simulador","it":"Stima","fr":"Simulateur"},"calc.sub":{"es":"¿Cuánto negocio puede salir de tu presupuesto?","en":"How much business can your budget generate?","pt":"Quanto negócio pode sair do seu orçamento?","it":"Quanto business può generare il tuo budget?","fr":"Quel chiffre d'affaires votre budget peut-il générer ?"},"calc.f1":{"es":"Presupuesto mensual","en":"Monthly budget","pt":"Orçamento mensal","it":"Budget mensile","fr":"Budget mensuel"},"calc.f2":{"es":"Costo por clic","en":"Cost per click","pt":"Custo por clique","it":"Costo per clic","fr":"Coût par clic"},"calc.f3":{"es":"Conversión a lead","en":"Lead conversion rate","pt":"Conversão em lead","it":"Conversione in lead","fr":"Taux de conversion en lead"},"calc.f4":{"es":"Cierre comercial","en":"Close rate","pt":"Taxa de fechamento","it":"Tasso di chiusura","fr":"Taux de closing"},"calc.hint":{"es":"Arrastrá el control o escribí el número.","en":"Drag the slider or type the number.","pt":"Arraste o controle ou digite o número.","it":"Trascina il cursore o scrivi il numero.","fr":"Faites glisser le curseur ou saisissez le chiffre."},"calc.r1":{"es":"Clics estimados","en":"Estimated clicks","pt":"Cliques estimados","it":"Clic stimati","fr":"Clics estimés"},"calc.r2":{"es":"Leads estimados","en":"Estimated leads","pt":"Leads estimados","it":"Lead stimati","fr":"Leads estimés"},"calc.r3":{"es":"Clientes potenciales","en":"Potential customers","pt":"Clientes potenciais","it":"Clienti potenziali","fr":"Clients potentiels"},"calc.note":{"es":"No es una promesa de rendimiento — es un punto de partida para la primera conversación.","en":"This is not a performance promise — it's a starting point for the first conversation.","pt":"Não é uma promessa de resultado — é um ponto de partida para a primeira conversa.","it":"Non è una promessa di rendimento — è un punto di partenza per la prima conversazione.","fr":"Ce n'est pas une promesse de performance — c'est un point de départ pour la première conversation."},"met.eyebrow":{"es":"Método · 04 fases","en":"Method · 04 phases","pt":"Método · 04 fases","it":"Metodo · 04 fasi","fr":"Méthode · 04 phases"},"met.h2":{"es":"Claridad antes de escalar.","en":"Clarity before scale.","pt":"Clareza antes de escalar.","it":"Chiarezza prima di scalare.","fr":"La clarté avant l'échelle."},"met.p":{"es":"El mismo proceso para cualquier cliente, cualquier plataforma.","en":"The same process for every client, on every platform.","pt":"O mesmo processo para qualquer cliente, qualquer plataforma.","it":"Lo stesso processo per ogni cliente, su ogni piattaforma.","fr":"Le même processus pour chaque client, sur chaque plateforme."},"met.f1t":{"es":"Análisis","en":"Analysis","pt":"Análise","it":"Analisi","fr":"Analyse"},"met.f1d":{"es":"Negocio, oferta, datos, campañas, activos y proceso comercial.","en":"Business, offer, data, campaigns, assets and sales process.","pt":"Negócio, oferta, dados, campanhas, ativos e processo comercial.","it":"Business, offerta, dati, campagne, asset e processo commerciale.","fr":"Activité, offre, données, campagnes, actifs et processus commercial."},"met.f2t":{"es":"Prioridades","en":"Priorities","pt":"Prioridades","it":"Priorità","fr":"Priorités"},"met.f2d":{"es":"Objetivos, métricas reales y plan de acción de mayor impacto.","en":"Goals, real metrics and the highest-impact action plan.","pt":"Objetivos, métricas reais e plano de ação de maior impacto.","it":"Obiettivi, metriche reali e piano d'azione a maggiore impatto.","fr":"Objectifs, métriques réelles et plan d'action à plus fort impact."},"met.f3t":{"es":"Ejecución","en":"Execution","pt":"Execução","it":"Esecuzione","fr":"Exécution"},"met.f3d":{"es":"Campañas, medición y mejoras coordinadas en ciclos cortos.","en":"Campaigns, measurement and improvements coordinated in short cycles.","pt":"Campanhas, medição e melhorias coordenadas em ciclos curtos.","it":"Campagne, misurazione e miglioramenti coordinati in cicli brevi.","fr":"Campagnes, mesure et améliorations coordonnées en cycles courts."},"met.f4t":{"es":"Aprendizaje","en":"Learning","pt":"Aprendizado","it":"Apprendimento","fr":"Apprentissage"},"met.f4d":{"es":"Revisión de calidad, reasignación de presupuesto y escala.","en":"Quality review, budget reallocation and scale.","pt":"Revisão de qualidade, realocação de orçamento e escala.","it":"Revisione della qualità, riallocazione del budget e scala.","fr":"Revue de qualité, réallocation du budget et passage à l'échelle."},"serv.eyebrow":{"es":"Servicios","en":"Services","pt":"Serviços","it":"Servizi","fr":"Services"},"serv.h2":{"es":"Cuatro disciplinas, un mismo número final.","en":"Four disciplines, one final number.","pt":"Quatro disciplinas, um mesmo número final.","it":"Quattro discipline, un solo numero finale.","fr":"Quatre disciplines, un seul chiffre final."},"serv.p":{"es":"Se pueden tomar por separado, pero rinden más cuando trabajan sobre el mismo objetivo.","en":"They can be taken separately, but they perform better working toward the same goal.","pt":"Podem ser contratadas separadamente, mas rendem mais trabalhando sobre o mesmo objetivo.","it":"Si possono prendere separatamente, ma rendono di più quando lavorano sullo stesso obiettivo.","fr":"Elles peuvent être prises séparément, mais donnent plus lorsqu'elles servent le même objectif."},"serv.1p":{"es":"Planificación, ejecución y optimización de campañas orientadas a demanda real. Presupuesto asignado según intención, ubicación y valor comercial.","en":"Planning, execution and optimisation of campaigns aimed at real demand. Budget allocated by intent, location and commercial value.","pt":"Planejamento, execução e otimização de campanhas voltadas à demanda real. Orçamento alocado por intenção, localização e valor comercial.","it":"Pianificazione, esecuzione e ottimizzazione di campagne orientate alla domanda reale. Budget allocato per intento, area e valore commerciale.","fr":"Planification, exécution et optimisation de campagnes orientées vers la demande réelle. Budget alloué selon l'intention, la zone et la valeur commerciale."},"serv.1a":{"es":"Estrategia de campañas","en":"Campaign strategy","pt":"Estratégia de campanhas","it":"Strategia delle campagne","fr":"Stratégie de campagnes"},"serv.1b":{"es":"Optimización semanal","en":"Weekly optimisation","pt":"Otimização semanal","it":"Ottimizzazione settimanale","fr":"Optimisation hebdomadaire"},"serv.1c":{"es":"Control de presupuesto","en":"Budget control","pt":"Controle de orçamento","it":"Controllo del budget","fr":"Contrôle du budget"},"serv.2p":{"es":"Medición del recorrido completo: desde el anuncio hasta la llamada, el lead calificado y la venta. Reportes útiles para decidir, no para archivar.","en":"Full-journey measurement: from the ad to the call, the qualified lead and the sale. Reports built to decide with, not to file away.","pt":"Medição da jornada completa: do anúncio à ligação, ao lead qualificado e à venda. Relatórios para decidir, não para arquivar.","it":"Misurazione dell'intero percorso: dall'annuncio alla chiamata, al lead qualificato e alla vendita. Report utili per decidere, non da archiviare.","fr":"Mesure du parcours complet : de l'annonce à l'appel, au lead qualifié et à la vente. Des rapports faits pour décider, pas pour être archivés."},"serv.2a":{"es":"Arquitectura de medición","en":"Measurement architecture","pt":"Arquitetura de medição","it":"Architettura di misurazione","fr":"Architecture de mesure"},"serv.2b":{"es":"Calidad de leads","en":"Lead quality","pt":"Qualidade dos leads","it":"Qualità dei lead","fr":"Qualité des leads"},"serv.2c":{"es":"Tableros ejecutivos","en":"Executive dashboards","pt":"Dashboards executivos","it":"Dashboard esecutive","fr":"Tableaux de bord de direction"},"serv.3p":{"es":"Auditoría y mejora de sitios y landing pages para que la propuesta se entienda, inspire confianza y convierta tráfico en acción.","en":"Audit and improvement of sites and landing pages so the offer is understood, inspires trust and turns traffic into action.","pt":"Auditoria e melhoria de sites e landing pages para que a proposta se entenda, gere confiança e converta tráfego em ação.","it":"Audit e miglioramento di siti e landing page perché la proposta si capisca, ispiri fiducia e trasformi il traffico in azione.","fr":"Audit et amélioration des sites et landing pages pour que l'offre soit comprise, inspire confiance et transforme le trafic en action."},"serv.3a":{"es":"Auditoría UX","en":"UX audit","pt":"Auditoria de UX","it":"Audit UX","fr":"Audit UX"},"serv.3b":{"es":"Mensajes y estructura","en":"Messaging and structure","pt":"Mensagens e estrutura","it":"Messaggi e struttura","fr":"Messages et structure"},"serv.3c":{"es":"Experimentos de conversión","en":"Conversion experiments","pt":"Experimentos de conversão","it":"Esperimenti di conversione","fr":"Tests de conversion"},"serv.4p":{"es":"Coordinación entre marketing, ventas y dirección para transformar datos dispersos en un proceso de crecimiento gestionable.","en":"Coordination between marketing, sales and management to turn scattered data into a growth process you can actually run.","pt":"Coordenação entre marketing, vendas e direção para transformar dados dispersos em um processo de crescimento gerenciável.","it":"Coordinamento tra marketing, vendite e direzione per trasformare dati dispersi in un processo di crescita gestibile.","fr":"Coordination entre marketing, ventes et direction pour transformer des données éparses en un processus de croissance pilotable."},"serv.4a":{"es":"Flujo de leads","en":"Lead flow","pt":"Fluxo de leads","it":"Flusso dei lead","fr":"Flux de leads"},"serv.4b":{"es":"KPIs compartidos","en":"Shared KPIs","pt":"KPIs compartilhados","it":"KPI condivisi","fr":"KPI partagés"},"serv.4c":{"es":"Roadmap y seguimiento","en":"Roadmap and follow-up","pt":"Roadmap e acompanhamento","it":"Roadmap e monitoraggio","fr":"Feuille de route et suivi"},"exp.eyebrow":{"es":"Experiencia","en":"Experience","pt":"Experiência","it":"Esperienza","fr":"Expérience"},"exp.h2":{"es":"Contextos distintos. La misma disciplina.","en":"Different contexts. The same discipline.","pt":"Contextos diferentes. A mesma disciplina.","it":"Contesti diversi. La stessa disciplina.","fr":"Des contextes différents. La même rigueur."},"exp.p":{"es":"Experiencia aplicada en mercados internacionales, negocios de servicios y educación.","en":"Experience applied across international markets, service businesses and education.","pt":"Experiência aplicada em mercados internacionais, negócios de serviços e educação.","it":"Esperienza applicata in mercati internazionali, aziende di servizi e formazione.","fr":"Une expérience appliquée aux marchés internationaux, aux entreprises de services et à l'éducation."},"exp.1tag":{"es":"Servicios locales · Estados Unidos","en":"Local services · United States","pt":"Serviços locais · Estados Unidos","it":"Servizi locali · Stati Uniti","fr":"Services locaux · États-Unis"},"exp.1h":{"es":"De conversiones de plataforma a llamadas reales.","en":"From platform conversions to real phone calls.","pt":"De conversões de plataforma a ligações reais.","it":"Dalle conversioni di piattaforma alle chiamate reali.","fr":"Des conversions de plateforme aux appels réels."},"exp.1d":{"es":"Modelo para empresas de servicios en Miami, con campañas por intención y zona.","en":"A model for service businesses in Miami, with campaigns by intent and area.","pt":"Modelo para empresas de serviços em Miami, com campanhas por intenção e região.","it":"Modello per aziende di servizi a Miami, con campagne per intento e zona.","fr":"Un modèle pour les entreprises de services à Miami, avec des campagnes par intention et par zone."},"exp.1f":{"es":"Asignar presupuesto según demanda y resultado comercial.","en":"Allocating budget by demand and commercial outcome.","pt":"Alocar orçamento conforme demanda e resultado comercial.","it":"Allocare il budget in base a domanda e risultato commerciale.","fr":"Allouer le budget selon la demande et le résultat commercial."},"exp.2tag":{"es":"Educación · Europa + Latam","en":"Education · Europe + Latam","pt":"Educação · Europa + Latam","it":"Formazione · Europa + Latam","fr":"Éducation · Europe + Amérique latine"},"exp.2h":{"es":"Captación internacional con contexto local.","en":"International lead generation with local context.","pt":"Captação internacional com contexto local.","it":"Acquisizione internazionale con contesto locale.","fr":"Acquisition internationale avec un contexte local."},"exp.2d":{"es":"Estrategia de leads para institución en Dublín, adaptada a mercados latinoamericanos.","en":"Lead strategy for an institution in Dublin, adapted to Latin American markets.","pt":"Estratégia de leads para instituição em Dublin, adaptada a mercados latino-americanos.","it":"Strategia di lead per un'istituzione a Dublino, adattata ai mercati latinoamericani.","fr":"Stratégie de leads pour un établissement à Dublin, adaptée aux marchés latino-américains."},"exp.2f":{"es":"Calidad, seguimiento y mensajes por mercado.","en":"Quality, follow-up and messaging by market.","pt":"Qualidade, acompanhamento e mensagens por mercado.","it":"Qualità, follow-up e messaggi per mercato.","fr":"Qualité, suivi et messages par marché."},"exp.3tag":{"es":"Auditoría y dirección","en":"Audit and direction","pt":"Auditoria e direção","it":"Audit e direzione","fr":"Audit et pilotage"},"exp.3h":{"es":"Menos intuición. Más trazabilidad.","en":"Less intuition. More traceability.","pt":"Menos intuição. Mais rastreabilidade.","it":"Meno intuito. Più tracciabilità.","fr":"Moins d'intuition. Plus de traçabilité."},"exp.3d":{"es":"Análisis, priorización y ejecución con gestión de proyectos.","en":"Analysis, prioritisation and execution with project management.","pt":"Análise, priorização e execução com gestão de projetos.","it":"Analisi, prioritizzazione ed esecuzione con project management.","fr":"Analyse, priorisation et exécution avec gestion de projet."},"exp.3f":{"es":"Datos → Decisión → Acción","en":"Data → Decision → Action","pt":"Dados → Decisão → Ação","it":"Dati → Decisione → Azione","fr":"Données → Décision → Action"},"vid.eyebrow":{"es":"Cifra en 20 segundos","en":"Cifra in 20 seconds","pt":"Cifra em 20 segundos","it":"Cifra in 20 secondi","fr":"Cifra en 20 secondes"},"vid.h2":{"es":"El lead es el medio, no el resultado<span class=\"dot\">.</span>","en":"The lead is the means, not the result<span class=\"dot\">.</span>","pt":"O lead é o meio, não o resultado<span class=\"dot\">.</span>","it":"Il lead è il mezzo, non il risultato<span class=\"dot\">.</span>","fr":"Le lead est le moyen, pas le résultat<span class=\"dot\">.</span>"},"vid.p":{"es":"Medimos el recorrido completo: qué anuncio trajo la llamada y qué llamada terminó en cliente.","en":"We measure the whole journey: which ad brought the call, and which call became a customer.","pt":"Medimos a jornada completa: qual anúncio trouxe a ligação e qual ligação virou cliente.","it":"Misuriamo l'intero percorso: quale annuncio ha portato la chiamata e quale chiamata è diventata cliente.","fr":"Nous mesurons tout le parcours : quelle annonce a généré l'appel, et quel appel est devenu client."},"vid.son":{"es":"Sonido","en":"Sound","pt":"Som","it":"Audio","fr":"Son"},"vid.mute":{"es":"Silenciar","en":"Mute","pt":"Silenciar","it":"Disattiva","fr":"Couper"},"cont.h2":{"es":"Tu inversión debería explicar qué negocio genera.","en":"Your ad spend should explain what business it generates.","pt":"Seu investimento deveria explicar que negócio gera.","it":"Il tuo investimento dovrebbe spiegare quale business genera.","fr":"Votre investissement devrait expliquer le chiffre d'affaires qu'il génère."},"cont.p":{"es":"El primer paso es una charla breve sobre objetivos, canales, medición y proceso comercial. De ahí sale la propuesta.","en":"The first step is a short conversation about goals, channels, measurement and sales process. The proposal comes out of that.","pt":"O primeiro passo é uma conversa breve sobre objetivos, canais, medição e processo comercial. É daí que sai a proposta.","it":"Il primo passo è una breve conversazione su obiettivi, canali, misurazione e processo commerciale. Da lì nasce la proposta.","fr":"La première étape est un échange court sur les objectifs, les canaux, la mesure et le processus commercial. La proposition en découle."},"cont.dir":{"es":"O escribinos directo — ","en":"Or write to us directly — ","pt":"Ou fale com a gente direto — ","it":"Oppure scrivici direttamente — ","fr":"Ou écrivez-nous directement — "},"form.nombre":{"es":"Nombre","en":"Name","pt":"Nome","it":"Nome","fr":"Nom"},"form.empresa":{"es":"Empresa","en":"Company","pt":"Empresa","it":"Azienda","fr":"Entreprise"},"form.email":{"es":"Email","en":"Email","pt":"E-mail","it":"Email","fr":"E-mail"},"form.desafio":{"es":"Principal desafío","en":"Main challenge","pt":"Principal desafio","it":"Sfida principale","fr":"Principal enjeu"},"form.ph1":{"es":"Tu nombre","en":"Your name","pt":"Seu nome","it":"Il tuo nome","fr":"Votre nom"},"form.ph2":{"es":"Nombre de tu empresa","en":"Your company name","pt":"Nome da sua empresa","it":"Nome della tua azienda","fr":"Nom de votre entreprise"},"form.ph3":{"es":"vos@empresa.com","en":"you@company.com","pt":"voce@empresa.com","it":"tu@azienda.com","fr":"vous@entreprise.com"},"form.ph4":{"es":"Contanos qué te trae por acá","en":"Tell us what brings you here","pt":"Conte o que te traz aqui","it":"Raccontaci cosa ti porta qui","fr":"Dites-nous ce qui vous amène"},"form.btn":{"es":"Pedir la propuesta ↗","en":"Request the proposal ↗","pt":"Pedir a proposta ↗","it":"Richiedi la proposta ↗","fr":"Demander la proposition ↗"},"form.enviando":{"es":"Enviando...","en":"Sending...","pt":"Enviando...","it":"Invio in corso...","fr":"Envoi en cours..."},"form.ok":{"es":"¡Listo! Te vamos a contactar a la brevedad.","en":"Done! We'll get back to you shortly.","pt":"Pronto! Entraremos em contato em breve.","it":"Fatto! Ti contatteremo a breve.","fr":"C'est fait ! Nous vous recontactons rapidement."},"form.err":{"es":"Hubo un error al enviar. Probá de nuevo o escribinos a cifra@cifragrowth.com.","en":"Something went wrong. Please try again or write to cifra@cifragrowth.com.","pt":"Houve um erro ao enviar. Tente de novo ou escreva para cifra@cifragrowth.com.","it":"Si è verificato un errore. Riprova o scrivici a cifra@cifragrowth.com.","fr":"Une erreur est survenue. Réessayez ou écrivez-nous à cifra@cifragrowth.com."},"foot.desc":{"es":"Estrategia, adquisición y analítica para construir crecimiento medible.","en":"Strategy, acquisition and analytics to build measurable growth.","pt":"Estratégia, aquisição e analytics para construir crescimento mensurável.","it":"Strategia, acquisizione e analytics per costruire una crescita misurabile.","fr":"Stratégie, acquisition et analytics pour bâtir une croissance mesurable."},"foot.cont":{"es":"Contacto","en":"Contact","pt":"Contato","it":"Contatti","fr":"Contact"},"foot.priv":{"es":"Privacidad","en":"Privacy","pt":"Privacidade","it":"Privacy","fr":"Confidentialité"},"meta.title":{"es":"Cifra — Growth marketing que se mide en negocio real","en":"Cifra — Growth marketing measured in real business","pt":"Cifra — Growth marketing medido em negócio real","it":"Cifra — Growth marketing che si misura in business reale","fr":"Cifra — Le growth marketing qui se mesure en chiffre d'affaires"},"meta.desc":{"es":"Convertimos inversión publicitaria en llamadas, consultas y ventas. Paid media, analytics y CRO para negocios que quieren crecer con datos.","en":"We turn ad spend into calls, enquiries and sales. Paid media, analytics and CRO for businesses that want to grow on data.","pt":"Transformamos investimento em mídia em ligações, contatos e vendas. Paid media, analytics e CRO para negócios que querem crescer com dados.","it":"Trasformiamo l'investimento pubblicitario in chiamate, richieste e vendite. Paid media, analytics e CRO per aziende che vogliono crescere sui dati.","fr":"Nous transformons l'investissement publicitaire en appels, demandes et ventes. Paid media, analytics et CRO pour les entreprises qui veulent croître sur la donnée."},"aria.inicio":{"es":"Cifra — volver al inicio","en":"Cifra — back to top","pt":"Cifra — voltar ao início","it":"Cifra — torna all'inizio","fr":"Cifra — retour en haut"},"aria.play":{"es":"Reproducir el video","en":"Play the video","pt":"Reproduzir o vídeo","it":"Riproduci il video","fr":"Lire la vidéo"},"aria.son":{"es":"Activar sonido","en":"Turn on sound","pt":"Ativar som","it":"Attiva audio","fr":"Activer le son"},"aria.mute":{"es":"Silenciar","en":"Mute","pt":"Silenciar","it":"Disattiva audio","fr":"Couper le son"},"aria.subir":{"es":"Volver arriba","en":"Back to top","pt":"Voltar ao topo","it":"Torna su","fr":"Retour en haut"},"aria.wa":{"es":"Escribinos por WhatsApp","en":"Message us on WhatsApp","pt":"Fale com a gente no WhatsApp","it":"Scrivici su WhatsApp","fr":"Écrivez-nous sur WhatsApp"},"aria.idioma":{"es":"Elegir idioma","en":"Choose language","pt":"Escolher idioma","it":"Scegli la lingua","fr":"Choisir la langue"}};
+  var LOCALES = { es:'es-AR', en:'en-US', pt:'pt-BR', it:'it-IT', fr:'fr-FR' };
+  var idioma = 'es';
+
+  window.CIFRA_T = function(k){ var e = DIC[k]; return e ? (e[idioma] || e.es) : ''; };
+  window.CIFRA_LOCALE = function(){ return LOCALES[idioma] || 'es-AR'; };
+  window.CIFRA_IDIOMA = function(){ return idioma; };
+
+  function cada(sel, fn){ var n = document.querySelectorAll(sel); for (var i=0;i<n.length;i++) fn(n[i]); }
+
+  function aplicar(l){
+    if (!LOCALES[l]) l = 'es';
+    idioma = l;
+    document.documentElement.lang = l;
+    var T = window.CIFRA_T;
+    cada('[data-i18n]',       function(el){ el.textContent = T(el.getAttribute('data-i18n')); });
+    cada('[data-i18n-html]',  function(el){ el.innerHTML   = T(el.getAttribute('data-i18n-html')); });
+    cada('[data-i18n-ph]',    function(el){ el.placeholder = T(el.getAttribute('data-i18n-ph')); });
+    cada('[data-i18n-aria]',  function(el){ el.setAttribute('aria-label', T(el.getAttribute('data-i18n-aria'))); });
+    cada('[data-i18n-first]', function(el){
+      var n = el.firstChild;
+      if (n && n.nodeType === 3) n.nodeValue = T(el.getAttribute('data-i18n-first'));
+    });
+    document.title = T('meta.title');
+    var md = document.querySelector('meta[name="description"]');
+    if (md) md.setAttribute('content', T('meta.desc'));
+    var sel = document.getElementById('idioma');
+    if (sel && sel.value !== l) sel.value = l;
+    try { localStorage.setItem('cifra_idioma', l); } catch(e){}
+    document.dispatchEvent(new CustomEvent('cifra:idioma', { detail: l }));
+  }
+  window.CIFRA_SET_IDIOMA = aplicar;
+
+  function arrancar(){
+    var guardado = null;
+    try { guardado = localStorage.getItem('cifra_idioma'); } catch(e){}
+    // ?lang=en (o es, pt, it, fr) en la URL manda sobre lo guardado: es la URL final de los anuncios por idioma.
+    var m = location.search.match(/[?&]lang=(es|en|pt|it|fr)(?:&|$)/i);
+    var deUrl = m ? m[1].toLowerCase() : null;
+    aplicar(deUrl || guardado || 'es');
+    var sel = document.getElementById('idioma');
+    if (sel) sel.addEventListener('change', function(){
+      aplicar(sel.value);
+      if (typeof gtag === 'function') gtag('event', 'cambio_idioma', { idioma: sel.value });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', arrancar);
+  else arrancar();
+})();
+</script>
+
+<link href="icon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="icon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="apple-touch-icon.png" rel="apple-touch-icon"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Cifra",
+  "alternateName": "Cifra Growth",
+  "url": "https://cifragrowth.com/",
+  "image": "https://cifragrowth.com/og-cifra.jpg",
+  "logo": "https://cifragrowth.com/icon-192.png",
+  "description": "Agencia de growth marketing: paid media, analytics y tracking, CRO y growth operations. Convertimos inversión publicitaria en llamadas, consultas y ventas.",
+  "email": "cifra@cifragrowth.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Buenos Aires", "addressCountry": "AR" },
+  "areaServed": [
+    { "@type": "Country", "name": "Argentina" },
+    { "@type": "Country", "name": "Estados Unidos" },
+    { "@type": "Country", "name": "Irlanda" }
+  ],
+  "sameAs": ["https://www.instagram.com/cifra.growth"],
+  "knowsAbout": ["Google Ads", "Meta Ads", "Google Analytics 4", "CRO", "Growth marketing", "Paid media"]
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..900&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --papel:#FAF8F4; --papel-raised:#FFFFFF; --tinta:#1C1B19; --tinta-soft:#8A8378;
+  --line:#E4DFD5; --rojo:#D93B2B; --rojo-soft:#F3D9D5; --verde:#4A6B5A; --verde-soft:#DCE6DF;
+  /* rojo profundo: fondo de la seccion de contacto. Elegido para que el texto crema
+     llegue a 5.6:1 de contraste — el rojo de marca a pleno se queda en 4.0:1 */
+  --rojo-hondo:#B32A1C; --sobre-rojo:#FBF6F1;
+  /* radios: la pagina era toda esquina viva */
+  --r-xs:6px; --r-sm:10px; --r:16px; --r-lg:24px;
+  --sombra:0 18px 44px rgba(28,27,25,.10); --sombra-alta:0 26px 60px rgba(28,27,25,.16);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --papel:#17140F; --papel-raised:#211D17; --tinta:#F3EFE7; --tinta-soft:#A79E8E;
+    --line:#332D24; --rojo:#F0594A; --rojo-soft:#3A2320; --verde:#7FA98F; --verde-soft:#20302A;
+    --sombra:0 18px 44px rgba(0,0,0,.34); --sombra-alta:0 26px 60px rgba(0,0,0,.46);
+  }
+}
+:root[data-theme="dark"]{
+  --papel:#17140F; --papel-raised:#211D17; --tinta:#F3EFE7; --tinta-soft:#A79E8E;
+  --line:#332D24; --rojo:#F0594A; --rojo-soft:#3A2320; --verde:#7FA98F; --verde-soft:#20302A;
+  --sombra:0 18px 44px rgba(0,0,0,.34); --sombra-alta:0 26px 60px rgba(0,0,0,.46);
+}
+*{box-sizing:border-box}
+/* clip, no hidden: hidden crearia un contenedor de scroll y el nav sticky dejaria de pegarse.
+   Hace falta porque al inclinar las secciones el borde cercano se ensancha unos px. */
+html{overflow-x:clip}
+/* Al inclinar una seccion con perspective+rotateX el borde cercano se proyecta mas
+   ancho que la pantalla. Este contenedor lo recorta. Tiene que ser clip y no hidden,
+   y el <nav> tiene que quedar AFUERA: si queda adentro, este div pasa a ser su
+   contenedor de scroll y la barra deja de pegarse arriba. */
+.lienzo{overflow-x:clip}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--papel);color:var(--tinta);font-family:'Inter',system-ui,sans-serif;line-height:1.55}
+.display{font-family:'Fraunces',Georgia,serif;text-wrap:balance}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+a{color:inherit}
+.inner{max-width:1240px;margin:0 auto;padding:0 40px}
+section{padding:96px 0}
+/* el nav es sticky: sin esto, al saltar con un ancla el titulo queda tapado */
+section,footer{scroll-margin-top:88px}
+@media(max-width:820px){section{padding:64px 0}.inner{padding:0 24px}}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--papel) 88%, transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .inner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:15px;padding-bottom:15px}
+.wm{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(32px,3.2vw,42px);line-height:1;letter-spacing:-.01em;flex:none}
+.wm .dot{color:var(--rojo)}
+.navlinks{display:flex;gap:30px;font-size:14.5px;font-weight:500}
+.navlinks a{text-decoration:none;color:var(--tinta-soft);position:relative;padding-bottom:3px}
+.navlinks a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1.5px;background:var(--rojo);border-radius:2px;transition:right .22s ease}
+.navlinks a:hover{color:var(--tinta)}
+.navlinks a:hover::after{right:0}
+/* idiomas: fila ES EN PT IT FR (el <select> queda oculto y sigue siendo la fuente de verdad) */
+.idiomas{display:flex;align-items:center;gap:2px;border:1px solid var(--line);border-radius:999px;padding:3px}
+.idiomas:empty{display:none;border:0;padding:0}
+.idiomas button{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.06em;color:var(--tinta-soft);
+  background:transparent;border:0;border-radius:999px;padding:5px 9px;cursor:pointer;transition:color .15s ease,background .15s ease}
+.idiomas button:hover{color:var(--tinta)}
+.idiomas button[aria-pressed="true"]{background:var(--rojo);color:#fff;font-weight:600}
+.idiomas button:focus-visible{outline:2px solid var(--rojo);outline-offset:2px}
+/* si el JS armo la fila, el select se esconde; si no corrio, queda visible y usable */
+.idiomas:not(:empty) + .idioma{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.idioma{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--tinta-soft);background:transparent;border:1px solid var(--line);border-radius:999px;padding:7px 9px;cursor:pointer;appearance:none;-webkit-appearance:none;text-align:center}
+.idioma:focus-visible{outline:2px solid var(--rojo);outline-offset:1px}
+.nav-der{display:flex;align-items:center;gap:14px}
+.navcta{font-family:'IBM Plex Mono',monospace;font-size:13px;background:var(--tinta);color:var(--papel);padding:10px 18px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:transform .15s ease,background .15s ease}
+.navcta:hover{transform:translateY(-1px);background:var(--rojo);color:#fff}
+.navitem{position:relative;display:flex;align-items:center}
+.navtrig{font:inherit;font-size:14.5px;font-weight:500;color:var(--tinta-soft);background:none;border:0;padding:0 0 3px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:7px;position:relative}
+.navtrig::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1.5px;background:var(--rojo);border-radius:2px;transition:right .22s ease}
+.navtrig:hover,.navitem:hover .navtrig,.navtrig[aria-expanded="true"]{color:var(--tinta)}
+.navitem:hover .navtrig::after,.navtrig[aria-expanded="true"]::after{right:0}
+.navtrig svg{width:11px;height:11px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform .22s ease}
+.navitem:hover .navtrig svg,.navtrig[aria-expanded="true"] svg{transform:rotate(180deg)}
+.navtrig:focus-visible{outline:2px solid var(--rojo);outline-offset:4px;border-radius:4px}
+/* el panel: se abre al pasar el mouse, al enfocar con teclado o al hacer clic.
+   Sin JS tambien funciona (hover y focus-within son CSS puro). */
+.menu{position:absolute;top:100%;left:-16px;padding-top:16px;z-index:60;
+  opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s ease,transform .2s ease,visibility .2s}
+.navitem:hover .menu,.navitem:focus-within .menu,.menu.abierto{opacity:1;visibility:visible;transform:none}
+.menu__caja{background:var(--papel-raised);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sombra-alta);padding:8px;min-width:310px}
+.menu-item{display:grid;grid-template-columns:10px minmax(0,1fr);gap:14px;align-items:start;padding:11px 12px;border-radius:var(--r-sm);
+  text-decoration:none;position:relative;transition:background .16s ease}
+.menu-item:hover,.menu-item:focus-visible{background:color-mix(in srgb, var(--marca) 10%, transparent);outline:none}
+.menu-item:focus-visible{box-shadow:inset 0 0 0 2px var(--rojo)}
+.menu-punto{width:10px;height:10px;border-radius:50%;background:var(--marca);display:block;margin-top:5px;
+  box-shadow:0 0 0 0 color-mix(in srgb, var(--marca) 30%, transparent);transition:box-shadow .18s ease}
+.menu-item:hover .menu-punto{box-shadow:0 0 0 5px color-mix(in srgb, var(--marca) 22%, transparent)}
+.menu-item b{display:block;font-size:14.5px;font-weight:650;color:var(--tinta);letter-spacing:-.01em}
+.menu-item span{display:block;font-size:12.5px;color:var(--tinta-soft);line-height:1.4;margin-top:2px}
+.menu-todos{display:flex;align-items:center;gap:8px;margin:6px 8px 2px;padding:11px 4px 4px;border-top:1px solid var(--line);
+  font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--rojo);text-decoration:none}
+.menu-todos:hover{gap:12px}
+.menu-todos:focus-visible{outline:2px solid var(--rojo);outline-offset:3px;border-radius:4px}
+@media (prefers-reduced-motion: reduce){.menu,.navtrig svg,.menu-todos,.menu-punto{transition:none}}
+@media(max-width:980px){.navlinks{display:none}}
+@media(max-width:560px){.idiomas button{padding:5px 6px;font-size:11px}}
+/* pantallas angostas: el nav no entraba y empujaba la pagina hacia el costado
+   (56px a 320px; 1px a 390px en frances, que es el idioma de textos mas largos).
+   Se achica en vez de desbordar. */
+@media(max-width:430px){
+  nav .inner{gap:10px;padding-left:16px;padding-right:16px}
+  .wm{font-size:27px}
+  .idiomas{padding:2px}
+  .idiomas button{padding:4px 4px;font-size:10.5px;letter-spacing:.02em}
+  .nav-der{gap:8px;min-width:0}
+  .navcta{padding:0 13px;font-size:12px;white-space:nowrap;min-height:40px;display:inline-flex;align-items:center}
+}
+/* abajo de 360px ya no hay lugar ni achicando: ahi el boton puede partirse en dos
+   lineas (el nav queda un poco mas alto) antes que empujar la pagina de costado. */
+@media(max-width:360px){
+  .navcta{white-space:normal;text-align:center;line-height:1.25;padding:8px 11px}
+  nav .inner{gap:8px;padding-left:14px;padding-right:14px}
+}
+
+/* botones (usados en hero, video y formulario) */
+.btn{font-family:'IBM Plex Mono',monospace;font-size:13.5px;padding:14px 24px;border-radius:999px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border:1px solid transparent;cursor:pointer;transition:background-color .18s ease,border-color .18s ease,transform .15s ease,box-shadow .18s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--rojo);color:#fff}
+.btn-primary:hover{background:#B92E20;box-shadow:0 10px 24px color-mix(in srgb, var(--rojo) 34%, transparent)}
+@media (prefers-reduced-motion: reduce){.btn:hover{transform:none}}
+.btn-ghost{border-color:var(--line);color:var(--tinta)}
+.btn-ghost:hover{border-color:var(--tinta-soft)}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--rojo)}
+
+/* hero */
+.hero{position:relative;min-height:clamp(520px,42vw,680px);display:grid;align-items:center;padding:40px 0}
+.hero__inner{position:relative;z-index:1;width:100%;max-width:1240px;margin:0 auto;padding:0 40px;
+  display:flex;flex-direction:column;gap:clamp(14px,1.6vw,24px);align-items:flex-start}
+.hero__kicker{margin:0;display:flex;align-items:center;gap:11px;font-family:'IBM Plex Mono',monospace;
+  font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-soft)}
+.hero__rule{width:26px;height:1px;background:var(--rojo);flex:none}
+.hero__title{margin:0;max-width:15ch;font-weight:800;font-size:clamp(40px,6vw,86px);
+  line-height:1.01;letter-spacing:-.025em;text-wrap:balance}
+.hero__title .dot{color:var(--rojo)}
+.hero__sub{margin:0;max-width:46ch;font-size:clamp(15px,1.15vw,18px);line-height:1.55;color:var(--tinta-soft)}
+.hero__actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
+.btn-hero-ghost{border:1px solid var(--line);color:var(--tinta)}
+.btn-hero-ghost:hover{border-color:var(--tinta-soft)}
+.hero .btn:focus-visible{outline:2px solid var(--rojo);outline-offset:2px}
+/* grilla en perspectiva: se aleja detras del texto del hero */
+.hero__grilla{position:absolute;inset:auto 0 -8% 0;height:62%;pointer-events:none;z-index:0;
+  background-image:linear-gradient(color-mix(in srgb, var(--tinta) 14%, transparent) 1px, transparent 1px),
+                   linear-gradient(90deg, color-mix(in srgb, var(--tinta) 14%, transparent) 1px, transparent 1px);
+  background-size:72px 72px;
+  transform:perspective(620px) rotateX(64deg);transform-origin:bottom center;
+  -webkit-mask-image:linear-gradient(to top, #000 4%, transparent 78%);
+  mask-image:linear-gradient(to top, #000 4%, transparent 78%);opacity:.75}
+@media(max-width:820px){.hero__grilla{background-size:48px 48px;height:52%;transform:perspective(420px) rotateX(66deg)}}
+
+/* tira de valores: marquee continuo */
+.marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:15px 0;background:color-mix(in srgb, var(--papel-raised) 72%, transparent);position:relative;z-index:1}
+.marquee__pista{display:flex;width:max-content;
+  font-family:'IBM Plex Mono',monospace;font-size:12.5px;font-weight:500;letter-spacing:.14em;
+  text-transform:uppercase;white-space:nowrap;color:var(--tinta-soft)}
+/* Todos los grupos son identicos y el espacio va adentro de cada uno, asi se encadenan
+   sin junta. El ciclo de la animacion es el ancho de UN grupo (--ciclo), no la mitad de
+   la pista: con -50% hacia falta que un grupo tapara la pantalla entera, y en monitores
+   anchos no llegaba — la cinta se vaciaba y reiniciaba desde el medio. El JS clona los
+   grupos que hagan falta segun el ancho de pantalla. */
+.marquee__grupo{display:flex;align-items:center;gap:44px;padding-right:44px}
+.marquee .rombo{color:var(--rojo)}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(calc(var(--ciclo,0px) * -1))}}
+.marquee__pista.girando{animation:marquee var(--dur,24s) linear infinite}
+.marquee:hover .marquee__pista{animation-play-state:paused}
+@media (prefers-reduced-motion: reduce){.marquee__pista.girando{animation:none}}
+
+@media(max-width:720px){
+  .hero__inner{padding:0 24px}
+  .hero__title{max-width:none}
+  .hero__actions{flex-direction:column;align-self:stretch}
+  .hero .btn{justify-content:space-between;padding:16px 20px}
+}
+
+/* fondo de puntos: fijo detras de toda la pagina */
+#fondo{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0;transition:opacity 1.4s ease}
+#fondo.viva{opacity:1}
+/* OJO: aca el nav no va. Tenia position:relative y le pisaba el sticky de mas arriba,
+   por eso la barra se iba con el scroll. */
+section,footer{position:relative;z-index:1}
+section{background:transparent}
+.metodo,.experiencia,.video,.contacto{background:color-mix(in srgb, var(--papel-raised) 60%, transparent)}
+.fase,.serv{background:color-mix(in srgb, var(--papel-raised) 90%, transparent)}
+.exp-card,.hero-calc,.calc-inputs{background:color-mix(in srgb, var(--papel-raised) 88%, transparent)}
+.calc-results{background:color-mix(in srgb, var(--papel) 82%, transparent)}
+nav{background:color-mix(in srgb, var(--papel) 82%, transparent)}
+footer{background:color-mix(in srgb, var(--papel) 70%, transparent)}
+
+/* entrada al scrollear */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .55s cubic-bezier(.22,.61,.36,1),transform .55s cubic-bezier(.22,.61,.36,1)}
+.reveal.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  .reveal,.reveal.is-in{opacity:1;transform:none;transition:none}
+  .hero-bg .linea{animation:none;stroke-dashoffset:0}
+  .hero-bg .punto{animation:none;opacity:.55}
+  html{scroll-behavior:auto}
+}
+
+/* section heads */
+.sec-head{margin-bottom:48px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);column-gap:56px;align-items:end}
+.sec-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--rojo);margin-bottom:12px;grid-column:1;grid-row:1}
+.sec-head h2{font-weight:800;font-size:clamp(28px,3.6vw,40px);line-height:1.1;margin:0;grid-column:1;grid-row:2;max-width:20ch}
+.sec-head p{color:var(--tinta-soft);font-size:16px;margin:0 0 7px;grid-column:2;grid-row:2;max-width:46ch;padding-left:24px;border-left:1px solid var(--line)}
+@media(max-width:900px){
+  .sec-head{display:block;max-width:60ch}
+  .sec-head h2{margin-bottom:12px;max-width:none}
+  .sec-head p{padding-left:0;border-left:0;margin:0}
+}
+
+/* metodo */
+.metodo{background:var(--papel-raised);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fase-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+@media(max-width:900px){.fase-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media(max-width:520px){.fase-grid{grid-template-columns:minmax(0,1fr)}}
+.fase{background:color-mix(in srgb, var(--papel-raised) 88%, transparent);border:1px solid var(--line);border-radius:var(--r);padding:28px 24px;
+  transition:transform .3s cubic-bezier(.22,.61,.36,1),border-color .3s ease,box-shadow .3s ease}
+.fase:hover{transform:translateY(-4px);border-color:color-mix(in srgb, var(--rojo) 45%, var(--line));box-shadow:var(--sombra)}
+.fase .n{font-family:'IBM Plex Mono',monospace;color:var(--rojo);font-size:26px;font-weight:600;letter-spacing:-.02em;margin-bottom:14px;line-height:1}
+.fase h3{font-weight:700;font-size:17px;margin:0 0 8px}
+.fase p{font-size:14px;color:var(--tinta-soft);margin:0}
+
+/* servicios — la carta se levanta e inclina hacia donde esta el mouse */
+.serv-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+@media(max-width:720px){.serv-grid{grid-template-columns:minmax(0,1fr)}}
+
+.serv{background:color-mix(in srgb, var(--papel-raised) 88%, transparent);border:1px solid var(--line);border-radius:var(--r);padding:32px;position:relative;
+  transition:transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .35s ease,border-color .35s ease}
+.serv::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%), color-mix(in srgb, var(--rojo) 12%, transparent), transparent 62%);
+  transition:opacity .35s ease}
+.serv.viva{box-shadow:var(--sombra-alta);border-color:color-mix(in srgb, var(--rojo) 42%, var(--line));z-index:2}
+.serv.viva::before{opacity:1}
+.serv h3{font-weight:700;font-size:19px;margin:0 0 10px;position:relative}
+.serv p{font-size:15px;color:var(--tinta-soft);margin:0 0 18px;position:relative}
+.serv ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;position:relative}
+.serv li{font-size:13.5px;font-family:'IBM Plex Mono',monospace;color:var(--tinta-soft);padding-left:16px;position:relative}
+.serv li::before{content:"—";position:absolute;left:0;color:var(--rojo)}
+@media (prefers-reduced-motion: reduce){.fase,.serv{transition:none}.fase:hover{transform:none}}
+
+/* plataformas */
+.plat-filtros{display:flex;flex-wrap:wrap;gap:9px;margin:-18px 0 28px}
+.plat-filtros button{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;
+  color:var(--tinta-soft);background:transparent;border:1px solid var(--line);border-radius:999px;
+  padding:9px 17px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;
+  transition:color .18s ease,border-color .18s ease,background .18s ease}
+.plat-filtros button:hover{color:var(--tinta);border-color:var(--tinta-soft)}
+.plat-filtros button .n{font-size:11px;opacity:.6;font-variant-numeric:tabular-nums}
+.plat-filtros button[aria-pressed="true"]{background:var(--rojo);border-color:var(--rojo);color:#fff}
+.plat-filtros button[aria-pressed="true"] .n{opacity:.85}
+.plat-filtros button:focus-visible{outline:2px solid var(--rojo);outline-offset:2px}
+
+.plat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media(max-width:980px){.plat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.plat-grid{grid-template-columns:minmax(0,1fr)}}
+.plat{position:relative;overflow:hidden;background:color-mix(in srgb, var(--papel-raised) 88%, transparent);
+  border:1px solid var(--line);border-radius:var(--r);padding:24px 22px 22px;
+  display:flex;flex-direction:column;gap:9px;min-height:152px;
+  transition:transform .3s cubic-bezier(.22,.61,.36,1),border-color .3s ease,box-shadow .3s ease}
+.plat.fuera{display:none}
+/* resplandor con el color de cada plataforma */
+.plat::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;
+  background:radial-gradient(300px circle at 18% 0%, color-mix(in srgb, var(--marca) 20%, transparent), transparent 70%);
+  transition:opacity .3s ease}
+/* barra inferior que se llena */
+.plat::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--marca);
+  transition:width .45s cubic-bezier(.22,.61,.36,1)}
+.plat:hover,.plat.viva{transform:translateY(-6px);border-color:color-mix(in srgb, var(--marca) 55%, var(--line));box-shadow:var(--sombra)}
+.plat:hover::before,.plat.viva::before{opacity:1}
+.plat:hover::after,.plat.viva::after{width:100%}
+
+.plat-punto{position:relative;width:13px;height:13px;border-radius:50%;background:var(--marca);flex:none;
+  transition:box-shadow .3s ease}
+/* El logo oficial reemplaza al punto. Va sin ningun recuadro: cada archivo tiene el
+   fondo recortado. Para el tema oscuro hay un segundo archivo (-oscuro) con el texto
+   en claro y el simbolo a color, que es la variante que las propias marcas publican
+   para fondo oscuro — Meta y OpenAI la traen hecha en sus kits. El cambio lo hace
+   <picture> con media query, sin JavaScript.
+   align-self:flex-start es necesario porque la tarjeta es un flex en columna y por
+   defecto los hijos se estiran a todo el ancho. */
+.plat-marca{display:block;flex:none;align-self:flex-start;max-width:100%}
+.plat-logo{display:block;width:auto;max-width:100%;height:26px;object-fit:contain;object-position:left center}
+.plat.con-logo .plat-punto{display:none}
+.plat.con-logo{min-height:0}
+/* si a una plataforma le falta el logo, el punto ocupa el mismo alto que el logo,
+   asi el titulo y la descripcion siguen alineados con las demas tarjetas */
+.plat:not(.con-logo) .plat-punto{margin:12px 0 13px}
+@media(max-width:560px){.plat-logo{height:24px}}
+.plat:hover .plat-punto,.plat.viva .plat-punto{box-shadow:0 0 0 6px color-mix(in srgb, var(--marca) 22%, transparent)}
+/* las tarjetas de Google Ads y Meta Ads llevan a su landing */
+a.plat-link{text-decoration:none;color:inherit;cursor:pointer}
+.plat-ir{position:absolute;top:18px;right:18px;font-size:15px;line-height:1;color:var(--marca);
+  opacity:0;transform:translate(-3px,3px);transition:opacity .25s ease,transform .25s ease}
+.plat-link:hover .plat-ir,.plat-link.viva .plat-ir,.plat-link:focus-visible .plat-ir{opacity:1;transform:none}
+.plat-link:focus-visible{outline:2px solid var(--rojo);outline-offset:3px}
+@media (prefers-reduced-motion: reduce){.plat-ir{transition:none}}
+.plat h3{position:relative;font-weight:700;font-size:17.5px;margin:0;letter-spacing:-.01em}
+.plat p{position:relative;font-size:13.5px;color:var(--tinta-soft);margin:0;line-height:1.5}
+.plat .cat{position:relative;margin-top:auto;font-family:'IBM Plex Mono',monospace;font-size:10.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-soft);opacity:.7}
+.plat-nota{margin:26px 0 0;font-size:13.5px;color:var(--tinta-soft)}
+.plat-nota a{color:var(--tinta);text-decoration:none;border-bottom:1px solid var(--line);margin-left:7px;white-space:nowrap}
+.plat-nota a:hover{color:var(--rojo);border-bottom-color:var(--rojo)}
+@keyframes platEntra{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.plat.entrando{animation:platEntra .34s cubic-bezier(.22,.61,.36,1) both}
+@media (prefers-reduced-motion: reduce){
+  .plat,.plat::before,.plat::after,.plat-punto{transition:none}
+  .plat:hover,.plat.viva{transform:none}
+  .plat.entrando{animation:none}
+}
+
+
+/* ---- plataformas: tarjetas en carrusel ----
+   Dos filas, una por categoria, en sentidos opuestos. Las filas reemplazan al filtro.
+   El padding vertical deja lugar para que la tarjeta se levante al pasar el mouse sin
+   que el overflow:hidden le corte la sombra. */
+.cinta{position:relative;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.cinta-plat{padding:14px 0 26px}
+.cinta-pista{display:flex;width:max-content;will-change:transform}
+/* se puede arrastrar con el dedo o el mouse; el scroll vertical de la pagina sigue andando */
+.cinta{touch-action:pan-y;cursor:grab}
+.cinta.arrastrando{cursor:grabbing}
+.cinta.arrastrando .plat{pointer-events:none}
+.cinta-caja{position:relative}
+.cinta-caja + .cinta-caja{margin-top:-8px}
+/* flechas: van afuera de la mascara de fundido, si no se desvaneceran con el borde */
+.cinta-fl{position:absolute;top:calc(50% - 6px);transform:translateY(-50%);z-index:3;
+  width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:color-mix(in srgb, var(--papel-raised) 92%, transparent);color:var(--tinta);
+  border:1px solid var(--line);box-shadow:var(--sombra);cursor:pointer;padding:0;
+  transition:background .18s ease,color .18s ease,border-color .18s ease,transform .18s ease}
+.cinta-fl svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.cinta-fl--ant{left:-8px}
+.cinta-fl--sig{right:-8px}
+.cinta-fl:hover{background:var(--rojo);border-color:var(--rojo);color:#fff;transform:translateY(-50%) scale(1.06)}
+.cinta-fl:active{transform:translateY(-50%) scale(.96)}
+.cinta-fl:focus-visible{outline:2px solid var(--rojo);outline-offset:3px}
+@media(max-width:720px){.cinta-fl{width:36px;height:36px}.cinta-fl--ant{left:-4px}.cinta-fl--sig{right:-4px}}
+.cinta-grupo{display:flex;align-items:stretch;gap:14px;padding-right:14px}
+.cinta-plat .plat{flex:none;width:292px;min-height:0}
+@media(max-width:720px){.cinta-plat .plat{width:252px;padding:20px 18px 18px}}
+@media (prefers-reduced-motion: reduce){.cinta-fl,.cinta-fl:hover{transition:none}}
+
+/* experiencia */
+.experiencia{background:var(--papel-raised);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.exp-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;counter-reset:caso}
+@media(max-width:900px){.exp-grid{grid-template-columns:minmax(0,1fr)}}
+.exp-card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:30px 26px 26px;display:flex;flex-direction:column;gap:11px;counter-increment:caso;
+  transition:transform .32s cubic-bezier(.22,.61,.36,1),border-color .32s ease,box-shadow .32s ease}
+/* numeral gigante de fondo: le da peso a la seccion sin agregar texto */
+.exp-card::before{content:counter(caso,decimal-leading-zero);position:absolute;right:12px;top:-26px;
+  font-family:'Fraunces',serif;font-weight:700;font-size:104px;line-height:1;pointer-events:none;
+  color:color-mix(in srgb, var(--rojo) 12%, transparent);transition:color .32s ease,transform .32s ease}
+/* filete rojo superior que se completa al pasar por arriba */
+.exp-card::after{content:"";position:absolute;left:0;top:0;height:3px;width:34px;background:var(--rojo);
+  border-radius:0 3px 3px 0;transition:width .42s cubic-bezier(.22,.61,.36,1)}
+.exp-card:hover,.exp-card.viva{transform:translateY(-6px);border-color:color-mix(in srgb, var(--rojo) 40%, var(--line));box-shadow:var(--sombra)}
+.exp-card:hover::after,.exp-card.viva::after{width:100%}
+.exp-card:hover::before,.exp-card.viva::before{color:color-mix(in srgb, var(--rojo) 22%, transparent);transform:translateY(4px)}
+.exp-tag{position:relative;align-self:flex-start;font-family:'IBM Plex Mono',monospace;font-size:10.5px;
+  text-transform:uppercase;letter-spacing:.08em;color:var(--rojo);border:1px solid color-mix(in srgb, var(--rojo) 35%, transparent);
+  border-radius:999px;padding:5px 11px;background:color-mix(in srgb, var(--rojo-soft) 60%, transparent)}
+.exp-card h3{position:relative;font-family:'Fraunces',serif;font-weight:600;font-size:20px;margin:0;line-height:1.25}
+.exp-card .detail{position:relative;font-size:14px;color:var(--tinta-soft)}
+.exp-card .foco{position:relative;font-size:13px;font-style:italic;color:var(--tinta);border-top:1px dashed var(--line);padding-top:12px;margin-top:auto}
+.exp-card .formula{position:relative;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--verde);border-top:1px dashed var(--line);padding-top:12px;margin-top:auto}
+@media (prefers-reduced-motion: reduce){.exp-card,.exp-card::after,.exp-card::before{transition:none}.exp-card:hover,.exp-card.viva{transform:none}}
+
+/* calculadora */
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sombra)}
+@media(max-width:900px){.calc{grid-template-columns:1fr}}
+.calc-preguntas{padding:38px 40px;border-right:1px solid var(--line);background:color-mix(in srgb, var(--papel-raised) 90%, transparent)}
+@media(max-width:900px){.calc-preguntas{border-right:none;border-bottom:1px solid var(--line)}}
+@media(max-width:520px){.calc-preguntas,.calc-res{padding:24px}}
+
+.calc-ejemplos{margin-bottom:30px;padding-bottom:28px;border-bottom:1px solid var(--line)}
+.calc-ejlab{display:block;font-size:13.5px;color:var(--tinta-soft);margin-bottom:12px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--tinta-soft);background:transparent;
+  border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer;transition:all .15s ease}
+.chip:hover{border-color:var(--rojo);color:var(--rojo)}
+.chip.activo{background:var(--rojo);border-color:var(--rojo);color:#fff}
+.chip:focus-visible{outline:2px solid var(--rojo);outline-offset:2px}
+
+.q{padding:26px 0;border-top:1px solid var(--line)}
+.calc-ejemplos + .q{border-top:none;padding-top:2px}
+.q:last-child{padding-bottom:4px}
+.q-n{display:none}
+.q-tit{display:block;font-size:15px;font-weight:400;color:var(--tinta-soft);margin-bottom:16px;line-height:1.45;max-width:34ch}
+.q-val{display:flex;align-items:baseline;gap:9px;margin-bottom:18px}
+.q-val .uni{font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.06em;color:var(--tinta-soft)}
+.q-val input{width:auto;min-width:2ch;max-width:7ch;field-sizing:content;border:none;background:transparent;color:var(--tinta);
+  font-family:'IBM Plex Mono',monospace;font-size:clamp(30px,3.2vw,38px);font-weight:600;letter-spacing:-.02em;
+  padding:0;text-align:left;line-height:1.05;border-bottom:2px solid transparent;transition:border-color .18s ease,color .18s ease}
+.q-val input:hover{border-bottom-color:color-mix(in srgb, var(--rojo) 35%, transparent)}
+.q-val input:focus{outline:none;color:var(--rojo);border-bottom-color:var(--rojo)}
+@supports not (field-sizing: content){ .q-val input{width:4.5ch} }
+
+.q input[type=range]{width:100%;height:3px;-webkit-appearance:none;appearance:none;background:var(--line);border-radius:99px;outline:none;cursor:pointer;display:block}
+.q input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;
+  background:var(--rojo);border:none;box-shadow:0 0 0 4px color-mix(in srgb, var(--papel-raised) 85%, transparent),0 2px 6px rgba(0,0,0,.14);cursor:grab;margin-top:0}
+.q input[type=range]::-webkit-slider-thumb:active{cursor:grabbing;transform:scale(1.12)}
+.q input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--rojo);border:none;
+  box-shadow:0 0 0 4px color-mix(in srgb, var(--papel-raised) 85%, transparent);cursor:grab}
+.q input[type=range]:focus-visible{outline:2px solid var(--rojo);outline-offset:6px}
+.q-ayuda{font-size:12.5px;line-height:1.55;color:var(--tinta-soft);margin:14px 0 0;max-width:42ch;opacity:.85}
+
+.calc-res{padding:34px;background:color-mix(in srgb, var(--papel) 80%, transparent);display:flex;flex-direction:column}
+.res-tit{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--rojo);margin-bottom:24px}
+.res-lista{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:22px}
+.res-lista li{display:grid;grid-template-columns:auto 1fr;column-gap:12px;row-gap:8px;align-items:baseline}
+.res-num{font-size:30px;font-weight:600;color:var(--tinta);line-height:1}
+.res-lista li.fin .res-num{color:var(--rojo);font-size:36px}
+.res-txt{font-size:14.5px;color:var(--tinta-soft)}
+.res-bar{grid-column:1 / -1;display:block;height:3px;background:color-mix(in srgb, var(--line) 75%, transparent);border-radius:99px;overflow:hidden}
+.res-bar i{display:block;height:100%;width:0;background:color-mix(in srgb, var(--rojo) 45%, var(--tinta-soft));transition:width .55s cubic-bezier(.22,.61,.36,1)}
+.res-lista li:nth-child(2) .res-bar i{background:color-mix(in srgb, var(--rojo) 72%, var(--tinta-soft))}
+.res-lista li.fin .res-bar i{background:var(--rojo)}
+
+.res-total{margin-top:34px;padding-top:26px;border-top:1px solid var(--line)}
+.rt-grande{display:flex;align-items:baseline;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+.rt-num{font-size:clamp(40px,4.4vw,56px);font-weight:600;color:var(--rojo);line-height:1;letter-spacing:-.02em}
+.rt-grande .rt-lab{font-size:15px;color:var(--tinta);max-width:17ch;line-height:1.35}
+.rt-fila{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:11px 0;border-bottom:1px dashed var(--line)}
+.rt-fila:last-child{border-bottom:none}
+.rt-fila .rt-lab{font-size:14px;color:var(--tinta-soft)}
+.rt-val{font-size:21px;font-weight:600;color:var(--tinta)}
+.calc-note{font-size:12px;color:var(--tinta-soft);margin:auto 0 0;padding-top:26px}
+
+/* video de marca */
+.video{background:var(--papel-raised);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.video-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:56px;align-items:center}
+@media(max-width:900px){.video-grid{grid-template-columns:1fr;gap:36px}}
+.video-marco{position:relative;background:var(--papel);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;aspect-ratio:720/406;box-shadow:var(--sombra)}
+.video-marco video{width:100%;height:100%;display:block;object-fit:cover}
+.video-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:66px;height:66px;border-radius:50%;border:1px solid rgba(255,255,255,.5);background:rgba(0,0,0,.55);color:#fff;cursor:pointer;display:none;align-items:center;justify-content:center;padding:0;transition:background .15s ease,transform .15s ease}
+.video-play.visible{display:flex}
+.video-play:hover{background:var(--rojo);border-color:var(--rojo);transform:translate(-50%,-50%) scale(1.05)}
+.video-play:focus-visible{outline:2px solid var(--rojo);outline-offset:3px}
+.video-play svg{width:22px;height:22px;fill:currentColor;margin-left:3px}
+.subir{position:fixed;right:22px;bottom:78px;z-index:59;width:42px;height:42px;align-items:center;justify-content:center;background:var(--papel-raised);color:var(--tinta);border:1px solid var(--line);border-radius:50%;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:15px;line-height:1;box-shadow:var(--sombra);display:none;padding:0;transition:transform .15s ease,border-color .15s ease,color .15s ease}
+.subir.visible{display:flex}
+.subir:hover{border-color:var(--rojo);color:var(--rojo)}
+.subir:focus-visible{outline:2px solid var(--rojo);outline-offset:2px}
+.subir:hover{transform:translateY(-2px)}
+@media(max-width:720px){.subir{right:14px;bottom:74px;width:44px;height:44px}}
+.video-son{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.55);color:#fff;border:1px solid rgba(255,255,255,.35);font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding:7px 13px;border-radius:999px;cursor:pointer;transition:background .15s ease}
+.video-son:hover{background:rgba(0,0,0,.8)}
+.video-son:focus-visible{outline:2px solid var(--rojo);outline-offset:2px}
+.eyebrow-vivo{display:inline-flex;align-items:center;gap:9px}
+.punto-vivo{width:8px;height:8px;border-radius:50%;background:var(--rojo);flex:none;animation:latido 1.9s ease-in-out infinite}
+@keyframes latido{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.5}}
+@media (prefers-reduced-motion: reduce){.punto-vivo{animation:none}}
+.video-texto h2{font-weight:800;font-size:clamp(28px,3.6vw,40px);line-height:1.1;margin:0 0 14px}
+.video-texto h2 .dot{color:var(--rojo)}
+.video-texto p{color:var(--tinta-soft);font-size:16.5px;margin:0 0 26px;max-width:44ch}
+
+/* contacto: banda roja a todo el ancho, con la tarjeta del formulario flotando encima.
+   El rojo es mas profundo que el de marca para que el texto crema pase 4.5:1 de contraste. */
+.contacto{position:relative;overflow:hidden;background:var(--rojo-hondo);color:var(--sobre-rojo);border-top:0}
+.contacto .inner{position:relative;z-index:1}
+.contacto-deco{position:absolute;inset:0;pointer-events:none;z-index:0}
+.contacto-deco i{position:absolute;display:block;border-radius:50%}
+.contacto-deco i:nth-child(1){top:32px;right:60px;width:150px;height:150px;border:2px solid rgba(255,255,255,.18);animation:flotaB 9s ease-in-out infinite}
+.contacto-deco i:nth-child(2){top:96px;right:132px;width:16px;height:16px;background:rgba(0,0,0,.18);animation:flotaA 5.5s ease-in-out infinite}
+.contacto-deco i:nth-child(3){bottom:-56px;left:48px;width:210px;height:210px;border:2px solid rgba(255,255,255,.13);animation:flotaA 11s ease-in-out infinite}
+.contacto-deco i:nth-child(4){bottom:56px;left:9%;width:11px;height:11px;background:rgba(0,0,0,.22);animation:flotaB 4.8s ease-in-out infinite}
+@keyframes flotaA{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+@keyframes flotaB{0%,100%{transform:translateY(0)}50%{transform:translateY(13px)}}
+@media (prefers-reduced-motion: reduce){.contacto-deco i{animation:none}}
+@media(max-width:820px){
+  .contacto-deco i:nth-child(1){top:18px;right:-40px;width:104px;height:104px}
+  .contacto-deco i:nth-child(2){top:64px;right:36px;width:11px;height:11px}
+  .contacto-deco i:nth-child(3){bottom:-70px;left:-50px;width:150px;height:150px}
+  .contacto-deco i:nth-child(4){bottom:30px;left:14px;width:9px;height:9px}
+}
+
+.contacto-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+@media(max-width:820px){.contacto-grid{grid-template-columns:minmax(0,1fr);gap:36px}}
+.contacto h2{font-weight:800;font-size:clamp(30px,4vw,44px);line-height:1.1;margin:0 0 18px;color:var(--sobre-rojo);max-width:19ch}
+.contacto p{color:color-mix(in srgb, var(--sobre-rojo) 88%, transparent);font-size:16px;max-width:44ch}
+
+/* tarjeta oscura del formulario */
+/* la tarjeta redefine los tokens para sus hijos: asi el formulario se ve igual
+   con el sitio en claro o en oscuro, sin reescribir cada regla */
+.contacto-card{background:#17140F;color:#F3EFE7;border-radius:var(--r-lg);padding:32px;box-shadow:0 30px 60px rgba(0,0,0,.34);
+  --papel:#241F18; --papel-raised:#241F18; --tinta:#F3EFE7; --tinta-soft:rgba(243,239,231,.68);
+  --line:rgba(243,239,231,.22); --rojo:#F0594A; --verde:#7FA98F}
+@media(max-width:520px){.contacto-card{padding:24px}}
+form{display:flex;flex-direction:column;gap:16px}
+form label{font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--tinta-soft);margin-bottom:6px;display:block}
+form input,form textarea{width:100%;padding:13px 15px;border:1px solid var(--line);background:var(--papel);color:var(--tinta);font-family:'Inter',sans-serif;font-size:14.5px;border-radius:var(--r-sm)}
+form input:focus,form textarea:focus{outline:2px solid var(--rojo);outline-offset:1px}
+.form-note{font-size:12px;color:var(--tinta-soft)}
+.contacto-card input::placeholder,.contacto-card textarea::placeholder{color:rgba(243,239,231,.40)}
+/* el rojo claro sobre blanco no llega a 4.5:1, asi que el boton usa uno mas profundo */
+.contacto-card .btn-primary{background:#C9351F;color:#fff}
+.contacto-card .btn-primary:hover{background:#DC3E26;box-shadow:0 10px 26px rgba(0,0,0,.45)}
+
+/* contacto directo + whatsapp flotante */
+.contacto-directo{margin-top:22px;font-size:15px;line-height:2;color:color-mix(in srgb, var(--sobre-rojo) 88%, transparent);overflow-wrap:anywhere}
+.contacto-directo a{color:var(--sobre-rojo);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:1px}
+.contacto-directo a:hover{border-bottom-color:var(--sobre-rojo);color:#fff}
+.contacto-directo .sep{opacity:.5;margin:0 7px}
+/* el separador no puede quedar solo al final de una linea */
+.contacto-directo .par{white-space:nowrap}
+
+/* aviso flotante al copiar el mail */
+.aviso{position:fixed;left:50%;bottom:24px;transform:translate(-50%,14px);z-index:70;
+  width:max-content;max-width:min(92vw,560px);text-align:center;
+  background:var(--tinta);color:var(--papel);
+  font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.5;padding:13px 20px;border-radius:14px;
+  box-shadow:var(--sombra-alta);opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s ease}
+.aviso.visible{opacity:1;transform:translate(-50%,0)}
+/* el mail no se parte ni se recorta: es justamente el dato que hay que poder leer */
+.aviso b{font-weight:600;white-space:nowrap}
+@media(max-width:720px){.aviso{bottom:84px;font-size:12px;padding:12px 16px}}
+@media (prefers-reduced-motion: reduce){.aviso{transition:none}}
+.cont-eyebrow{color:color-mix(in srgb, var(--sobre-rojo) 82%, transparent)}
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:60;display:inline-flex;align-items:center;gap:9px;background:#1F8F4E;color:#fff;text-decoration:none;padding:12px 17px;border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;box-shadow:0 8px 26px rgba(0,0,0,.20);transition:background .15s ease}
+.wa-float:hover{background:#18783F}
+.wa-float svg{width:19px;height:19px;fill:currentColor;flex:none}
+@media(max-width:720px){.wa-float{right:14px;bottom:14px;padding:14px;border-radius:50%}.wa-float span{display:none}}
+
+/* footer */
+footer{padding:52px 0}
+.foot-grid{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px}
+.foot-desc{max-width:32ch;font-size:14px;color:var(--tinta-soft)}
+.foot-links{display:flex;flex-wrap:wrap;gap:12px 22px;font-size:13.5px}
+.foot-links a{text-decoration:none;color:var(--tinta-soft)}
+.foot-bottom{margin-top:36px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 18px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--tinta-soft)}
+.foot-bottom .sep{opacity:.45;margin:0 2px}
+.foot-ig{text-decoration:none;color:var(--tinta-soft);border:1px solid var(--line);border-radius:999px;padding:6px 13px;transition:color .15s ease,border-color .15s ease}
+.foot-ig:hover{color:var(--rojo);border-color:color-mix(in srgb, var(--rojo) 50%, var(--line))}
+.foot-links a{transition:color .15s ease}
+.foot-links a:hover{color:var(--rojo)}
+footer .wm{font-size:clamp(30px,3vw,38px)}
+</style>
+</head>
+<body>
+<canvas id="fondo" aria-hidden="true"></canvas>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-MCB5B5JF" style="display:none;visibility:hidden" width="0"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav>
+<div class="inner">
+<a aria-label="Cifra — volver al inicio" class="wm" data-i18n-aria="aria.inicio" href="#inicio" style="text-decoration:none">cifra<span class="dot">.</span></a>
+<div class="navlinks">
+<div class="navitem">
+<button class="navtrig" type="button" id="trig-serv" aria-expanded="false" aria-controls="menu-serv" data-i18n-aria="aria.menu" aria-label="Abrir el menú de servicios"><span data-i18n="nav.serv">Servicios</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+<div class="menu" id="menu-serv">
+<div class="menu__caja">
+<a class="menu-item" href="/google-ads/" style="--marca:#4285F4">
+<i class="menu-punto" aria-hidden="true"></i>
+<span><b>Google Ads</b><span data-i18n="lp.ga">Cuenta, campañas y medición hasta la venta.</span></span>
+</a>
+<a class="menu-item" href="/meta-ads/" style="--marca:#0866FF">
+<i class="menu-punto" aria-hidden="true"></i>
+<span><b>Meta Ads</b><span data-i18n="lp.ma">Facebook e Instagram, con creatividades y eventos bien medidos.</span></span>
+</a>
+<a class="menu-todos" href="#servicios" data-i18n="nav.todos">Ver todos los servicios</a>
+</div>
+</div>
+</div>
+<a data-i18n="nav.exp" href="#experiencia">Experiencia</a>
+<a data-i18n="nav.met" href="#metodo">Método</a>
+</div>
+<div class="nav-der">
+<div class="idiomas" role="group" aria-label="Elegir idioma" data-i18n-aria="aria.idioma" id="idiomas"></div>
+<select aria-label="Elegir idioma" class="idioma" data-i18n-aria="aria.idioma" id="idioma">
+<option value="es">ES</option>
+<option value="en">EN</option>
+<option value="pt">PT</option>
+<option value="it">IT</option>
+<option value="fr">FR</option>
+</select>
+<a class="navcta" data-i18n="nav.cta" href="#contacto">Hablemos</a>
+</div>
+</div>
+</nav>
+<div class="lienzo">
+<section class="hero" id="inicio">
+<div class="hero__grilla" aria-hidden="true"></div>
+<div class="hero__inner">
+<p class="hero__kicker"><span class="hero__rule" aria-hidden="true"></span><span data-i18n="hero.eyebrow">Cifra — growth marketing</span></p>
+<h1 class="hero__title display" data-i18n-html="hero.h1">Marketing que se mide en negocio real<span class="dot">.</span></h1>
+<p class="hero__sub" data-i18n="hero.p">Diseñamos sistemas de adquisición para transformar inversión publicitaria en llamadas, consultas y ventas. Sin métricas decorativas.</p>
+<div class="hero__actions">
+<a class="btn btn-primary" data-i18n="hero.cta1" href="#contacto">Pedir una propuesta ↗</a>
+<a class="btn btn-hero-ghost" data-i18n="hero.cta2" href="#metodo">Ver cómo trabajamos ↓</a>
+</div>
+</div>
+</section>
+<div class="marquee">
+<div class="marquee__pista">
+<div class="marquee__grupo">
+<span data-i18n="hero.p1">Decisiones con datos</span><span class="rombo" aria-hidden="true">◆</span>
+<span data-i18n="hero.p2">Seguimiento comercial</span><span class="rombo" aria-hidden="true">◆</span>
+<span data-i18n="hero.p3">Mejora continua</span><span class="rombo" aria-hidden="true">◆</span>
+</div>
+</div>
+</div>
+
+<section class="metodo" id="metodo">
+<div class="inner">
+<div class="sec-head">
+<div class="sec-eyebrow" data-i18n="met.eyebrow">Método · 04 fases</div>
+<h2 class="display" data-i18n="met.h2">Claridad antes de escalar.</h2>
+<p data-i18n="met.p">El mismo proceso para cualquier cliente, cualquier plataforma.</p>
+</div>
+<div class="fase-grid">
+<div class="fase"><div class="n">01</div><h3 data-i18n="met.f1t">Análisis</h3><p data-i18n="met.f1d">Negocio, oferta, datos, campañas, activos y proceso comercial.</p></div>
+<div class="fase"><div class="n">02</div><h3 data-i18n="met.f2t">Prioridades</h3><p data-i18n="met.f2d">Objetivos, métricas reales y plan de acción de mayor impacto.</p></div>
+<div class="fase"><div class="n">03</div><h3 data-i18n="met.f3t">Ejecución</h3><p data-i18n="met.f3d">Campañas, medición y mejoras coordinadas en ciclos cortos.</p></div>
+<div class="fase"><div class="n">04</div><h3 data-i18n="met.f4t">Aprendizaje</h3><p data-i18n="met.f4d">Revisión de calidad, reasignación de presupuesto y escala.</p></div>
+</div>
+</div>
+</section>
+<section id="servicios">
+<div class="inner">
+<div class="sec-head">
+<div class="sec-eyebrow" data-i18n="serv.eyebrow">Servicios</div>
+<h2 class="display" data-i18n="serv.h2">Cuatro disciplinas, un mismo número final.</h2>
+<p data-i18n="serv.p">Se pueden tomar por separado, pero rinden más cuando trabajan sobre el mismo objetivo.</p>
+</div>
+<div class="serv-grid">
+<div class="serv">
+<h3>Paid Media</h3>
+<p data-i18n="serv.1p">Planificación, ejecución y optimización de campañas orientadas a demanda real. Presupuesto asignado según intención, ubicación y valor comercial.</p>
+<ul><li data-i18n="serv.1a">Estrategia de campañas</li><li data-i18n="serv.1b">Optimización semanal</li><li data-i18n="serv.1c">Control de presupuesto</li></ul>
+</div>
+<div class="serv">
+<h3>Analytics &amp; Tracking</h3>
+<p data-i18n="serv.2p">Medición del recorrido completo: desde el anuncio hasta la llamada, el lead calificado y la venta. Reportes útiles para decidir, no para archivar.</p>
+<ul><li data-i18n="serv.2a">Arquitectura de medición</li><li data-i18n="serv.2b">Calidad de leads</li><li data-i18n="serv.2c">Tableros ejecutivos</li></ul>
+</div>
+<div class="serv">
+<h3>CRO &amp; Web</h3>
+<p data-i18n="serv.3p">Auditoría y mejora de sitios y landing pages para que la propuesta se entienda, inspire confianza y convierta tráfico en acción.</p>
+<ul><li data-i18n="serv.3a">Auditoría UX</li><li data-i18n="serv.3b">Mensajes y estructura</li><li data-i18n="serv.3c">Experimentos de conversión</li></ul>
+</div>
+<div class="serv">
+<h3>Growth Operations</h3>
+<p data-i18n="serv.4p">Coordinación entre marketing, ventas y dirección para transformar datos dispersos en un proceso de crecimiento gestionable.</p>
+<ul><li data-i18n="serv.4a">Flujo de leads</li><li data-i18n="serv.4b">KPIs compartidos</li><li data-i18n="serv.4c">Roadmap y seguimiento</li></ul>
+</div>
+</div>
+</div>
+</section>
+<section id="plataformas">
+<div class="inner">
+<div class="sec-head">
+<div class="sec-eyebrow" data-i18n="plat.eyebrow">Plataformas</div>
+<h2 class="display" data-i18n="plat.h2">Donde se compra tu demanda, y donde se mide.</h2>
+<p data-i18n="plat.p">Operamos las cuentas de punta a punta: la campaña, el etiquetado y el tablero donde después se mira el resultado.</p>
+</div>
+<div class="cinta-caja">
+<div class="cinta cinta-plat" data-vel="22" aria-label="Publicidad">
+<div class="cinta-pista"><div class="cinta-grupo">
+<a class="plat con-logo plat-link" href="/google-ads/" data-cat="ads" style="--marca:#4285F4" aria-label="Google Ads — ver la página" data-i18n-aria="plat.ir.google">
+<picture class="plat-marca"><source media="(prefers-color-scheme: dark)" srcset="logos/google-ads-oscuro.png"><img class="plat-logo" src="logos/google-ads.png" alt="" aria-hidden="true" width="458" height="418" decoding="async"></picture>
+<h3>Google Ads</h3>
+<p data-i18n="plat.d1">Búsqueda, Shopping, YouTube y Display.</p>
+<span class="cat" data-i18n="plat.ads">Publicidad</span>
+<span class="plat-ir" aria-hidden="true">↗</span></a>
+<a class="plat con-logo plat-link" href="/meta-ads/" data-cat="ads" style="--marca:#0866FF" aria-label="Meta Ads — ver la página" data-i18n-aria="plat.ir.meta">
+<picture class="plat-marca"><source media="(prefers-color-scheme: dark)" srcset="logos/meta-ads-oscuro.png"><img class="plat-logo" src="logos/meta-ads.png" alt="" aria-hidden="true" width="500" height="101" decoding="async"></picture>
+<h3>Meta Ads</h3>
+<p data-i18n="plat.d2">Facebook e Instagram.</p>
+<span class="cat" data-i18n="plat.ads">Publicidad</span>
+<span class="plat-ir" aria-hidden="true">↗</span></a>
+<article class="plat con-logo" data-cat="ads" style="--marca:#FE2C55">
+<picture class="plat-marca"><source media="(prefers-color-scheme: dark)" srcset="logos/tiktok-ads-oscuro.png"><img class="plat-logo" src="logos/tiktok-ads.png" alt="" aria-hidden="true" width="500" height="82" decoding="async"></picture>
+<h3>TikTok Ads</h3>
+<p data-i18n="plat.d3">Video corto y creadores.</p>
+<span class="cat" data-i18n="plat.ads">Publicidad</span>
+</article>
+<article class="plat con-logo" data-cat="ads" style="--marca:#0A66C2">
+<picture class="plat-marca"><source media="(prefers-color-scheme: dark)" srcset="logos/linkedin-ads-oscuro.png"><img class="plat-logo" src="logos/linkedin-ads.png" alt="" aria-hidden="true" width="298" height="62" decoding="async"></picture>
+<h3>LinkedIn Ads</h3>
+<p data-i18n="plat.d4">B2B por cargo, empresa e industria.</p>
+<span class="cat" data-i18n="plat.ads">Publicidad</span>
+</article>
+<article class="plat con-logo" data-cat="ads" style="--marca:#34A853">
+<picture class="plat-marca"><source media="(prefers-color-scheme: dark)" srcset="logos/dv360-oscuro.png"><img class="plat-logo" src="logos/dv360.png" alt="" aria-hidden="true" width="500" height="131" decoding="async"></picture>
+<h3>DV360</h3>
+<p data-i18n="plat.d5">Compra programática y control de inventario.</p>
+<span class="cat" data-i18n="plat.ads">Publicidad</span>
+</article>
+<article class="plat con-logo" data-cat="ads" style="--marca:#10A37F">
+<picture class="plat-marca"><source media="(prefers-color-scheme: dark)" srcset="logos/chatgpt-ads-oscuro.png"><img class="plat-logo" src="logos/chatgpt-ads.png" alt="" aria-hidden="true" width="500" height="134" decoding="async"></picture>
+<h3>ChatGPT Ads</h3>
+<p data-i18n="plat.d6">Uno de los canales más nuevos, ya en cuentas reales.</p>
+<span class="cat" data-i18n="plat.ads">Publicidad</span>
+</article>
+</div></div>
+</div>
+<button type="button" class="cinta-fl cinta-fl--ant" data-dir="-1" aria-label="Anterior" data-i18n-aria="aria.ant"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+<button type="button" class="cinta-fl cinta-fl--sig" data-dir="1" aria-label="Siguiente" data-i18n-aria="aria.sig"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+</div>
+<div class="cinta-caja">
+<div class="cinta cinta-plat cinta--rev" data-vel="18" aria-label="Datos y medición">
+<div class="cinta-pista"><div class="cinta-grupo">
+<article class="plat con-logo" data-cat="med" style="--marca:#E37400">
+<picture class="plat-marca"><source media="(prefers-color-scheme: dark)" srcset="logos/ga4-oscuro.png"><img class="plat-logo" src="logos/ga4.png" alt="" aria-hidden="true" width="419" height="131" decoding="async"></picture>
+<h3>GA4</h3>
+<p data-i18n="plat.d7">El recorrido completo, del anuncio a la venta.</p>
+<span class="cat" data-i18n="plat.med">Datos y medición</span>
+</article>
+<article class="plat con-logo" data-cat="med" style="--marca:#1A73E8">
+<picture class="plat-marca"><source media="(prefers-color-scheme: dark)" srcset="logos/looker-studio-oscuro.png"><img class="plat-logo" src="logos/looker-studio.png" alt="" aria-hidden="true" width="292" height="270" decoding="async"></picture>
+<h3>Looker Studio</h3>
+<p data-i18n="plat.d8">Tableros para decidir. Antes Data Studio.</p>
+<span class="cat" data-i18n="plat.med">Datos y medición</span>
+</article>
+<article class="plat con-logo" data-cat="med" style="--marca:#246FDB">
+<picture class="plat-marca"><source media="(prefers-color-scheme: dark)" srcset="logos/google-tag-manager-oscuro.png"><img class="plat-logo" src="logos/google-tag-manager.png" alt="" aria-hidden="true" width="500" height="500" decoding="async"></picture>
+<h3>Google Tag Manager</h3>
+<p data-i18n="plat.d9">Etiquetado ordenado, sin conteos duplicados.</p>
+<span class="cat" data-i18n="plat.med">Datos y medición</span>
+</article>
+<article class="plat con-logo" data-cat="med" style="--marca:#2B57E8">
+<picture class="plat-marca"><source media="(prefers-color-scheme: dark)" srcset="logos/supermetrics-oscuro.png"><img class="plat-logo" src="logos/supermetrics.png" alt="" aria-hidden="true" width="500" height="75" decoding="async"></picture>
+<h3>Supermetrics</h3>
+<p data-i18n="plat.d11">Los datos de cada plataforma, en un solo lugar.</p>
+<span class="cat" data-i18n="plat.med">Datos y medición</span>
+</article>
+<article class="plat con-logo" data-cat="med" style="--marca:#B57BF5">
+<picture class="plat-marca"><source media="(prefers-color-scheme: dark)" srcset="logos/semrush-oscuro.png"><img class="plat-logo" src="logos/semrush.png" alt="" aria-hidden="true" width="500" height="308" decoding="async"></picture>
+<h3>Semrush</h3>
+<p data-i18n="plat.d10">Keywords, competencia y visibilidad orgánica.</p>
+<span class="cat" data-i18n="plat.med">Datos y medición</span>
+</article>
+</div></div>
+</div>
+<button type="button" class="cinta-fl cinta-fl--ant" data-dir="-1" aria-label="Anterior" data-i18n-aria="aria.ant"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+<button type="button" class="cinta-fl cinta-fl--sig" data-dir="1" aria-label="Siguiente" data-i18n-aria="aria.sig"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+</div>
+<p class="plat-nota" data-i18n-first="plat.nota">¿Trabajás con otra plataforma? Contanos cuál y vemos. <a href="#contacto" data-i18n="nav.cta">Hablemos</a></p>
+</div>
+</section>
+<section class="experiencia" id="experiencia">
+<div class="inner">
+<div class="sec-head">
+<div class="sec-eyebrow" data-i18n="exp.eyebrow">Experiencia</div>
+<h2 class="display" data-i18n="exp.h2">Contextos distintos. La misma disciplina.</h2>
+<p data-i18n="exp.p">Experiencia aplicada en mercados internacionales, negocios de servicios y educación.</p>
+</div>
+<div class="exp-grid">
+<div class="exp-card">
+<div class="exp-tag" data-i18n="exp.1tag">Servicios locales · Estados Unidos</div>
+<h3 data-i18n="exp.1h">De conversiones de plataforma a llamadas reales.</h3>
+<div class="detail" data-i18n="exp.1d">Modelo para empresas de servicios en Miami, con campañas por intención y zona.</div>
+<div class="foco" data-i18n="exp.1f">Asignar presupuesto según demanda y resultado comercial.</div>
+</div>
+<div class="exp-card">
+<div class="exp-tag" data-i18n="exp.2tag">Educación · Europa + Latam</div>
+<h3 data-i18n="exp.2h">Captación internacional con contexto local.</h3>
+<div class="detail" data-i18n="exp.2d">Estrategia de leads para institución en Dublín, adaptada a mercados latinoamericanos.</div>
+<div class="foco" data-i18n="exp.2f">Calidad, seguimiento y mensajes por mercado.</div>
+</div>
+<div class="exp-card">
+<div class="exp-tag" data-i18n="exp.3tag">Auditoría y dirección</div>
+<h3 data-i18n="exp.3h">Menos intuición. Más trazabilidad.</h3>
+<div class="detail" data-i18n="exp.3d">Análisis, priorización y ejecución con gestión de proyectos.</div>
+<div class="formula" data-i18n="exp.3f">Datos → Decisión → Acción</div>
+</div>
+</div>
+</div>
+</section>
+<section id="calculadora">
+<div class="inner">
+<div class="sec-head">
+<div class="sec-eyebrow" data-i18n="calc.eyebrow">Calculadora</div>
+<h2 class="display" data-i18n="calc.sub">¿Cuánto negocio puede salir de tu presupuesto?</h2>
+<p data-i18n="calc.p">Una estimación simple para ordenar la conversación — no una promesa de rendimiento.</p>
+</div>
+
+<div class="calc">
+  <div class="calc-preguntas">
+    <div class="calc-ejemplos">
+      <span class="calc-ejlab" data-i18n="calc.guia">¿No sabés qué poner? Empezá por tu tipo de negocio</span>
+      <div class="chips">
+        <button type="button" class="chip" data-ej="3000,4,8,20" data-i18n="calc.ej1">Servicios locales</button>
+        <button type="button" class="chip" data-ej="5000,0.8,2,45" data-i18n="calc.ej2">E-commerce</button>
+        <button type="button" class="chip" data-ej="6000,9,5,12" data-i18n="calc.ej3">B2B ticket alto</button>
+      </div>
+    </div>
+<div class="q">
+<div class="q-n mono">01</div>
+<div class="q-cuerpo">
+<label class="q-tit" for="presupuesto" data-i18n="calc.q1">?</label>
+<div class="q-val"><span class="uni">US$</span><input type="text" inputmode="decimal" id="n-presupuesto" data-min="500" data-max="20000" value="3000" class="mono" autocomplete="off"></div>
+<input type="range" id="presupuesto" min="500" max="20000" step="100" value="3000" aria-labelledby="lbl-presupuesto">
+<p class="q-ayuda" data-i18n="calc.h1">?</p>
+</div>
+</div><div class="q">
+<div class="q-n mono">02</div>
+<div class="q-cuerpo">
+<label class="q-tit" for="cpc" data-i18n="calc.q2">?</label>
+<div class="q-val"><span class="uni">US$</span><input type="text" inputmode="decimal" id="n-cpc" data-min="0.5" data-max="15" value="4" class="mono" autocomplete="off"></div>
+<input type="range" id="cpc" min="0.5" max="15" step="0.1" value="4" aria-labelledby="lbl-cpc">
+<p class="q-ayuda" data-i18n="calc.h2">?</p>
+</div>
+</div><div class="q">
+<div class="q-n mono">03</div>
+<div class="q-cuerpo">
+<label class="q-tit" for="cvr" data-i18n="calc.q3">?</label>
+<div class="q-val"><input type="text" inputmode="decimal" id="n-cvr" data-min="1" data-max="30" value="8" class="mono" autocomplete="off"><span class="uni" data-i18n="calc.deCada">de cada 100</span></div>
+<input type="range" id="cvr" min="1" max="30" step="1" value="8" aria-labelledby="lbl-cvr">
+<p class="q-ayuda" data-i18n="calc.h3">?</p>
+</div>
+</div><div class="q">
+<div class="q-n mono">04</div>
+<div class="q-cuerpo">
+<label class="q-tit" for="close" data-i18n="calc.q4">?</label>
+<div class="q-val"><input type="text" inputmode="decimal" id="n-close" data-min="1" data-max="60" value="20" class="mono" autocomplete="off"><span class="uni" data-i18n="calc.deCada">de cada 100</span></div>
+<input type="range" id="close" min="1" max="60" step="1" value="20" aria-labelledby="lbl-close">
+<p class="q-ayuda" data-i18n="calc.h4">?</p>
+</div>
+</div>
+  </div>
+
+  <div class="calc-res">
+    <div class="res-tit" data-i18n="calc.res">Qué pasa con esa inversión</div>
+    <ol class="res-lista">
+      <li><span class="res-num mono" id="e-clics">750</span><span class="res-txt" data-i18n="calc.s1">personas entran a tu web</span><span class="res-bar"><i></i></span></li>
+      <li><span class="res-num mono" id="e-leads">60</span><span class="res-txt" data-i18n="calc.s2">te dejan sus datos</span><span class="res-bar"><i></i></span></li>
+      <li class="fin"><span class="res-num mono" id="e-clientes">12</span><span class="res-txt" data-i18n="calc.s3">terminan comprándote</span><span class="res-bar"><i></i></span></li>
+    </ol>
+    <div class="res-total">
+      <div class="rt-grande"><span class="rt-num mono" id="g-clientes">12</span><span class="rt-lab" data-i18n="calc.clientesMes">clientes nuevos por mes</span></div>
+      <div class="rt-fila"><span class="rt-lab" data-i18n="calc.tot1">Cada cliente te sale</span><span class="rt-val mono" id="g-cac">US$ 250</span></div>
+      <div class="rt-fila"><span class="rt-lab" data-i18n="calc.tot2">Cada dato que te dejan te sale</span><span class="rt-val mono" id="g-cpl">US$ 50</span></div>
+    </div>
+    <p class="calc-note" data-i18n="calc.note">No es una promesa de rendimiento — es un punto de partida para la primera conversación.</p>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="video" id="video">
+<div class="inner video-grid">
+<div class="video-texto">
+<div class="sec-eyebrow eyebrow-vivo"><span class="punto-vivo" aria-hidden="true"></span><span data-i18n="vid.eyebrow">Cifra en 20 segundos</span></div>
+<h2 class="display" data-i18n-html="vid.h2">El lead es el medio, no el resultado<span class="dot">.</span></h2>
+<p data-i18n="vid.p">Medimos el recorrido completo: qué anuncio trajo la llamada y qué llamada terminó en cliente.</p>
+<a class="btn btn-primary" data-i18n="hero.cta1" href="#contacto">Pedir una propuesta ↗</a>
+</div>
+<div class="video-marco">
+<video aria-label="Cifra — del clic a la venta" id="cifra-video" loop="" muted="" playsinline="" poster="video-cifra-poster.jpg" preload="metadata">
+<source src="video-cifra.mp4" type="video/mp4"/>
+</video>
+<button aria-label="Reproducir el video" class="video-play" data-i18n-aria="aria.play" id="video-play" type="button">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+</button>
+<button aria-label="Activar sonido" aria-pressed="false" class="video-son" data-i18n="vid.son" data-i18n-aria="aria.son" id="video-son" type="button">Sonido</button>
+</div>
+
+</div>
+</section>
+<section class="contacto" id="contacto">
+<div class="contacto-deco" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div class="inner contacto-grid">
+<div>
+<div class="sec-eyebrow cont-eyebrow" data-i18n="cont.eyebrow">Pedir una propuesta</div>
+<h2 class="display" data-i18n="cont.h2">Tu inversión debería explicar qué negocio genera.</h2>
+<p data-i18n="cont.p">El primer paso es una charla breve sobre objetivos, canales, medición y proceso comercial. De ahí sale la propuesta.</p>
+<p class="contacto-directo" data-i18n-first="cont.dir">O escribinos directo — <a href="mailto:cifra@cifragrowth.com">cifra@cifragrowth.com</a> <span class="par"><span class="sep" aria-hidden="true">·</span><a class="wa-link" href="#contacto" data-wa rel="noopener" target="_blank">WhatsApp</a></span> <span class="par"><span class="sep" aria-hidden="true">·</span><a href="https://instagram.com/cifra.growth" rel="noopener" target="_blank">@cifra.growth</a></span></p>
+</div>
+<div class="contacto-card">
+<form id="contact-form">
+<input name="access_key" type="hidden" value="e37f3d19-0ae0-4b16-9eec-3ea2982ef1eb"/>
+<input name="subject" type="hidden" value="Nueva solicitud desde cifragrowth.com"/>
+<input autocomplete="off" name="botcheck" style="display:none" tabindex="-1" type="checkbox"/>
+<div><label data-i18n="form.nombre" for="f-nombre">Nombre</label><input data-i18n-ph="form.ph1" id="f-nombre" name="Nombre" placeholder="Tu nombre" required="" type="text"/></div>
+<div><label data-i18n="form.empresa" for="f-empresa">Empresa</label><input data-i18n-ph="form.ph2" id="f-empresa" name="Empresa" placeholder="Nombre de tu empresa" type="text"/></div>
+<div><label data-i18n="form.email" for="f-email">Email</label><input data-i18n-ph="form.ph3" id="f-email" name="Email" placeholder="vos@empresa.com" required="" type="email"/></div>
+<div><label data-i18n="form.desafio" for="f-desafio">Principal desafío</label><textarea data-i18n-ph="form.ph4" id="f-desafio" name="Principal desafío" placeholder="Contanos qué te trae por acá" rows="3"></textarea></div>
+<button class="btn btn-primary" data-i18n="form.btn" style="border:none;cursor:pointer;justify-content:center" type="submit">Pedir la propuesta ↗</button>
+<div class="form-note" id="form-status"></div>
+</form>
+</div>
+</div>
+</section>
+</div>
+<script>
+(function(){
+  // Conversión: se dispara una sola vez, cuando Web3Forms confirma que el lead entró.
+  var leadYaContado = false;
+  function trackLead(email){
+    if (leadYaContado || typeof gtag !== 'function') return;
+    leadYaContado = true;
+    var cfg = window.CIFRA_TRACKING || {};
+    // conversiones avanzadas: tiene que ir ANTES del evento de conversión
+    if (cfg.CONVERSIONES_AVANZADAS && email) {
+      gtag('set', 'user_data', { email: email });
+    }
+    if (cfg.ADS_ID && cfg.ADS_LABEL) {
+      gtag('event', 'conversion', {
+        send_to: cfg.ADS_ID + '/' + cfg.ADS_LABEL,
+        value: 1.0,
+        currency: 'ARS'
+      });
+    }
+    gtag('event', 'generate_lead', { form_id: 'contacto_landing' });
+    // disparador disponible para GTM. OJO: si algun dia armas la conversion de Ads o la
+    // config de GA4 adentro de GTM, borra la linea de gtag equivalente de aca arriba,
+    // o vas a contar la misma conversion dos veces.
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'lead_enviado', form_id: 'contacto_landing' });
+    // deja rastro en la URL: sirve como respaldo si preferis una conversion por URL en Ads
+    try { history.replaceState(null, '', '?enviado=1'); } catch(e){}
+  }
+
+  function TT(k, alt){ return (window.CIFRA_T && window.CIFRA_T(k)) || alt; }
+  var form = document.getElementById('contact-form');
+  var status = document.getElementById('form-status');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var btn = form.querySelector('button[type=submit]');
+    var data = new FormData(form);
+    // guardamos el mail antes del reset del formulario, para las conversiones avanzadas
+    var emailLead = (form.querySelector('#f-email').value || '').trim().toLowerCase();
+    btn.disabled = true;
+    btn.textContent = TT('form.enviando', 'Enviando...');
+    status.textContent = '';
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: data
+    })
+    .then(function(res){ return res.json(); })
+    .then(function(json){
+      if (json.success) {
+        status.textContent = TT('form.ok', '¡Listo! Te vamos a contactar a la brevedad.');
+        status.style.color = 'var(--verde)';
+        form.reset();
+        trackLead(emailLead);
+      } else {
+        throw new Error(json.message || 'Error al enviar');
+      }
+    })
+    .catch(function(){
+      status.textContent = TT('form.err', 'Hubo un error al enviar. Probá de nuevo o escribinos a cifra@cifragrowth.com.');
+      status.style.color = 'var(--rojo)';
+    })
+    .finally(function(){
+      btn.disabled = false;
+      btn.textContent = TT('form.btn', 'Pedir la propuesta ↗');
+    });
+  });
+})();
+</script>
+<footer>
+<div class="inner">
+<div class="foot-grid">
+<div>
+<div class="wm" style="margin-bottom:10px">cifra<span class="dot">.</span></div>
+<div class="foot-desc" data-i18n="foot.desc">Estrategia, adquisición y analítica para construir crecimiento medible.</div>
+</div>
+<div class="foot-links">
+<a data-i18n="nav.serv" href="#servicios">Servicios</a>
+<a href="/google-ads/">Google Ads</a>
+<a href="/meta-ads/">Meta Ads</a>
+<a data-i18n="nav.exp" href="#experiencia">Experiencia</a>
+<a data-i18n="foot.cont" href="#contacto">Contacto</a>
+</div>
+<div class="foot-links">
+<a href="mailto:cifra@cifragrowth.com">cifra@cifragrowth.com</a>
+<a class="wa-link" href="#contacto" data-wa rel="noopener" target="_blank">WhatsApp</a>
+<a href="https://instagram.com/cifra.growth" rel="noopener" target="_blank">@cifra.growth</a>
+<a data-i18n="foot.priv" href="/privacidad">Privacidad</a>
+</div>
+</div>
+<div class="foot-bottom">
+<span class="foot-copy">© 2026 Cifra Growth <span class="sep" aria-hidden="true">·</span> <span data-i18n="foot.rights">Todos los derechos reservados.</span></span>
+</div>
+</div>
+</footer>
+<script>
+(function(){
+  var loc = function(){ return window.CIFRA_LOCALE ? window.CIFRA_LOCALE() : 'es-AR'; };
+  var quieto = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var campos = {
+    presupuesto: { r:document.getElementById('presupuesto'), n:document.getElementById('n-presupuesto'), dec:0 },
+    cpc:         { r:document.getElementById('cpc'),         n:document.getElementById('n-cpc'),         dec:1 },
+    cvr:         { r:document.getElementById('cvr'),         n:document.getElementById('n-cvr'),         dec:0 },
+    close:       { r:document.getElementById('close'),       n:document.getElementById('n-close'),       dec:0 }
+  };
+  var sal = {};
+  ['e-clics','e-leads','e-clientes','g-clientes','g-cac','g-cpl'].forEach(function(i){ sal[i]=document.getElementById(i); });
+
+  function limitar(v,a,b){ return Math.min(b, Math.max(a, v)); }
+  function numero(v){ return v.toLocaleString(loc()); }
+  function plata(v){ return 'US$ ' + numero(Math.round(v)); }
+
+  function animar(nodo, destino, f){
+    var actual = parseFloat((nodo.textContent||'0').replace(/[^0-9]/g,'')) || 0;
+    if (quieto || actual === destino){ nodo.textContent = f(destino); return; }
+    if (nodo._raf) cancelAnimationFrame(nodo._raf);
+    var t0=null;
+    function paso(t){
+      if (t0===null) t0=t;
+      var k=Math.min(1,(t-t0)/420), s=1-Math.pow(1-k,3);
+      nodo.textContent = f(Math.round(actual + (destino-actual)*s));
+      if (k<1) nodo._raf = requestAnimationFrame(paso);
+    }
+    nodo._raf = requestAnimationFrame(paso);
+  }
+
+  // el slider se rellena de rojo hasta donde esta el valor
+  function pintar(r){
+    var p = (r.value - r.min) / (r.max - r.min) * 100;
+    r.style.background = 'linear-gradient(to right, var(--rojo) 0 ' + p + '%, var(--line) ' + p + '% 100%)';
+  }
+
+  function calcular(){
+    var p = parseFloat(campos.presupuesto.r.value);
+    var c = parseFloat(campos.cpc.r.value);
+    var v = parseFloat(campos.cvr.r.value)/100;
+    var cl = parseFloat(campos.close.r.value)/100;
+    var clics = Math.round(p/c), leads = Math.round(clics*v), clientes = Math.round(leads*cl);
+
+    animar(sal['e-clics'], clics, numero);
+    animar(sal['e-leads'], leads, numero);
+    animar(sal['e-clientes'], clientes, numero);
+    animar(sal['g-clientes'], clientes, numero);
+    animar(sal['g-cac'], clientes ? Math.round(p/clientes) : 0, plata);
+    animar(sal['g-cpl'], leads ? Math.round(p/leads) : 0, plata);
+
+    // las barras se comprimen: proporcionales, "clientes" seria invisible al lado de "clics"
+    var vals=[clics,leads,clientes], max=Math.max.apply(null,vals);
+    var barras=document.querySelectorAll('.res-bar i');
+    for (var i=0;i<barras.length;i++){
+      var w = max>0 ? Math.pow(vals[i]/max, 0.42)*100 : 0;
+      barras[i].style.width = Math.max(vals[i]>0?4:0, w).toFixed(1)+'%';
+    }
+  }
+
+  Object.keys(campos).forEach(function(k){
+    var c=campos[k], r=c.r, n=c.n;
+    var min=parseFloat(r.min), max=parseFloat(r.max);
+    // el campo de texto ya no trae min/max propios: se toman del slider
+    pintar(r);
+    r.addEventListener('input', function(){ n.value=r.value; pintar(r); calcular(); desmarcar(); });
+    n.addEventListener('input', function(){ if(n.value==='') return; r.value=n.value; pintar(r); calcular(); desmarcar(); });
+    n.addEventListener('blur', function(){ var v=limitar(parseFloat(n.value)||min,min,max); n.value=v; r.value=v; pintar(r); calcular(); });
+    n.addEventListener('keydown', function(e){ if(e.key==='Enter') n.blur(); });
+  });
+
+  var chips=document.querySelectorAll('.chips .chip');
+  function desmarcar(){ for(var i=0;i<chips.length;i++) chips[i].classList.remove('activo'); }
+  for (var i=0;i<chips.length;i++){
+    chips[i].addEventListener('click', function(){
+      var v=this.getAttribute('data-ej').split(',');
+      ['presupuesto','cpc','cvr','close'].forEach(function(k,n){
+        campos[k].r.value=v[n]; campos[k].n.value=v[n]; pintar(campos[k].r);
+      });
+      desmarcar(); this.classList.add('activo'); calcular();
+      if (typeof gtag === 'function') gtag('event','calc_ejemplo',{ejemplo:this.textContent.trim()});
+    });
+  }
+
+  calcular();
+  document.addEventListener('cifra:idioma', calcular);
+})();
+</script>
+<button aria-label="Volver arriba" class="subir" data-i18n-aria="aria.subir" id="subir" type="button">↑</button>
+<a aria-label="Escribinos por WhatsApp" class="wa-float" data-i18n-aria="aria.wa" href="#contacto" data-wa rel="noopener" target="_blank">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+<span>WhatsApp</span>
+</a>
+<script>
+// El numero de WhatsApp no esta escrito en el HTML: se arma cuando alguien
+// interactua con el link. Los rastreadores de numeros no ejecutan JavaScript,
+// asi que barren la pagina y no encuentran nada. Para la persona es identico.
+(function(){
+  var NUM = 'NTQ5MTE3ODE3MzI0Nw==';
+  // El mensaje va en el idioma que eligio la persona. Esta guardado ya percent-encoded
+  // y despues en base64: queda ASCII puro, asi atob() alcanza y los acentos no se rompen.
+  var TXT = {
+    es:'SG9sYSUyMENpZnJhJTJDJTIwcXVpZXJvJTIwcGVkaXIlMjB1bmElMjBwcm9wdWVzdGEu',
+    en:'SGklMjBDaWZyYSUyQyUyMEklMjdkJTIwbGlrZSUyMHRvJTIwcmVxdWVzdCUyMGElMjBwcm9wb3NhbC4=',
+    pt:'T2wlQzMlQTElMjBDaWZyYSUyQyUyMHF1ZXJvJTIwcGVkaXIlMjB1bWElMjBwcm9wb3N0YS4=',
+    it:'Q2lhbyUyMENpZnJhJTJDJTIwdm9ycmVpJTIwY2hpZWRlcmUlMjB1bmElMjBwcm9wb3N0YS4=',
+    fr:'Qm9uam91ciUyMENpZnJhJTJDJTIwamUlMjB2b3VkcmFpcyUyMGRlbWFuZGVyJTIwdW5lJTIwcHJvcG9zaXRpb24u'
+  };
+  function url(){
+    try {
+      var l = (window.CIFRA_IDIOMA ? window.CIFRA_IDIOMA() : 'es');
+      return 'https://' + 'wa' + '.' + 'me/' + atob(NUM) + '?text=' + atob(TXT[l] || TXT.es);
+    } catch(e){ return null; }
+  }
+  var links = document.querySelectorAll('a[data-wa]');
+  function armar(){
+    var u = url(); if (!u) return;
+    for (var i=0;i<links.length;i++){ links[i].setAttribute('href', u); links[i]._armado = true; }
+  }
+  // se arma al acercarse (para que el navegador muestre el destino real y
+  // funcione copiar el link o abrirlo en otra pestana)
+  ['pointerenter','focus','touchstart'].forEach(function(ev){
+    for (var i=0;i<links.length;i++) links[i].addEventListener(ev, armar, {passive:true, once:false});
+  });
+  // Si cambian el idioma DESPUES de haber tocado el link, hay que rehacer el href.
+  // Solo se rehacen los que ya estaban armados: 'cifra:idioma' tambien salta al cargar
+  // la pagina, y armarlos ahi pondria el numero en el HTML sin que nadie lo haya pedido.
+  document.addEventListener('cifra:idioma', function(){
+    var u = url(); if (!u) return;
+    for (var i=0;i<links.length;i++) if (links[i]._armado) links[i].setAttribute('href', u);
+  });
+  // y por las dudas, tambien en el clic
+  for (var i=0;i<links.length;i++){
+    links[i].addEventListener('click', function(e){
+      var u = url(); if (!u) return;              // sin JS util, queda el #contacto
+      if (this.getAttribute('href') !== u){
+        e.preventDefault();
+        var w = window.open(u, '_blank', 'noopener');
+        if (!w) window.location.href = u;
+      }
+    });
+  }
+})();
+</script>
+
+<script>
+// El mail: mailto: no hace NADA si el navegador no tiene un cliente de correo asignado
+// (le pasa a cualquiera que use Gmail en el navegador, que es muchisima gente). Para
+// esa persona el link parece roto. Asi que ademas de dejar que el mailto siga su curso
+// —el que si tiene cliente lo abre igual—, copiamos la direccion y lo avisamos.
+(function(){
+  var aviso = null, reloj = null;
+
+  function T(k, alt){ return (window.CIFRA_T && window.CIFRA_T(k)) || alt; }
+
+  function mostrar(mail){
+    if (!aviso){
+      aviso = document.createElement('div');
+      aviso.className = 'aviso';
+      aviso.setAttribute('role','status');
+      aviso.setAttribute('aria-live','polite');
+      document.body.appendChild(aviso);
+    }
+    aviso.textContent = '';
+    aviso.appendChild(document.createTextNode(T('mail.copiado','Copiamos el mail a tu portapapeles') + ' — '));
+    var b = document.createElement('b'); b.textContent = mail; aviso.appendChild(b);
+    // el reflow fuerza a que la transicion se vea aunque el aviso ya existiera
+    void aviso.offsetWidth;
+    aviso.classList.add('visible');
+    clearTimeout(reloj);
+    reloj = setTimeout(function(){ aviso.classList.remove('visible'); }, 3200);
+  }
+
+  function copiar(txt){
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      return navigator.clipboard.writeText(txt);
+    }
+    // respaldo para navegadores viejos o contextos sin clipboard API
+    return new Promise(function(ok, mal){
+      try {
+        var t = document.createElement('textarea');
+        t.value = txt;
+        t.setAttribute('readonly','');
+        t.style.cssText = 'position:fixed;top:-1000px;opacity:0';
+        document.body.appendChild(t);
+        t.select(); t.setSelectionRange(0, txt.length);
+        var bien = document.execCommand('copy');
+        document.body.removeChild(t);
+        bien ? ok() : mal();
+      } catch(e){ mal(e); }
+    });
+  }
+
+  document.addEventListener('click', function(e){
+    var a = e.target.closest ? e.target.closest('a[href^="mailto:"]') : null;
+    if (!a) return;
+    var mail = a.getAttribute('href').replace(/^mailto:/,'').split('?')[0];
+    if (!mail) return;
+    // no se cancela el mailto: quien tenga cliente de correo lo abre igual
+    copiar(mail).then(function(){ mostrar(mail); }).catch(function(){});
+    if (typeof gtag === 'function') gtag('event', 'click_mail', { origen: a.className || 'link' });
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'mail_click', origen: a.className || 'link' });
+  });
+})();
+</script>
+
+<script>
+// Marca los clics a WhatsApp como evento (para ver en GA4 / Ads de dónde vienen los contactos)
+(function(){
+  document.addEventListener('click', function(e){
+    var a = e.target.closest ? e.target.closest('a[data-wa]') : null;
+    if (a && typeof gtag === 'function') {
+      gtag('event', 'click_whatsapp', { origen: a.className || 'link' });
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'whatsapp_click', origen: a.className || 'link' });
+    }
+  });
+})();
+</script>
+<script>
+// Video de marca: arranca solo cuando entra en pantalla y se pausa al salir,
+// asi no consume datos de quien nunca llega hasta ahi. Silenciado por defecto
+// porque los navegadores no permiten autoplay con sonido.
+(function(){
+  var v = document.getElementById('cifra-video');
+  var btn = document.getElementById('video-son');
+  if (!v) return;
+  var reducido = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var play = document.getElementById('video-play');
+  var enPantalla = false;
+
+  function mostrarPlay(si){ if (play) play.classList.toggle('visible', !!si); }
+  function intentarReproducir(){
+    var pr = v.play();
+    if (pr && pr.then) pr.then(function(){ mostrarPlay(false); }).catch(function(){ mostrarPlay(true); });
+  }
+
+  // si el autoplay no arranca (iOS en bajo consumo, Safari sin peticiones por rango,
+  // pestana en segundo plano), aparece el boton de play y lo resuelve la persona
+  // no alcanza con el evento 'playing': hay casos donde arranca pero no decodifica.
+  // El que confirma que el video realmente avanza es timeupdate con currentTime > 0.
+  v.addEventListener('timeupdate', function(){ if (v.currentTime > 0) mostrarPlay(false); });
+  v.addEventListener('pause', function(){ if (enPantalla) mostrarPlay(true); });
+  v.addEventListener('error', function(){ mostrarPlay(true); v.setAttribute('controls',''); });
+  if (play) play.addEventListener('click', function(){ intentarReproducir(); });
+
+  if (!reducido && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function(entradas){
+      entradas.forEach(function(en){
+        enPantalla = en.isIntersecting;
+        if (en.isIntersecting) {
+          intentarReproducir();
+          setTimeout(function(){ if (v.paused || v.currentTime === 0) mostrarPlay(true); }, 1500);
+        } else { v.pause(); mostrarPlay(false); }
+      });
+    }, { threshold: 0.35 }).observe(v);
+  } else {
+    v.setAttribute('controls', '');
+    if (btn) btn.hidden = true;
+    if (play) play.hidden = true;
+  }
+
+  if (btn) btn.addEventListener('click', function(){
+    v.muted = !v.muted;
+    var T = window.CIFRA_T || function(k){ return null; };
+    btn.textContent = v.muted ? (T('vid.son') || 'Sonido') : (T('vid.mute') || 'Silenciar');
+    btn.setAttribute('aria-pressed', String(!v.muted));
+    btn.setAttribute('aria-label', v.muted ? (T('aria.son') || 'Activar sonido') : (T('aria.mute') || 'Silenciar'));
+    if (!v.muted) {
+      var pr = v.play(); if (pr && pr.catch) pr.catch(function(){});
+      if (typeof gtag === 'function') gtag('event', 'video_sonido');
+    }
+  });
+})();
+</script>
+<script>
+// Fondo de puntos en 3D, fijo detras de toda la pagina.
+// Coordenadas x,y,z reales proyectadas con perspectiva: los cercanos son grandes y
+// nitidos, los lejanos chicos y tenues. Gira solo, y ademas gira con el scroll,
+// asi que acompana toda la lectura de arriba a abajo.
+(function(){
+  var cv = document.getElementById('fondo');
+  if (!cv || !cv.getContext) return;
+  var quieto = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var ctx = cv.getContext('2d'), dpr = Math.min(devicePixelRatio || 1, 2);
+  var w = 0, hh = 0, corriendo = false;
+  var mx = 0, my = 0, tx = 0, ty = 0;
+  var tinta = '28,27,25', rojo = '217,59,43';
+
+  function leerColores(){
+    var s = getComputedStyle(document.body);
+    var oscuro = matchMedia('(prefers-color-scheme: dark)').matches &&
+                 document.documentElement.getAttribute('data-theme') !== 'light';
+    // en claro los puntos son tinta; en oscuro, crema
+    tinta = oscuro ? '243,239,231' : '28,27,25';
+    rojo  = oscuro ? '240,89,74'   : '217,59,43';
+  }
+  leerColores();
+  if (window.matchMedia) matchMedia('(prefers-color-scheme: dark)').addEventListener('change', leerColores);
+
+  function medir(){
+    w = innerWidth; hh = innerHeight;
+    cv.width = Math.round(w * dpr); cv.height = Math.round(hh * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  medir();
+  addEventListener('resize', medir);
+
+  var N = w < 900 ? 420 : (w < 1400 ? 680 : 950);
+  var pts = [];
+  for (var i = 0; i < N; i++){
+    var acento = Math.random() < 0.18;
+    pts.push({
+      x: (Math.random() - .5) * 2.6,
+      y: (Math.random() - .5) * 2.2,
+      z: (Math.random() - .5) * 2,
+      r: 0.9 + Math.random() * 2.6,
+      c: acento ? 1 : 0,
+      b: acento ? (0.22 + Math.random() * 0.30) : (0.11 + Math.random() * 0.22)
+    });
+  }
+
+  addEventListener('mousemove', function(e){
+    tx = (e.clientX / innerWidth - .5) * 2;
+    ty = (e.clientY / innerHeight - .5) * 2;
+  }, { passive: true });
+
+  var F = 2.6;
+  function cuadro(){
+    mx += (tx - mx) * 0.04; my += (ty - my) * 0.04;
+    // gira sola + gira con el scroll: el fondo acompana toda la pagina
+    var t = (quieto ? 0 : performance.now() * 0.000045) + pageYOffset * 0.00035;
+
+    ctx.clearRect(0, 0, w, hh);
+    var cx = w * 0.5 + mx * 30, cy = hh * 0.5 + my * 20;
+    var esc = Math.max(w, hh) * 0.5;
+    var cosY = Math.cos(t), senY = Math.sin(t);
+    var incl = my * 0.14;
+
+    for (var i = 0; i < pts.length; i++){
+      var p = pts[i];
+      var x = p.x * cosY - p.z * senY;
+      var z = p.x * senY + p.z * cosY;
+      var y = p.y + z * incl;
+      var k = F / (F + z);
+      var sx = cx + x * esc * k;
+      var sy = cy + y * esc * k;
+      if (sx < -30 || sx > w + 30 || sy < -30 || sy > hh + 30) continue;
+      var alfa = p.b * (k - 0.5) * 1.7;
+      if (alfa <= 0.004) continue;
+      if (alfa > 0.62) alfa = 0.62;
+      ctx.fillStyle = 'rgba(' + (p.c ? rojo : tinta) + ',' + alfa.toFixed(3) + ')';
+      ctx.beginPath(); ctx.arc(sx, sy, p.r * k, 0, 6.2832); ctx.fill();
+    }
+    requestAnimationFrame(cuadro);
+  }
+
+  function arrancar(){
+    if (corriendo) return;
+    corriendo = true;
+    requestAnimationFrame(function(){ cuadro(); cv.classList.add('viva'); });
+  }
+  arrancar();
+  // si la pestana abrio en segundo plano, el rAF no corre: se reintenta al volver
+  document.addEventListener('visibilitychange', function(){
+    if (document.visibilityState === 'visible' && !cv.classList.contains('viva')) { corriendo = false; arrancar(); }
+  });
+  setTimeout(function(){ if (!cv.classList.contains('viva')) cv.classList.add('viva'); }, 2500);
+})();
+</script>
+
+<script>
+// Logos de las plataformas. No se dibujan aca: se cargan los archivos oficiales que se
+// bajan de la pagina de marca de cada plataforma. Si el archivo no esta, la tarjeta se
+// queda con el punto de color y no se rompe nada. Con LOGOS en false no se pide nada,
+// asi no hay pedidos fallidos en cada carga mientras los archivos no existan.
+(function(){
+  var cfg = window.CIFRA_PLATAFORMAS || {};
+  if (!cfg.LOGOS) return;
+  var ruta = cfg.RUTA || 'logos/';
+  var exts = cfg.EXT || ['svg','png'];
+
+  [].slice.call(document.querySelectorAll('.plat[data-logo]')).forEach(function(t){
+    var slug = t.getAttribute('data-logo');
+    var i = 0;
+    function probar(){
+      if (i >= exts.length) return;               // no hay archivo: queda el punto
+      var url = ruta + slug + '.' + exts[i++];
+      var im = new Image();
+      im.onload = function(){
+        var ext = url.slice(url.lastIndexOf('.'));
+        var pic = document.createElement('picture');
+        pic.className = 'plat-marca';
+        var src = document.createElement('source');
+        src.setAttribute('media', '(prefers-color-scheme: dark)');
+        src.setAttribute('srcset', url.slice(0, -ext.length) + '-oscuro' + ext);
+        var el = document.createElement('img');
+        el.className = 'plat-logo';
+        el.src = url;
+        el.alt = '';                              // decorativo: el nombre ya esta en el <h3>
+        el.setAttribute('aria-hidden', 'true');
+        el.setAttribute('loading', 'lazy');
+        el.setAttribute('decoding', 'async');
+        pic.appendChild(src); pic.appendChild(el);
+        t.insertBefore(pic, t.firstChild);
+        t.classList.add('con-logo');
+      };
+      im.onerror = probar;                        // prueba la extension siguiente
+      im.src = url;
+    }
+    probar();
+  });
+})();
+</script>
+<script>
+// Plataformas en carrusel, movido por JS (requestAnimationFrame) para que ademas de
+// avanzar solo se pueda pasar con las flechas o arrastrando con el dedo / mouse.
+// Se clonan los grupos que hagan falta para tapar la pantalla y la posicion da la
+// vuelta cada UN grupo, asi es continuo. El ancho se mide con getComputedStyle y no
+// con getBoundingClientRect: la seccion se inclina en 3D al scrollear y este ultimo
+// devuelve el tamano escalado.
+(function(){
+  var cintas=[].slice.call(document.querySelectorAll('.cinta'));
+  if(!cintas.length) return;
+  var quieto=window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var GAP=14;
+  var estados=cintas.map(function(c){
+    var pista=c.querySelector('.cinta-pista'), base=pista&&pista.querySelector('.cinta-grupo');
+    var caja=c.closest('.cinta-caja')||c.parentElement;
+    return {c:c,pista:pista,base:base,caja:caja,pos:0,ciclo:0,resto:0,
+            vel:parseFloat(c.getAttribute('data-vel'))||22,
+            dir:c.classList.contains('cinta--rev')?-1:1,
+            encima:false,foco:false,arr:null,visible:true};
+  }).filter(function(e){return e.pista&&e.base;});
+
+  function armar(e){
+    var ult; while((ult=e.pista.lastElementChild)&&ult!==e.base) e.pista.removeChild(ult);
+    var w=parseFloat(getComputedStyle(e.base).width); if(!w) return;
+    var copias=Math.ceil(window.innerWidth/w)+1, frag=document.createDocumentFragment();
+    for(var i=0;i<copias;i++){
+      var cl=e.base.cloneNode(true);
+      // Las copias se ocultan a lectores de pantalla pero NO van con inert: inert
+      // tambien les saca el :hover y esas tarjetas no se levantaban al pasar el mouse.
+      // (Las tarjetas no tienen links ni botones, asi que no hay nada enfocable.)
+      cl.setAttribute('aria-hidden','true');
+      cl.setAttribute('data-copia','');
+      // las copias no se recorren con Tab (el original de cada tarjeta ya esta en el orden)
+      [].forEach.call(cl.querySelectorAll('a'), function(a){ a.setAttribute('tabindex','-1'); });
+      frag.appendChild(cl);
+    }
+    e.pista.appendChild(frag);
+    var viejo=e.ciclo; e.ciclo=w;
+    if(viejo) e.pos=e.pos/viejo*w;           // conserva el punto relativo al rearmar
+    envolver(e); pintar(e);
+  }
+  function envolver(e){ if(e.ciclo){ e.pos%=e.ciclo; if(e.pos<0) e.pos+=e.ciclo; } }
+  function pintar(e){ e.pista.style.transform='translate3d('+(-e.pos).toFixed(2)+'px,0,0)'; }
+  function todas(){ estados.forEach(armar); }
+  // Cuando la fila se frena (mouse encima, toque o flechas) se acomoda en "casilleros":
+  // entran N tarjetas enteras centradas, y lo que asoma a los costados queda en el
+  // fundido como pista de que hay mas. Asi nunca se queda frenada con una tarjeta
+  // cortada al medio en la zona de lectura.
+  function casilleros(e){
+    var t=e.base.querySelector('.plat'); if(!t) return null;
+    var ancho=e.c.clientWidth, carta=t.offsetWidth, paso=carta+GAP;
+    var m=Math.max(ancho*0.07, 44)+10;             // fundido del borde + flechas
+    var n=Math.max(1, Math.floor((ancho-2*m+GAP)/paso));
+    var bloque=n*paso-GAP, ini=(ancho-bloque)/2;
+    if(n===1 && bloque>ancho-2*m) ini=(ancho-carta)/2;
+    return {ancho:ancho,carta:carta,paso:paso,n:n,ini:ini,base:t.offsetLeft-ini};
+  }
+  function irA(e,destino){                       // destino = posicion final deseada
+    var d=destino-(e.pos+e.resto);
+    if(Math.abs(d)<0.5) return;
+    if(quieto){ e.pos+=d; envolver(e); pintar(e); }
+    else e.resto+=d;
+  }
+  // x = coordenada del puntero dentro de la fila (sin escalar). Solo actua si el
+  // puntero esta en la zona de lectura, asi la tarjeta sigue debajo del cursor.
+  function mostrar(e,t,x){
+    var k=casilleros(e); if(!k) return;
+    var fin=k.ini+k.n*k.paso-GAP;
+    if(x<k.ini-GAP || x>fin+GAP) return false;
+    var j=Math.min(k.n-1, Math.max(0, Math.floor((x-k.ini+GAP/2)/k.paso)));
+    var destino=(e.pos+e.resto)+((t.offsetLeft-(e.pos+e.resto))-(k.ini+j*k.paso));
+    irA(e,destino); return true;
+  }
+  function flecha(e,dir){
+    var k=casilleros(e); if(!k) return;
+    var cur=e.pos+e.resto, i=Math.round((cur-k.base)/k.paso);
+    irA(e, k.base+(i+dir)*k.paso);
+  }
+  function xLocal(e,ev){
+    var r=e.c.getBoundingClientRect();
+    return (ev.clientX-r.left)*(e.c.clientWidth/(r.width||1));
+  }
+  window.CIFRA_CINTA_CASILLEROS=casilleros;
+
+  // bucle
+  var antes=0;
+  function cuadro(t){
+    var dt=antes?Math.min((t-antes)/1000,0.05):0; antes=t;
+    estados.forEach(function(e){
+      if(!e.ciclo||!e.visible) return;
+      var mover=0;
+      if(!quieto && !e.encima && !e.foco && !e.arr) mover+=e.dir*e.vel*dt;
+      if(e.resto){                            // empujon de las flechas, con frenada suave
+        var d=e.resto*(1-Math.exp(-dt*9));
+        if(Math.abs(e.resto-d)<0.5){ d=e.resto; }
+        e.resto-=d; mover+=d;
+      }
+      if(mover){ e.pos+=mover; envolver(e); pintar(e); }
+    });
+    requestAnimationFrame(cuadro);
+  }
+
+  estados.forEach(function(e){
+    // pausa mientras el mouse esta encima o hay foco adentro (para leer tranquilo)
+    e.caja.addEventListener('mouseenter',function(){e.encima=true;});
+    e.caja.addEventListener('mouseleave',function(){e.encima=false;});
+    // Solo frena con foco de TECLADO (Tab). Al hacer clic en una flecha el boton
+    // queda enfocado, y antes eso dejaba la fila frenada para siempre al sacar el mouse.
+    e.caja.addEventListener('focusin',function(ev){
+      var t=ev.target, kb=true;
+      try{ kb=t.matches(':focus-visible'); }catch(_){}
+      e.foco=kb;
+    });
+    e.caja.addEventListener('focusout',function(ev){ if(!e.caja.contains(ev.relatedTarget)) e.foco=false; });
+
+    // Si la tarjeta que se toca o se senala esta cortada por el borde (el fundido o
+    // las flechas), la fila se corre lo justo para mostrarla entera y poder leerla.
+    // Solo reacciona a movimientos reales del mouse (no a la tarjeta pasando por
+    // debajo de un cursor quieto) y no mientras la fila ya se esta acomodando.
+    var mx=-1, my=-1;
+    e.c.addEventListener('pointermove',function(ev){
+      if(ev.pointerType!=='mouse'||e.arr!==null) return;
+      if(ev.clientX===mx&&ev.clientY===my) return;
+      mx=ev.clientX; my=ev.clientY;
+      if(Math.abs(e.resto)>1) return;
+      var t=ev.target.closest&&ev.target.closest('.plat');
+      // fuera de la zona de lectura (o entre tarjetas) solo se alinea al casillero mas cercano
+      if(!(t && mostrar(e,t,xLocal(e,ev)))) flecha(e,0);
+    });
+    e.c.addEventListener('click',function(ev){
+      var t=ev.target.closest&&ev.target.closest('.plat');
+      if(!t) return;
+      // Si la tarjeta esta cortada por el borde, el primer clic la trae entera en vez
+      // de navegar: en el celular no hay hover, y nadie quiere abrir una pagina que
+      // todavia no llego a leer.
+      var k=casilleros(e);
+      if(k){
+        var izq=t.offsetLeft-e.pos, der=izq+t.offsetWidth, fin=k.ini+k.n*k.paso-GAP;
+        if(izq < k.ini-2 || der > fin+2){
+          if(mostrar(e,t,xLocal(e,ev))) ev.preventDefault();
+          return;
+        }
+      }
+      mostrar(e,t,xLocal(e,ev));
+    });
+
+    // flechas
+    [].forEach.call(e.caja.querySelectorAll('.cinta-fl'),function(b){
+      b.addEventListener('click',function(){
+        var dir=parseFloat(b.getAttribute('data-dir'))||1;
+        flecha(e,dir);
+        if(window.gtag) try{ gtag('event','carrusel_flecha',{fila:e.c.getAttribute('aria-label')||'',sentido:dir>0?'sig':'ant'}); }catch(_){}
+      });
+    });
+
+    // arrastre (mouse y dedo). touch-action:pan-y deja el scroll vertical al navegador.
+    var x0=0, movido=0;
+    e.c.addEventListener('pointerdown',function(ev){
+      if(ev.pointerType==='mouse'&&ev.button!==0) return;
+      e.arr=ev.pointerId; x0=ev.clientX; movido=0; e.resto=0;
+    });
+    e.c.addEventListener('pointermove',function(ev){
+      if(e.arr!==ev.pointerId) return;
+      var dx=ev.clientX-x0; x0=ev.clientX; movido+=Math.abs(dx);
+      if(movido>4 && !e.c.classList.contains('arrastrando')){
+        e.c.classList.add('arrastrando');
+        try{ e.c.setPointerCapture(ev.pointerId); }catch(_){}
+      }
+      if(e.c.classList.contains('arrastrando')){ e.pos-=dx; envolver(e); pintar(e); }
+    });
+    function soltar(ev){
+      if(e.arr!==ev.pointerId) return;
+      e.arr=null; e.c.classList.remove('arrastrando');
+    }
+    e.c.addEventListener('pointerup',soltar);
+    e.c.addEventListener('pointercancel',soltar);
+    e.c.addEventListener('lostpointercapture',soltar);
+  });
+
+  // solo se anima lo que esta en pantalla
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(ents){
+      ents.forEach(function(en){
+        estados.forEach(function(e){ if(e.c===en.target) e.visible=en.isIntersecting; });
+      });
+    },{rootMargin:'120px 0px'});
+    estados.forEach(function(e){ io.observe(e.c); });
+  }
+
+  todas();
+  requestAnimationFrame(cuadro);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(todas).catch(function(){});
+  var reloj; addEventListener('resize',function(){clearTimeout(reloj);reloj=setTimeout(todas,180);},{passive:true});
+  // cambia el texto con el idioma: se rearman (las copias vuelven a salir del original ya traducido)
+  document.addEventListener('cifra:idioma',function(){ setTimeout(todas,0); });
+  window.CIFRA_CINTAS=estados;               // para pruebas
+})();
+</script>
+<script>
+// Plataformas: filtro por categoria. Los contadores se calculan del DOM, asi que si
+// manana se agrega o saca una plataforma no hay ningun numero que actualizar a mano.
+(function(){
+  var caja  = document.getElementById('plat-filtros');
+  var grid  = document.getElementById('plat-grid');
+  if (!caja || !grid) return;
+  var botones = [].slice.call(caja.querySelectorAll('button'));
+  var tiles   = [].slice.call(grid.querySelectorAll('.plat'));
+  var quieto  = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function contar(f){
+    return f === 'todas' ? tiles.length
+      : tiles.filter(function(t){ return t.getAttribute('data-cat') === f; }).length;
+  }
+  botones.forEach(function(b){
+    var n = b.querySelector('.n');
+    if (n) n.textContent = contar(b.getAttribute('data-filtro'));
+  });
+
+  // La animacion de entrada usa fill-mode both: su ultimo fotograma (transform:none)
+  // gana sobre cualquier regla normal, asi que si la clase queda puesta el hover deja
+  // de levantar la tarjeta. Se saca apenas termina.
+  function soltar(t){
+    var listo = function(){
+      t.classList.remove('entrando');
+      t.style.animationDelay = '';
+      t.removeEventListener('animationend', listo);
+    };
+    t.addEventListener('animationend', listo);
+    setTimeout(listo, 900);
+  }
+
+  function aplicar(f){
+    botones.forEach(function(b){
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-filtro') === f));
+    });
+    var visibles = 0;
+    tiles.forEach(function(t){
+      var entra = (f === 'todas' || t.getAttribute('data-cat') === f);
+      t.classList.toggle('fuera', !entra);
+      t.classList.remove('entrando');
+      if (entra && !quieto){
+        // el retraso escalonado va en la animacion, NO en transition-delay:
+        // un transition-delay pegado despues le llega tarde al hover de la tarjeta
+        t.style.animationDelay = Math.min(visibles, 6) * 38 + 'ms';
+        void t.offsetWidth;
+        t.classList.add('entrando');
+        soltar(t);
+      }
+      if (entra) visibles++;
+    });
+    if (typeof gtag === 'function') gtag('event','filtro_plataformas',{ filtro: f });
+  }
+
+  caja.addEventListener('click', function(e){
+    var b = e.target.closest ? e.target.closest('button[data-filtro]') : null;
+    if (b) aplicar(b.getAttribute('data-filtro'));
+  });
+})();
+</script>
+<script>
+// Cinta de valores. Se clonan los grupos que hagan falta para que la pantalla quede
+// siempre tapada, y se avanza exactamente el ancho de UN grupo: asi el corte cae justo
+// donde empieza una copia identica y no se nota. La velocidad va en px/s para que se
+// vea igual en un celular que en un monitor ancho.
+(function(){
+  var pista = document.querySelector('.marquee__pista');
+  var base  = pista && pista.querySelector('.marquee__grupo');
+  if (!pista || !base) return;
+  var quieto = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var VEL = 46;   // px por segundo
+
+  function armar(){
+    pista.classList.remove('girando');
+    var ult;
+    while ((ult = pista.lastElementChild) && ult !== base) pista.removeChild(ult);
+    // ancho de maqueta: getBoundingClientRect incluye las transformaciones de los padres
+    var w = parseFloat(getComputedStyle(base).width);
+    if (!w) return;
+    var copias = Math.ceil(window.innerWidth / w) + 1;
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < copias; i++){
+      var c = base.cloneNode(true);
+      c.setAttribute('aria-hidden', 'true');   // el original ya lo dice todo
+      frag.appendChild(c);
+    }
+    pista.appendChild(frag);
+    pista.style.setProperty('--ciclo', w.toFixed(2) + 'px');
+    pista.style.setProperty('--dur', (w / VEL).toFixed(2) + 's');
+    if (!quieto){ void pista.offsetWidth; pista.classList.add('girando'); }
+  }
+
+  armar();
+  // la tipografia cambia el ancho del grupo: hay que volver a medir cuando termina de cargar
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(armar).catch(function(){});
+  var reloj;
+  addEventListener('resize', function(){ clearTimeout(reloj); reloj = setTimeout(armar, 180); }, { passive:true });
+  document.addEventListener('cifra:idioma', function(){ setTimeout(armar, 0); });
+})();
+</script>
+<script>
+// Inclinacion 3D al scrollear: cada seccion se acuesta segun su distancia al centro
+// de la pantalla. La del medio queda plana; las de arriba y abajo se inclinan y se
+// atenuan. Apagado en pantallas chicas (pelearia con el scroll tactil) y con
+// reduced-motion. Si el script no corre, la pagina se ve normal: todo esto es inline.
+(function(){
+  var quieto = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (quieto) return;
+
+  // En telefono el mismo efecto, pero mas suave: la seccion ocupa casi toda la
+  // pantalla y a 11 grados se vuelve mareador.
+  var ANCHO_CHICO = 900;
+  var GIRO, ESCALA_MIN, OPACIDAD_MIN;
+  function calibrar(){
+    var chico = window.innerWidth < ANCHO_CHICO;
+    GIRO         = chico ? 6     : 11;
+    ESCALA_MIN   = chico ? 0.982 : 0.965;
+    OPACIDAD_MIN = chico ? 0.84  : 0.74;
+  }
+  calibrar();
+  // el footer queda afuera a proposito: nunca se puede centrar, quedaria inclinado siempre
+  var nodos = [].slice.call(document.querySelectorAll('.hero, .metodo, #servicios, #plataformas, .experiencia, #calculadora, .video, .contacto'));
+  if (!nodos.length) return;
+
+  var pedido = 0;
+
+  function pintar(){
+    pedido = 0;
+    var medio = (window.innerHeight || 800) / 2;
+    for (var i=0;i<nodos.length;i++){
+      var el = nodos[i], r = el.getBoundingClientRect();
+      if (r.bottom < -300 || r.top > (window.innerHeight||800) + 300){
+        // fuera de pantalla con margen: no vale la pena tocarlo
+        continue;
+      }
+      var centro = r.top + r.height/2;
+      var d = (centro - medio) / (medio + r.height/2);
+      if (d > 1) d = 1; else if (d < -1) d = -1;
+      var abs = Math.abs(d);
+      el.style.transform = 'perspective(1500px) rotateX(' + (d * -GIRO).toFixed(2) + 'deg) scale(' + (1 - abs*(1-ESCALA_MIN)).toFixed(4) + ')';
+      el.style.opacity   = (1 - abs*(1-OPACIDAD_MIN)).toFixed(3);
+    }
+  }
+
+  function pedir(){ if (!pedido) pedido = requestAnimationFrame(pintar); }
+
+  addEventListener('scroll', pedir, { passive:true });
+  addEventListener('resize', function(){ calibrar(); pedir(); }, { passive:true });
+  addEventListener('orientationchange', function(){ calibrar(); pedir(); }, { passive:true });
+  pedir();
+})();
+</script>
+<script>
+// Tarjetas vivas.
+//   Con mouse: la de Servicios se levanta y se inclina hacia donde esta el cursor.
+//   En tactil no hay hover, asi que la carta se enciende sola cuando queda en el
+//   medio de la pantalla: al scrollear se van animando una por una.
+(function(){
+  var servs = [].slice.call(document.querySelectorAll('.serv'));
+  var exps  = [].slice.call(document.querySelectorAll('.exp-card'));
+  if (!servs.length && !exps.length) return;
+
+  var quieto = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (quieto) return;
+  var fino = window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  // Decide el ancho, no el puntero: en pantalla angosta siempre va por scroll, aunque
+  // haya mouse (ventana chica, modo responsive de DevTools, tablet con trackpad).
+  var porScroll = true;
+  function modo(){
+    var antes = porScroll;
+    porScroll = (window.innerWidth < 900) || !fino;
+    if (antes !== porScroll) todas.forEach(bajar);
+    return porScroll;
+  }
+
+  // La perspectiva va en el transform de cada carta, no en la grilla: si esta en la
+  // grilla el punto de fuga es uno solo (su centro) y cada carta se proyecta desde un
+  // angulo distinto — la de arriba a la izquierda se movia mucho y la de abajo a la
+  // derecha casi nada. Con perspective() propia, las cuatro se inclinan igual.
+  var PERSP = 800;   // px de perspectiva, por carta
+  var MAX = 8;       // grados de inclinacion
+  var ALTO = 10;     // px que sube
+
+  function bajar(c){
+    c.classList.remove('viva');
+    c.style.transform = '';
+    c.style.removeProperty('--mx'); c.style.removeProperty('--my');
+  }
+
+  var todas = servs.concat(exps);
+  modo();
+  addEventListener('resize', modo, { passive:true });
+  addEventListener('orientationchange', modo, { passive:true });
+
+  // ---- mouse: la carta sigue al cursor ----
+  if (fino){
+    servs.forEach(function(c){
+      c.addEventListener('pointerenter', function(){ if (porScroll) return; c.classList.add('viva'); });
+      c.addEventListener('pointermove', function(e){
+        if (porScroll) return;
+        var r = c.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+        c.style.setProperty('--mx', (px*100).toFixed(1)+'%');
+        c.style.setProperty('--my', (py*100).toFixed(1)+'%');
+        c.style.transform = 'perspective('+PERSP+'px) translateY(-'+ALTO+'px) rotateX('+((0.5-py)*MAX).toFixed(2)+'deg) rotateY('+((px-0.5)*MAX).toFixed(2)+'deg) scale(1.02)';
+      });
+      c.addEventListener('pointerleave', function(){ if (porScroll) return; bajar(c); });
+    });
+  }
+  // en pantalla ancha con mouse, las de Experiencia se resuelven con :hover en el CSS
+
+  // ---- pantalla angosta: se encienden solas al pasar por el medio ----
+  if (!('IntersectionObserver' in window)) return;
+  var centro = new IntersectionObserver(function(es){
+    if (!porScroll) return;
+    es.forEach(function(e){
+      var c = e.target;
+      if (e.isIntersecting){
+        c.classList.add('viva');
+        if (c.classList.contains('serv')) c.style.transform = 'translateY(-'+ALTO+'px) scale(1.02)';
+      } else {
+        bajar(c);
+      }
+    });
+  }, { rootMargin: '-40% 0px -40% 0px', threshold: 0 });
+  todas.forEach(function(c){ centro.observe(c); });
+})();
+</script>
+<script>
+// Idiomas en fila. El <select> sigue existiendo (oculto) y es la fuente de verdad:
+// si este script no corre, el select vuelve a ser visible por el CSS de respaldo.
+(function(){
+  var caja = document.getElementById('idiomas');
+  var sel  = document.getElementById('idioma');
+  if (!caja || !sel || typeof window.CIFRA_SET_IDIOMA !== 'function') return;
+  var botones = [];
+  ['es','en','pt','it','fr'].forEach(function(l){
+    var b = document.createElement('button');
+    b.type = 'button'; b.textContent = l.toUpperCase();
+    b.setAttribute('data-idioma', l); b.setAttribute('aria-pressed','false');
+    b.addEventListener('click', function(){
+      if (sel) sel.value = l;
+      window.CIFRA_SET_IDIOMA(l);
+      if (typeof gtag === 'function') gtag('event','cambio_idioma',{ idioma:l });
+    });
+    caja.appendChild(b); botones.push(b);
+  });
+  function marcar(){
+    var actual = window.CIFRA_IDIOMA ? window.CIFRA_IDIOMA() : 'es';
+    botones.forEach(function(b){ b.setAttribute('aria-pressed', String(b.getAttribute('data-idioma') === actual)); });
+  }
+  document.addEventListener('cifra:idioma', marcar);
+  marcar();
+})();
+</script>
+<script>
+// Menu desplegable de Servicios. El hover y el foco ya lo abren por CSS (asi anda
+// aunque este script no corra); esto suma el clic, Escape y cerrar al tocar afuera.
+(function(){
+  var trig = document.getElementById('trig-serv');
+  var menu = document.getElementById('menu-serv');
+  if (!trig || !menu) return;
+  var item = trig.closest('.navitem');
+  function abrir(v){
+    menu.classList.toggle('abierto', v);
+    trig.setAttribute('aria-expanded', v ? 'true' : 'false');
+  }
+  trig.addEventListener('click', function(e){
+    e.preventDefault();
+    abrir(trig.getAttribute('aria-expanded') !== 'true');
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && trig.getAttribute('aria-expanded') === 'true'){ abrir(false); trig.focus(); }
+  });
+  document.addEventListener('click', function(e){
+    if (!item.contains(e.target)) abrir(false);
+  });
+  // al elegir una opcion se cierra (importante para el ancla, que no recarga)
+  [].forEach.call(menu.querySelectorAll('a'), function(a){
+    a.addEventListener('click', function(){ abrir(false); });
+  });
+  // si el mouse se va del nav, el estado de clic no tiene que quedar pegado
+  item.addEventListener('mouseleave', function(){ if (!item.contains(document.activeElement)) abrir(false); });
+})();
+</script>
+<script>
+// Volver arriba: aparece despues de scrollear un poco.
+(function(){
+  var b = document.getElementById('subir');
+  if (!b) return;
+  var suave = !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+  function ver(){ b.classList.toggle('visible', window.pageYOffset > 700); }
+  window.addEventListener('scroll', ver, { passive: true });
+  ver();
+  b.addEventListener('click', function(){
+    window.scrollTo(suave ? { top: 0, behavior: 'smooth' } : 0, 0);
+    if (history.replaceState) history.replaceState(null, '', location.pathname + location.search);
+  });
+})();
+</script>
+<script>
+// Entrada al scrollear. Reglas de seguridad, en este orden:
+//  1. Las clases se agregan desde JS: si el script no corre, la pagina se ve completa.
+//  2. Solo se oculta lo que arranca fuera de pantalla. Lo visible al cargar nunca desaparece.
+//  3. Si el observer no responde (pestana en segundo plano: Chrome lo congela), a los 2s
+//     se muestra todo igual. Nunca puede quedar contenido invisible.
+(function(){
+  function mostrarTodo(){
+    var pendientes = document.querySelectorAll('.reveal:not(.is-in)');
+    for (var i = 0; i < pendientes.length; i++) {
+      pendientes[i].style.transitionDelay = '';
+      pendientes[i].classList.add('is-in');
+    }
+  }
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var sel = '.sec-head, .fase, .serv, .cinta, .exp-card, .calc, .video-texto, .contacto-grid > div';
+  var todos = [].slice.call(document.querySelectorAll(sel));
+  if (!todos.length) return;
+
+  var alto = window.innerHeight || 800;
+  var ocultos = todos.filter(function(el){ return el.getBoundingClientRect().top > alto * 0.9; });
+  if (!ocultos.length) return;
+  ocultos.forEach(function(el){ el.classList.add('reveal'); });
+
+  // El retraso escalonado es SOLO para la entrada. Si queda pegado en el style,
+  // despues se lo come cualquier otra transicion del elemento — el hover de las
+  // tarjetas arrancaba 70, 140 y 210ms tarde y parecia que no respondian.
+  function soltarDelay(el, espera){
+    var listo = function(){
+      el.style.transitionDelay = '';
+      el.removeEventListener('transitionend', listo);
+    };
+    el.addEventListener('transitionend', listo);
+    setTimeout(listo, espera + 900);   // red de seguridad si no llega transitionend
+  }
+
+  var observerVivo = false;
+  var io = new IntersectionObserver(function(entradas){
+    observerVivo = true;
+    entradas.forEach(function(en){
+      if (!en.isIntersecting) return;
+      var hermanos = [].slice.call(en.target.parentNode.children);
+      var espera = Math.min(hermanos.indexOf(en.target), 3) * 70;
+      en.target.style.transitionDelay = espera + 'ms';
+      en.target.classList.add('is-in');
+      io.unobserve(en.target);
+      soltarDelay(en.target, espera);
+    });
+  }, { rootMargin: '0px 0px -6% 0px', threshold: 0.08 });
+  ocultos.forEach(function(el){ io.observe(el); });
+
+  setTimeout(function(){ if (!observerVivo) mostrarTodo(); }, 2000);
+  document.addEventListener('visibilitychange', function(){
+    if (document.visibilityState === 'visible') {
+      setTimeout(function(){ if (!observerVivo) mostrarTodo(); }, 1200);
+    }
+  });
+})();
+</script>
+</body>
+</html>
